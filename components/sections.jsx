@@ -234,7 +234,7 @@ function SectionSpecialites() {
             overflow: 'hidden'
           }}>
             {SPECIALTIES.map((s, i) => {
-              const imgSrc = s.kind === 'hip' ? 'assets/anatomy-hanche.png' : s.kind === 'knee' ? 'assets/anatomy-genou.png' : 'assets/anatomy-pied.png';
+              const imgSrc = s.kind === 'hip' ? 'assets/anatomy-hanche.jpg' : s.kind === 'knee' ? 'assets/anatomy-genou.jpg' : 'assets/anatomy-pied.jpg';
               const objPos = s.kind === 'hip' ? 'center 30%' : 'center center';
               return (
             <div key={s.id} style={{
