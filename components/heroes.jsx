@@ -78,7 +78,8 @@ function HeroVideo() {
 function HeroImage() {
   return (
     <section className="hero hero-image" style={{ paddingTop: 120, paddingBottom: 80, minHeight: '100vh' }}>
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 60, alignItems: 'center', minHeight: 'calc(100vh - 200px)' }}>
+      <style>{`@media(max-width:900px){.hero-image-grid{grid-template-columns:1fr!important;gap:32px!important}.hero-image-photo{display:none!important}}`}</style>
+      <div className="container hero-image-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 60, alignItems: 'center', minHeight: 'calc(100vh - 200px)' }}>
         <div>
           <div className="eyebrow reveal">◍ Chirurgien orthopédique · Sète</div>
           <div className="line-mask"><span className="display" style={{ fontSize: 'clamp(48px, 8vw, 130px)' }}>François</span></div>

@@ -57,12 +57,26 @@ function useReveal() {
 /* ---------- Nav ---------- */
 function Nav({ active, dark }) {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+  const links = [
+    { href: 'index.html', label: 'Accueil', key: 'accueil' },
+    { href: 'pathologies.html', label: 'Pathologies', key: 'pathologies' },
+    { href: 'chirurgie.html', label: 'Chirurgies', key: 'chirurgie' },
+    { href: 'parcours.html', label: 'Parcours', key: 'parcours' },
+    { href: 'faq.html', label: 'FAQ', key: 'faq' },
+    { href: 'contact.html', label: 'Contact', key: 'contact' },
+  ];
   return (
+    <>
     <nav className={`nav ${dark ? 'dark' : ''}`} style={{
       paddingTop: scrolled ? 14 : 24,
       paddingBottom: scrolled ? 14 : 24,
@@ -76,21 +90,52 @@ function Nav({ active, dark }) {
         <span>Dr François Lozach</span>
       </a>
       <div className="nav-links">
-        <a href="index.html" className={active === 'accueil' ? 'active' : ''}>Accueil</a>
-        <a href="pathologies.html" className={active === 'pathologies' ? 'active' : ''}>Pathologies</a>
-        <a href="chirurgie.html" className={active === 'chirurgie' ? 'active' : ''}>Chirurgies</a>
-        <a href="parcours.html" className={active === 'parcours' ? 'active' : ''}>Parcours</a>
-        <a href="faq.html" className={active === 'faq' ? 'active' : ''}>FAQ</a>
-        <a href="contact.html" className={active === 'contact' ? 'active' : ''}>Contact</a>
+        {links.map(l => <a key={l.key} href={l.href} className={active === l.key ? 'active' : ''}>{l.label}</a>)}
       </div>
-      <a href="https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach" target="_blank" rel="noopener" className="nav-cta">
-        Prendre RDV
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-          <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.2" />
-        </svg>
-      </a>
-    </nav>);
-
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <a href="https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach" target="_blank" rel="noopener" className="nav-cta">
+          Prendre RDV
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.2" />
+          </svg>
+        </a>
+        <button className="nav-burger" onClick={() => setOpen(o => !o)} aria-label="Menu">
+          <span className={open ? 'bar bar1 open' : 'bar bar1'}></span>
+          <span className={open ? 'bar bar2 open' : 'bar bar2'}></span>
+          <span className={open ? 'bar bar3 open' : 'bar bar3'}></span>
+        </button>
+      </div>
+    </nav>
+    {open && (
+      <div className="nav-mobile-overlay" onClick={() => setOpen(false)}>
+        <div className="nav-mobile-menu" onClick={e => e.stopPropagation()}>
+          <div className="nav-mobile-header">
+            <a href="index.html" className="nav-logo" onClick={() => setOpen(false)}>
+              <span className="mark"><span className="mark-orbit"></span><span className="mark-pip"></span></span>
+              <span>Dr François Lozach</span>
+            </a>
+            <button className="nav-burger" onClick={() => setOpen(false)} aria-label="Fermer">
+              <span className="bar bar1 open"></span>
+              <span className="bar bar2 open"></span>
+              <span className="bar bar3 open"></span>
+            </button>
+          </div>
+          <nav className="nav-mobile-links">
+            {links.map((l, i) => (
+              <a key={l.key} href={l.href} className={active === l.key ? 'active' : ''} onClick={() => setOpen(false)}
+                style={{ animationDelay: `${i * 60}ms` }}>
+                <span className="nav-mobile-num mono">0{i+1}</span>
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <a href="https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach" target="_blank" rel="noopener" className="btn btn-primary nav-mobile-cta" onClick={() => setOpen(false)}>
+            Prendre RDV →
+          </a>
+        </div>
+      </div>
+    )}
+    </>);
 }
 
 /* ---------- Floating Doctolib button ---------- */
