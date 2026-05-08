@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="bgg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#060912"></stop>
+      <stop offset="1" stop-color="#0a0e1a"></stop>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#00d4ff" stop-opacity="0.18"></stop>
+      <stop offset="1" stop-color="#00d4ff" stop-opacity="0"></stop>
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="b"></feGaussianBlur>
+      <feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+    </filter>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0 L0 0 L0 50" stroke="#1a2540" stroke-width="0.5" fill="none"></path>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bgg)"></rect>
+  <rect width="1600" height="1000" fill="url(#grid)" opacity="0.5"></rect>
+  <ellipse cx="800" cy="500" rx="520" ry="380" fill="url(#halo)"></ellipse>
+
+  
+  <g stroke="#3a4a6a" stroke-width="1.6" fill="none" opacity="0.85">
+    
+    <path d="M620 80 Q605 200 600 350 Q598 480 612 600 Q620 700 640 780 Q650 820 680 850 L760 880"></path>
+    <path d="M720 80 Q740 200 745 350 Q745 480 735 600 Q728 700 720 780 Q716 820 745 850 L820 880"></path>
+    
+    <path d="M820 100 Q830 240 832 380 Q830 520 820 640 Q812 740 820 820 L860 870"></path>
+    <path d="M870 100 Q880 240 882 380 Q880 520 870 640 Q862 740 870 820 L900 870"></path>
+    
+    <path d="M680 880 Q700 920 740 935 L1100 935 Q1140 935 1180 920 L1240 890"></path>
+    <path d="M820 880 Q860 905 920 910 L1100 905"></path>
+    
+    <g stroke-width="1.2">
+      <path d="M1180 920 L1230 928"></path>
+      <path d="M1180 935 L1240 945"></path>
+      <path d="M1175 950 L1235 962"></path>
+      <path d="M1170 968 L1225 982"></path>
+      <path d="M1160 980 L1210 998"></path>
+    </g>
+    
+    <ellipse cx="700" cy="900" rx="60" ry="40"></ellipse>
+    
+    <ellipse cx="780" cy="855" rx="45" ry="28"></ellipse>
+  </g>
+
+  
+  <g filter="url(#glow)">
+    
+    <path d="M680 90 Q700 240 695 380 Q690 520 705 640 Q715 750 735 820 Q750 860 770 875 Q790 885 815 880 Q860 870 900 855 L1050 825" stroke="#00d4ff" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.95"></path>
+    
+    <path d="M815 880 Q840 905 880 920 Q940 940 1020 942 L1180 935" stroke="#00d4ff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.85"></path>
+    <path d="M825 882 Q860 915 920 930 L1100 930" stroke="#00d4ff" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.7"></path>
+    <path d="M820 880 Q850 895 900 905 L1050 905" stroke="#00d4ff" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.6"></path>
+  </g>
+
+  
+  <g>
+    <ellipse cx="775" cy="855" rx="80" ry="40" fill="none" stroke="#00d4ff" stroke-width="1" stroke-dasharray="4 4" opacity="0.7"></ellipse>
+    <line x1="855" y1="855" x2="940" y2="800" stroke="#00d4ff" stroke-width="0.8" opacity="0.6"></line>
+    <circle cx="940" cy="800" r="3" fill="#00d4ff"></circle>
+    <text x="950" y="795" font-family="ui-monospace,monospace" font-size="14" fill="#00d4ff" letter-spacing="2" opacity="0.85">TUNNEL TARSIEN</text>
+    <text x="950" y="815" font-family="ui-monospace,monospace" font-size="10" fill="#7c5cff" letter-spacing="1.5" opacity="0.6">ZONE DE DÉCOMPRESSION</text>
+  </g>
+
+  
+  <g font-family="ui-monospace,monospace" fill="#a8b4c8" opacity="0.55">
+    <text x="1060" y="828" font-size="11" letter-spacing="2">N. TIBIAL POSTÉRIEUR</text>
+    <text x="1190" y="938" font-size="10" letter-spacing="1.5">N. PLANTAIRE LATÉRAL</text>
+    <text x="1110" y="908" font-size="10" letter-spacing="1.5">N. PLANTAIRE MÉDIAL</text>
+  </g>
+
+  
+  <g stroke="#1a2540" stroke-width="0.8" fill="#3a4a6a" font-family="ui-monospace,monospace" font-size="10" letter-spacing="1.5">
+    <line x1="80" y1="100" x2="80" y2="900"></line>
+    <g>
+      <line x1="76" y1="200" x2="84" y2="200"></line><text x="20" y="204" fill="#3a4a6a">L1</text>
+      <line x1="76" y1="350" x2="84" y2="350"></line><text x="20" y="354" fill="#3a4a6a">L2</text>
+      <line x1="76" y1="500" x2="84" y2="500"></line><text x="20" y="504" fill="#3a4a6a">L3</text>
+      <line x1="76" y1="650" x2="84" y2="650"></line><text x="20" y="654" fill="#3a4a6a">L4</text>
+      <line x1="76" y1="800" x2="84" y2="800"></line><text x="20" y="804" fill="#3a4a6a">L5</text>
+    </g>
+    <text x="80" y="60" fill="#7c5cff" font-size="10" letter-spacing="2" opacity="0.5">VUE POSTÉRIEURE — JAMBE</text>
+  </g>
+
+  
+  <g stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.5">
+    <path d="M40 40 L40 80 M40 40 L80 40"></path>
+    <path d="M1560 40 L1560 80 M1560 40 L1520 40"></path>
+    <path d="M40 960 L40 920 M40 960 L80 960"></path>
+    <path d="M1560 960 L1560 920 M1560 960 L1520 960"></path>
+  </g>
+  <text x="60" y="975" font-family="ui-monospace,monospace" font-size="9" fill="#00d4ff" opacity="0.5" letter-spacing="2">ANATOMIE — NERF TIBIAL POSTÉRIEUR</text>
+  <text x="1540" y="975" font-family="ui-monospace,monospace" font-size="9" fill="#00d4ff" opacity="0.5" letter-spacing="2" text-anchor="end">DR LOZACH · CHIRURGIE NERVEUSE</text>
+</svg>
