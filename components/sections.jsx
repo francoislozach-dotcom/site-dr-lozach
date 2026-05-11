@@ -2,70 +2,44 @@
    Sections Accueil
    ============================================================ */
 
-function ScalpelSpin() {
-  return (
-    <div aria-hidden="true" style={{
-      width: 200,
-      height: 200,
-      pointerEvents: 'none',
-      opacity: 0.32,
-      margin: '60px auto 20px',
-      position: 'relative',
-      zIndex: 1
-    }} className="scalpel-spin">
-      <svg viewBox="-150 -150 300 300" style={{ width: '100%', height: '100%' }} className="scalpel-svg">
-        <defs>
-          <linearGradient id="bladeGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stopColor="#00d4ff" stopOpacity="0"/>
-            <stop offset="0.4" stopColor="#00d4ff" stopOpacity="0.9"/>
-            <stop offset="1" stopColor="#e8eef7" stopOpacity="0.3"/>
-          </linearGradient>
-        </defs>
-        {/* Single thin orbit ring */}
-        <circle cx="0" cy="0" r="120" fill="none" stroke="#00d4ff" strokeWidth="0.4" strokeDasharray="1 6" opacity="0.5"/>
-
-        {/* Minimal scalpel — just blade + handle as thin lines */}
-        <g className="scalpel-rotate">
-          {/* Handle — single thin line */}
-          <line x1="-15" y1="0" x2="62" y2="0" stroke="#a8b4c8" strokeWidth="1.2" strokeLinecap="round" opacity="0.7"/>
-          {/* Subtle handle texture — three small ticks */}
-          <g stroke="#a8b4c8" strokeWidth="0.4" opacity="0.5">
-            <line x1="10" y1="-2" x2="10" y2="2"/>
-            <line x1="25" y1="-2" x2="25" y2="2"/>
-            <line x1="40" y1="-2" x2="40" y2="2"/>
-          </g>
-          {/* Blade — thin curved triangle */}
-          <path d="M -15 -2 L -95 -3.5 Q -110 -2 -115 0 Q -110 2 -95 3.5 L -15 2 Z"
-                fill="url(#bladeGrad)" stroke="#00d4ff" strokeWidth="0.5" strokeOpacity="0.7"/>
-          {/* Tip glow */}
-          <circle cx="-115" cy="0" r="1.8" fill="#00d4ff" opacity="0.7"/>
-        </g>
-
-        {/* Tiny anchor dot at center */}
-        <circle cx="0" cy="0" r="1.2" fill="#00d4ff" opacity="0.5"/>
-      </svg>
-      <style>{`
-        .scalpel-rotate {
-          transform-origin: 0 0;
-          animation: scalpel-spin 28s linear infinite;
-        }
-        @keyframes scalpel-spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @media (max-width: 900px) {
-          .scalpel-spin { display: none; }
-        }
-      `}</style>
-    </div>
-  );
-}
-
 function SectionApproche() {
   const [hover, setHover] = React.useState(false);
   return (
     <section style={{ background: 'var(--bg)', position: 'relative', overflow: 'hidden' }}>
       <div className="blob blob-rose" style={{ width: 500, height: 500, left: '-15%', top: '20%' }}></div>
+      <div aria-hidden="true" className="bistouri-video-wrap" style={{
+        position: 'absolute',
+        left: '50%',
+        top: '32%',
+        transform: 'translate(-50%, -50%)',
+        width: '70%',
+        height: '60%',
+        zIndex: 1,
+        pointerEvents: 'none',
+        opacity: 0.22,
+        mixBlendMode: 'screen',
+        maskImage: 'radial-gradient(ellipse 50% 55% at 50% 50%, black 0%, rgba(0,0,0,0.85) 25%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.15) 80%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 50% 55% at 50% 50%, black 0%, rgba(0,0,0,0.85) 25%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.15) 80%, transparent 100%)'
+      }}>
+        <video
+          src="assets/bistouri.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            filter: 'hue-rotate(180deg) saturate(1.4) brightness(0.95) contrast(1.15)'
+          }}
+        />
+      </div>
+      <style>{`
+        @media (max-width: 960px) { .bistouri-video-wrap { display: none; } }
+        @media (prefers-reduced-motion: reduce) { .bistouri-video-wrap { display: none; } }
+      `}</style>
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 80, alignItems: 'flex-start' }} className="approche-grid">
           <div>
@@ -82,8 +56,6 @@ function SectionApproche() {
             <p style={{ fontSize: 16, lineHeight: 1.7, color: 'var(--muted)' }}>La meilleure chirurgie est celle dont on peut se passer. Lorsque la chirurgie devient la meilleure option, j'utilise les techniques les plus douces : voies mini-invasives, arthroscopie, protocoles de récupération rapide. L'objectif n'est pas seulement d'opérer — c'est de vous remettre debout, vite et bien.</p>
           </div>
         </div>
-
-        <ScalpelSpin />
 
         <div
           className="reveal"
@@ -234,7 +206,7 @@ function SectionSpecialites() {
             overflow: 'hidden'
           }}>
             {SPECIALTIES.map((s, i) => {
-              const imgSrc = s.kind === 'hip' ? 'assets/anatomy-hanche.jpg' : s.kind === 'knee' ? 'assets/anatomy-genou.jpg' : 'assets/anatomy-pied.jpg';
+              const imgSrc = s.kind === 'hip' ? 'assets/anatomy-hanche.png' : s.kind === 'knee' ? 'assets/anatomy-genou.png' : 'assets/anatomy-pied.png';
               const objPos = s.kind === 'hip' ? 'center 30%' : 'center center';
               return (
             <div key={s.id} style={{
