@@ -1,0 +1,681 @@
+const TIMELINE = [{
+  y: '2017',
+  evt: 'Pratique à la Polyclinique Sainte Thérèse',
+  loc: 'Sète, Ortho7'
+}, {
+  y: '2013-2017',
+  evt: 'Chef de Clinique des Hôpitaux de Montpellier',
+  loc: 'CHU Montpellier'
+}, {
+  y: '2013',
+  evt: 'Enseignant — Faculté de médecine & école IBODE/IFSI',
+  loc: 'Montpellier'
+}, {
+  y: '2013',
+  evt: 'DESC de Chirurgie Orthopédique et Traumatologique',
+  loc: 'Montpellier'
+}, {
+  y: '—',
+  evt: 'Médecin Principal de Réserve, Service de Santé des Armées',
+  loc: 'France'
+}, {
+  y: '—',
+  evt: 'Chirurgien MSF — missions de guerre & humanitaires',
+  loc: 'International'
+}];
+const DIPLOMES = ['Docteur en médecine — Montpellier', 'Thèse : "Ostéotomies de dérotation du squelette jambier dans la pathologie fémoro-patellaire, à propos de 120 cas."', 'DES de Chirurgie Générale', 'DESC de Chirurgie Orthopédique et Traumatologique', 'DIU de dissection et anatomie cœlioscopique', 'DIU de Microchirurgie', 'DIU de pathologie chirurgicale du genou', 'DIU de chirurgie cœlioscopique', 'DIU de chirurgie arthroscopique', 'DIU de réparation du dommage corporel', 'CAPEDOC — Certificat d\'Aptitude à l\'Expertise du Dommage corporel', 'DU Assurances de personnes', 'Master de Sciences Biologiques et Médicales (MSBM)'];
+const FORMATION = ['Ancien Interne des Hôpitaux de Montpellier', 'Ancien Assistant des Hôpitaux de Montpellier', 'Ancien Chef de Clinique des Hôpitaux de Montpellier', 'Enseignant à la Faculté de médecine de Montpellier (2013-2016)', 'Enseignant à l\'École de soins infirmiers de Montpellier (2013-2016)', 'Inscrit à la Formation Médicale Continue (FMC)', 'Médecin Principal de Réserve du Service de Santé des Armées', 'Chirurgien MSF pour missions de guerre et humanitaires'];
+const MEMBRE = ['Société Française de Chirurgie Orthopédique — SOFCOT', 'American Academy of Orthopaedic Surgeons — AAOS', 'ORTHORISQ', 'FFAMCE', 'Association Française de Chirurgie du Pied — AFCP', 'Accréditation par la HAS', 'Médecin Expert près la Cour d\'Appel de Montpellier'];
+const FONCTIONS_UNIV = ['Assistant des Hôpitaux de Montpellier', 'Chef de Clinique des Hôpitaux de Montpellier', 'TP d\'anatomie pour les PCEM2', 'Cours du DESC d\'Urgence-Traumatologie du membre inférieur', 'Cours de chirurgie orthopédique à l\'école d\'IBODE de Montpellier', 'Cours d\'anatomie chirurgicale à l\'école d\'IFSI de Montpellier', 'Cours de Pôle d\'Orthopédie du Deuxième Cycle d\'Études Médicales', 'Formateur voie antérieure prothèse de hanche — laboratoires d\'anatomie de Poitiers et de Toulouse'];
+const PUBLICATIONS = [{
+  title: 'Misleading diagnosis of a migratory epigastric pain in mobile emergency units: spontaneous rupture of the oesophagus',
+  authors: 'Ladwig M, Labourel H, Lozach F, Menthonnex E.',
+  ref: 'Annales Françaises Anesthésie Réanimation. 2006 Oct;25(10):1072-4'
+}, {
+  title: 'Mosaicplasty for femoral osteochondritis dissecans',
+  authors: 'Louahem D, Lozach F, Delpont M, Weiss A, Prodhomme O, Cottalorda J.',
+  ref: 'Orthop Traumatol Surg Res. 2016 Apr;102(2):247-50. doi: 10.1016/j.otsr.2015.12.013'
+}, {
+  title: 'Mosaïcoplastie de la tête fémorale chez l\'enfant présentant une ostéochondrite disséquante',
+  authors: 'Présentation',
+  ref: 'Congrès SOFCOT 2015'
+}, {
+  title: 'Les ostéotomies de dérotation du squelette jambier avec réaxation de l\'appareil extenseur dans la pathologie fémoro-patellaire — à propos de 120 cas',
+  authors: 'Présentation',
+  ref: 'Congrès SOFCOT 2015'
+}, {
+  title: 'Chondropathies rotuliennes post-contusives en expertise médico-légale — recherche des critères d\'imputabilité',
+  authors: 'Mémoire',
+  ref: 'CAPEDOC 2022-2023'
+}];
+function DiplomesShowcase({
+  items
+}) {
+  const [active, setActive] = React.useState(0);
+  const [paused, setPaused] = React.useState(false);
+  React.useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setActive(a => (a + 1) % items.length);
+    }, 2400);
+    return () => clearInterval(id);
+  }, [paused, items.length]);
+  const ROW_H = 84;
+  return /*#__PURE__*/React.createElement("section", {
+    style: {
+      background: 'var(--bg-deep)',
+      borderTop: '1px solid var(--line)',
+      overflow: 'hidden'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1.4fr',
+      gap: 80
+    },
+    className: "parcours-section-grid"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow gold reveal"
+  }, "\u25CD Dipl\xF4mes"), /*#__PURE__*/React.createElement(Heading, {
+    className: "display",
+    tag: "h2"
+  }, /*#__PURE__*/React.createElement("span", null, "Cursus"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    className: "italic",
+    style: {
+      color: 'var(--gold)'
+    }
+  }, "acad\xE9mique.")), /*#__PURE__*/React.createElement("div", {
+    className: "reveal",
+    style: {
+      marginTop: 40,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "mono",
+    style: {
+      fontSize: 11,
+      color: 'var(--gold)',
+      letterSpacing: '0.18em'
+    }
+  }, String(active + 1).padStart(2, '0'), " / ", String(items.length).padStart(2, '0')), /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: '100%',
+      maxWidth: 240,
+      height: 1,
+      background: 'rgba(0,212,255,0.15)',
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      width: (active + 1) / items.length * 100 + '%',
+      background: 'var(--gold)',
+      transition: 'width 0.6s var(--ease-out)',
+      boxShadow: '0 0 8px var(--gold)'
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 8,
+      marginTop: 20
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setPaused(true);
+      setActive(a => (a - 1 + items.length) % items.length);
+    },
+    className: "mono",
+    style: {
+      background: 'transparent',
+      border: '1px solid rgba(0,212,255,0.3)',
+      color: 'var(--gold)',
+      padding: '8px 14px',
+      cursor: 'pointer',
+      fontSize: 11,
+      letterSpacing: '0.15em'
+    }
+  }, "\u2190 PR\xC9C"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setPaused(p => !p),
+    className: "mono",
+    style: {
+      background: paused ? 'var(--gold)' : 'transparent',
+      border: '1px solid rgba(0,212,255,0.3)',
+      color: paused ? 'var(--bg-deep)' : 'var(--gold)',
+      padding: '8px 14px',
+      cursor: 'pointer',
+      fontSize: 11,
+      letterSpacing: '0.15em'
+    }
+  }, paused ? '▶ LIRE' : '❚❚ PAUSE'), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setPaused(true);
+      setActive(a => (a + 1) % items.length);
+    },
+    className: "mono",
+    style: {
+      background: 'transparent',
+      border: '1px solid rgba(0,212,255,0.3)',
+      color: 'var(--gold)',
+      padding: '8px 14px',
+      cursor: 'pointer',
+      fontSize: 11,
+      letterSpacing: '0.15em'
+    }
+  }, "SUIV \u2192")))), /*#__PURE__*/React.createElement("div", {
+    className: "reveal",
+    style: {
+      position: 'relative',
+      height: 460,
+      overflow: 'hidden',
+      maskImage: 'linear-gradient(to bottom, transparent 0%, black 22%, black 78%, transparent 100%)',
+      WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 22%, black 78%, transparent 100%)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: '50%',
+      transform: 'translateY(' + (-active * ROW_H - ROW_H / 2) + 'px)',
+      transition: 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)'
+    }
+  }, items.map((t, i) => {
+    const dist = Math.abs(i - active);
+    const isActive = i === active;
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      onClick: () => {
+        setPaused(true);
+        setActive(i);
+      },
+      style: {
+        height: ROW_H,
+        display: 'flex',
+        alignItems: 'center',
+        gap: 20,
+        padding: '0 12px',
+        cursor: 'pointer',
+        opacity: isActive ? 1 : Math.max(0.18, 1 - dist * 0.3),
+        transform: 'scale(' + (isActive ? 1 : 0.92) + ')',
+        transformOrigin: 'left center',
+        transition: 'opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out)'
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "mono",
+      style: {
+        color: isActive ? 'var(--gold)' : 'var(--ink-2)',
+        fontSize: 11,
+        letterSpacing: '0.15em',
+        flexShrink: 0,
+        width: 36,
+        transition: 'color 0.4s'
+      }
+    }, "/", String(i + 1).padStart(2, '0')), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: 'var(--serif)',
+        fontSize: isActive ? 26 : 18,
+        lineHeight: 1.3,
+        color: isActive ? 'var(--ink)' : 'var(--ink-2)',
+        fontStyle: isActive ? 'italic' : 'normal',
+        transition: 'font-size 0.5s var(--ease-out), color 0.4s'
+      }
+    }, t), isActive && /*#__PURE__*/React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        flexShrink: 0,
+        width: 28,
+        height: 1,
+        background: 'var(--gold)',
+        marginLeft: 'auto',
+        boxShadow: '0 0 10px var(--gold)'
+      }
+    }));
+  })), /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: '50%',
+      height: ROW_H,
+      transform: 'translateY(-50%)',
+      borderTop: '1px solid rgba(0,212,255,0.18)',
+      borderBottom: '1px solid rgba(0,212,255,0.18)',
+      pointerEvents: 'none'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: 'absolute',
+      left: -1,
+      top: -3,
+      width: 6,
+      height: 6,
+      background: 'var(--gold)',
+      boxShadow: '0 0 8px var(--gold)'
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: 'absolute',
+      right: -1,
+      bottom: -3,
+      width: 6,
+      height: 6,
+      background: 'var(--gold)',
+      boxShadow: '0 0 8px var(--gold)'
+    }
+  }))))));
+}
+function Section({
+  eyebrow,
+  title,
+  italic,
+  items,
+  numbered,
+  twoCol,
+  deep
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    style: {
+      background: deep ? 'var(--bg-deep)' : 'var(--bg)',
+      borderTop: '1px solid var(--line)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1.4fr',
+      gap: 80
+    },
+    className: "parcours-section-grid"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow gold reveal"
+  }, "\u25CD ", eyebrow), /*#__PURE__*/React.createElement(Heading, {
+    className: "display",
+    tag: "h2"
+  }, /*#__PURE__*/React.createElement("span", null, title), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    className: "italic",
+    style: {
+      color: 'var(--gold)'
+    }
+  }, italic))), /*#__PURE__*/React.createElement("div", {
+    className: "reveal",
+    style: {
+      columnCount: twoCol ? 2 : 1,
+      columnGap: 40
+    }
+  }, items.map((t, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      padding: '16px 0',
+      borderBottom: '1px solid rgba(232,238,247,0.10)',
+      display: 'flex',
+      gap: 20,
+      alignItems: 'baseline',
+      breakInside: 'avoid'
+    }
+  }, numbered && /*#__PURE__*/React.createElement("span", {
+    className: "mono",
+    style: {
+      color: 'var(--gold)',
+      flexShrink: 0,
+      fontSize: 11
+    }
+  }, "/", String(i + 1).padStart(2, '0')), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: 'var(--serif)',
+      fontSize: 19,
+      lineHeight: 1.4
+    }
+  }, t)))))));
+}
+function App() {
+  useReveal();
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Nav, {
+    active: "parcours"
+  }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement("section", {
+    style: {
+      paddingTop: 180,
+      paddingBottom: 60
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 60,
+      alignItems: 'flex-end'
+    },
+    className: "parcours-hero-grid"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow reveal"
+  }, "\u25CD Parcours \xB7 Titres"), /*#__PURE__*/React.createElement("div", {
+    className: "line-mask"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "display"
+  }, "Une carri\xE8re")), /*#__PURE__*/React.createElement("div", {
+    className: "line-mask"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "display italic",
+    style: {
+      color: 'var(--gold)'
+    }
+  }, "au service du geste."))), /*#__PURE__*/React.createElement("div", {
+    className: "reveal portrait-fuse",
+    style: {
+      position: 'relative',
+      aspectRatio: '4/5'
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    loading: "lazy", src: "assets/portrait.webp",
+    alt: "Dr Fran\xE7ois Lozach",
+    style: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      objectPosition: 'center top',
+      display: 'block',
+      mixBlendMode: 'screen',
+      filter: 'contrast(1.08) brightness(1.0)',
+      maskImage: 'radial-gradient(ellipse 60% 72% at 45% 38%, black 0%, rgba(0,0,0,0.95) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.15) 82%, transparent 100%)',
+      WebkitMaskImage: 'radial-gradient(ellipse 60% 72% at 45% 38%, black 0%, rgba(0,0,0,0.95) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.15) 82%, transparent 100%)'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      position: 'absolute',
+      inset: '-10%',
+      background: 'radial-gradient(circle at 45% 35%, rgba(0,212,255,0.22), transparent 55%)',
+      zIndex: -1,
+      filter: 'blur(20px)',
+      pointerEvents: 'none'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      position: 'absolute',
+      inset: 0,
+      backgroundImage: 'repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0,212,255,0.04) 3px, rgba(0,212,255,0.04) 4px)',
+      mixBlendMode: 'overlay',
+      pointerEvents: 'none'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "mono",
+    style: {
+      position: 'absolute',
+      left: 0,
+      bottom: 16,
+      color: 'var(--gold)',
+      fontSize: 10,
+      letterSpacing: '0.18em',
+      opacity: 0.9
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 48,
+      height: 1,
+      background: 'var(--gold)',
+      marginBottom: 6
+    }
+  }), "DR FRAN\xC7OIS LOZACH")))), /*#__PURE__*/React.createElement("style", null, `
+            @media (max-width: 900px) { .parcours-hero-grid { grid-template-columns: 1fr !important; } }
+            @media (max-width: 900px) { .parcours-section-grid { grid-template-columns: 1fr !important; gap: 32px !important; } }
+          `)), /*#__PURE__*/React.createElement("section", {
+    style: {
+      background: 'var(--bg-deep)',
+      borderTop: '1px solid var(--line)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1.4fr',
+      gap: 80
+    },
+    className: "parcours-section-grid"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow gold reveal"
+  }, "\u25CD Biographie"), /*#__PURE__*/React.createElement(Heading, {
+    className: "display",
+    tag: "h2"
+  }, /*#__PURE__*/React.createElement("span", null, "De Montpellier"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    className: "italic",
+    style: {
+      color: 'var(--gold)'
+    }
+  }, "\xE0 S\xE8te."))), /*#__PURE__*/React.createElement("div", {
+    className: "reveal",
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 24
+    }
+  }, /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontFamily: 'var(--serif)',
+      fontSize: 22,
+      lineHeight: 1.5,
+      color: 'var(--ink)'
+    }
+  }, "Apr\xE8s avoir \xE9t\xE9 re\xE7u au concours de l'internat en m\xE9decine, le Dr Fran\xE7ois Lozach est nomm\xE9 Interne en Chirurgie des H\xF4pitaux de Montpellier."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontFamily: 'var(--serif)',
+      fontSize: 19,
+      lineHeight: 1.6,
+      color: 'var(--ink-2)'
+    }
+  }, "Il r\xE9alise ses \xE9tudes aupr\xE8s du Professeur Philippe Maury qui lui enseigne avec passion la complexit\xE9 de la chirurgie du membre inf\xE9rieur \u2014 la rigueur d'une sp\xE9cialit\xE9 qui ne tol\xE8re aucune approximation."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontFamily: 'var(--serif)',
+      fontSize: 19,
+      lineHeight: 1.6,
+      color: 'var(--ink-2)'
+    }
+  }, "Il se sp\xE9cialise pendant huit ans en chirurgie proth\xE9tique de la hanche et du genou \u2014 premi\xE8re intention et reprise \u2014 chirurgie arthroscopique, chirurgie du pied et traumatologie."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontFamily: 'var(--serif)',
+      fontSize: 19,
+      lineHeight: 1.6,
+      color: 'var(--ink-2)'
+    }
+  }, "Il participe \xE0 des missions de chirurgie humanitaire au sein de pays engag\xE9s dans des conflits arm\xE9s, dans le cadre de l'association M\xE9decins Sans Fronti\xE8res."), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontFamily: 'var(--serif)',
+      fontSize: 19,
+      lineHeight: 1.6,
+      color: 'var(--ink-2)'
+    }
+  }, "M\xE9decin-Expert, il participe aux expertises m\xE9dico-l\xE9gales pr\xE8s la Cour d'Appel de Montpellier."))))), /*#__PURE__*/React.createElement("section", {
+    style: {
+      background: 'var(--bg)',
+      borderTop: '1px solid var(--line)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow gold reveal"
+  }, "\u25CD Chronologie"), /*#__PURE__*/React.createElement(Heading, {
+    className: "display",
+    tag: "h2"
+  }, /*#__PURE__*/React.createElement("span", null, "\xC9tapes"), " ", /*#__PURE__*/React.createElement("span", {
+    className: "italic",
+    style: {
+      color: 'var(--gold)'
+    }
+  }, "cl\xE9s.")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 80,
+      borderTop: '1px solid var(--line)'
+    }
+  }, TIMELINE.map((t, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "reveal hoverable",
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '160px 1fr 280px',
+      gap: 32,
+      padding: '32px 0',
+      borderBottom: '1px solid var(--line)',
+      alignItems: 'center',
+      transition: 'padding-left 0.4s var(--ease-out)'
+    },
+    onMouseEnter: e => e.currentTarget.style.paddingLeft = '20px',
+    onMouseLeave: e => e.currentTarget.style.paddingLeft = '0'
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "serif",
+    style: {
+      fontSize: t.y.length > 4 ? 36 : 56,
+      color: 'var(--gold)',
+      letterSpacing: '-0.02em',
+      whiteSpace: 'nowrap'
+    }
+  }, t.y), /*#__PURE__*/React.createElement("span", {
+    className: "serif",
+    style: {
+      fontSize: 'clamp(20px, 2vw, 28px)'
+    }
+  }, t.evt), /*#__PURE__*/React.createElement("span", {
+    className: "mono",
+    style: {
+      color: 'var(--muted)',
+      textAlign: 'right'
+    }
+  }, t.loc)))))), /*#__PURE__*/React.createElement(DiplomesShowcase, {
+    items: DIPLOMES
+  }), /*#__PURE__*/React.createElement(Section, {
+    eyebrow: "Formation",
+    title: "Postes",
+    italic: "& enseignement.",
+    items: FORMATION,
+    numbered: false,
+    twoCol: true,
+    deep: false
+  }), /*#__PURE__*/React.createElement(Section, {
+    eyebrow: "Membre",
+    title: "Soci\xE9t\xE9s savantes",
+    italic: "& accr\xE9ditations.",
+    items: MEMBRE,
+    numbered: false,
+    twoCol: false,
+    deep: true
+  }), /*#__PURE__*/React.createElement(Section, {
+    eyebrow: "Fonctions universitaires",
+    title: "Transmission",
+    italic: "& formation.",
+    items: FONCTIONS_UNIV,
+    numbered: false,
+    twoCol: true,
+    deep: false
+  }), /*#__PURE__*/React.createElement("section", {
+    style: {
+      background: 'var(--bg-deep)',
+      borderTop: '1px solid var(--line)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1.4fr',
+      gap: 80
+    },
+    className: "parcours-section-grid"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow gold reveal"
+  }, "\u25CD Travaux & publications"), /*#__PURE__*/React.createElement(Heading, {
+    className: "display",
+    tag: "h2"
+  }, /*#__PURE__*/React.createElement("span", null, "Recherche"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    className: "italic",
+    style: {
+      color: 'var(--gold)'
+    }
+  }, "& communications."))), /*#__PURE__*/React.createElement("div", {
+    className: "reveal"
+  }, PUBLICATIONS.map((p, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      padding: '24px 0',
+      borderBottom: '1px solid rgba(232,238,247,0.12)',
+      display: 'grid',
+      gridTemplateColumns: '40px 1fr',
+      gap: 20
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "mono",
+    style: {
+      color: 'var(--gold)',
+      fontSize: 11,
+      paddingTop: 6
+    }
+  }, "/", String(i + 1).padStart(2, '0')), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--serif)',
+      fontSize: 20,
+      lineHeight: 1.35,
+      color: 'var(--ink)',
+      marginBottom: 8
+    }
+  }, p.title), /*#__PURE__*/React.createElement("div", {
+    className: "mono",
+    style: {
+      fontSize: 11,
+      color: 'var(--ink-2)',
+      marginBottom: 4
+    }
+  }, p.authors), /*#__PURE__*/React.createElement("div", {
+    className: "mono",
+    style: {
+      fontSize: 11,
+      color: 'var(--gold)',
+      opacity: 0.7
+    }
+  }, p.ref)))))))), /*#__PURE__*/React.createElement("section", {
+    style: {
+      background: 'var(--bg-deep)',
+      borderTop: '1px solid var(--line)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container text-center"
+  }, /*#__PURE__*/React.createElement(Heading, {
+    className: "display",
+    tag: "h2"
+  }, /*#__PURE__*/React.createElement("span", null, "Une question ?"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    className: "italic",
+    style: {
+      color: 'var(--gold)'
+    }
+  }, "Parlons-en.")), /*#__PURE__*/React.createElement("div", {
+    className: "flex gap-16 center reveal",
+    style: {
+      marginTop: 48,
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/React.createElement(Magnetic, null, /*#__PURE__*/React.createElement("a", {
+    href: "https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach",
+    target: "_blank",
+    rel: "noopener",
+    className: "btn btn-primary"
+  }, "Prendre RDV", /*#__PURE__*/React.createElement("svg", {
+    className: "arrow",
+    viewBox: "0 0 16 16",
+    fill: "none"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M2 14L14 2M14 2H4M14 2V12",
+    stroke: "currentColor",
+    strokeWidth: "1.4"
+  })))), /*#__PURE__*/React.createElement(Magnetic, null, /*#__PURE__*/React.createElement("a", {
+    href: "contact.html",
+    className: "btn btn-outline"
+  }, "Contact")))))), /*#__PURE__*/React.createElement(Footer, null));
+}
+ReactDOM.createRoot(document.getElementById('app')).render(/*#__PURE__*/React.createElement(App, null));
