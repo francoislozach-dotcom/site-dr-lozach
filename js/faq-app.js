@@ -1,8 +1,3 @@
-const {
-  useState,
-  useEffect,
-  useRef
-} = React;
 const THEMES = [{
   id: 'consultation',
   key: 'Consultation',

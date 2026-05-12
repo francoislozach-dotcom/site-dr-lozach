@@ -1,6 +1,3 @@
-const {
-  useState
-} = React;
 
 /* ============================================================
    Données des interventions

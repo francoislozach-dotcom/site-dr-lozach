@@ -1,7 +1,3 @@
-const {
-  useState,
-  useEffect
-} = React;
 const PATHO = [{
   id: 'hanche',
   kind: 'hip',
