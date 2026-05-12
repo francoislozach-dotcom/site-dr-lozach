@@ -87,62 +87,91 @@ function Nav({
   dark
 }) {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  return /*#__PURE__*/React.createElement("nav", {
-    className: `nav ${dark ? 'dark' : ''}`,
-    style: {
-      paddingTop: scrolled ? 14 : 24,
-      paddingBottom: scrolled ? 14 : 24,
-      transition: 'padding 0.3s var(--ease-out)'
-    }
-  }, /*#__PURE__*/React.createElement("a", {
-    href: "index.html",
-    className: "nav-logo"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "mark"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "mark-orbit"
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "mark-pip"
-  })), /*#__PURE__*/React.createElement("span", null, "Dr Fran\xE7ois Lozach")), /*#__PURE__*/React.createElement("div", {
-    className: "nav-links"
-  }, /*#__PURE__*/React.createElement("a", {
-    href: "index.html",
-    className: active === 'accueil' ? 'active' : ''
-  }, "Accueil"), /*#__PURE__*/React.createElement("a", {
-    href: "pathologies.html",
-    className: active === 'pathologies' ? 'active' : ''
-  }, "Pathologies"), /*#__PURE__*/React.createElement("a", {
-    href: "chirurgie.html",
-    className: active === 'chirurgie' ? 'active' : ''
-  }, "Chirurgies"), /*#__PURE__*/React.createElement("a", {
-    href: "parcours.html",
-    className: active === 'parcours' ? 'active' : ''
-  }, "Parcours"), /*#__PURE__*/React.createElement("a", {
-    href: "faq.html",
-    className: active === 'faq' ? 'active' : ''
-  }, "FAQ"), /*#__PURE__*/React.createElement("a", {
-    href: "contact.html",
-    className: active === 'contact' ? 'active' : ''
-  }, "Contact")), /*#__PURE__*/React.createElement("a", {
-    href: "https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach",
-    target: "_blank",
-    rel: "noopener",
-    className: "nav-cta"
-  }, "Prendre RDV", /*#__PURE__*/React.createElement("svg", {
-    width: "10",
-    height: "10",
-    viewBox: "0 0 10 10",
-    fill: "none"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M1 9L9 1M9 1H2M9 1V8",
-    stroke: "currentColor",
-    strokeWidth: "1.2"
-  }))));
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
+  const links = [
+    { href: 'index.html', label: 'Accueil', key: 'accueil' },
+    { href: 'pathologies.html', label: 'Pathologies', key: 'pathologies' },
+    { href: 'chirurgie.html', label: 'Chirurgies', key: 'chirurgie' },
+    { href: 'parcours.html', label: 'Parcours', key: 'parcours' },
+    { href: 'faq.html', label: 'FAQ', key: 'faq' },
+    { href: 'contact.html', label: 'Contact', key: 'contact' },
+  ];
+
+  return React.createElement(React.Fragment, null,
+    React.createElement("nav", {
+      className: `nav ${dark ? 'dark' : ''}`,
+      style: {
+        paddingTop: scrolled ? 14 : 24,
+        paddingBottom: scrolled ? 14 : 24,
+        transition: 'padding 0.3s var(--ease-out)'
+      }
+    },
+      React.createElement("a", { href: "index.html", className: "nav-logo" },
+        React.createElement("span", { className: "mark" },
+          React.createElement("span", { className: "mark-orbit" }),
+          React.createElement("span", { className: "mark-pip" })
+        ),
+        React.createElement("span", null, "Dr Fran\xE7ois Lozach")
+      ),
+      React.createElement("div", { className: "nav-links" },
+        links.map(function(l) {
+          return React.createElement("a", { key: l.key, href: l.href, className: active === l.key ? 'active' : '' }, l.label);
+        })
+      ),
+      React.createElement("a", {
+        href: "https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach",
+        target: "_blank", rel: "noopener", className: "nav-cta"
+      }, "Prendre RDV",
+        React.createElement("svg", { width: "10", height: "10", viewBox: "0 0 10 10", fill: "none" },
+          React.createElement("path", { d: "M1 9L9 1M9 1H2M9 1V8", stroke: "currentColor", strokeWidth: "1.2" })
+        )
+      ),
+      React.createElement("button", {
+        className: "nav-hamburger",
+        onClick: function() { setOpen(!open); },
+        "aria-label": "Menu"
+      },
+        React.createElement("span", { className: open ? 'bar bar-open' : 'bar' }),
+        React.createElement("span", { className: open ? 'bar bar-open' : 'bar' }),
+        React.createElement("span", { className: open ? 'bar bar-open' : 'bar' })
+      )
+    ),
+    open && React.createElement("div", {
+      className: "nav-mobile-overlay",
+      onClick: function() { setOpen(false); }
+    },
+      React.createElement("div", {
+        className: "nav-mobile-menu",
+        onClick: function(e) { e.stopPropagation(); }
+      },
+        links.map(function(l, i) {
+          return React.createElement("a", {
+            key: l.key,
+            href: l.href,
+            className: 'nav-mobile-link' + (active === l.key ? ' active' : ''),
+            style: { animationDelay: (i * 60) + 'ms' },
+            onClick: function() { setOpen(false); }
+          }, l.label);
+        }),
+        React.createElement("a", {
+          href: "https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach",
+          target: "_blank", rel: "noopener",
+          className: "nav-mobile-cta",
+          onClick: function() { setOpen(false); }
+        }, "Prendre RDV →")
+      )
+    )
+  );
 }
 
 /* ---------- Floating Doctolib button ---------- */
