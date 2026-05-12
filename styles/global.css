@@ -350,26 +350,31 @@ section {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.45);
+  border-radius: 50%;
   cursor: pointer;
   padding: 0;
   z-index: 1001;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.nav-hamburger:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.7);
 }
 .nav-hamburger .bar {
   display: block;
-  width: 18px;
-  height: 1.5px;
-  background: var(--ink);
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-.nav-hamburger .bar-open:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger .bar-open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger .bar-open:nth-child(2) { opacity: 0; }
-.nav-hamburger .bar-open:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-hamburger .bar-open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 @media (max-width: 900px) {
   .nav-hamburger { display: flex; }
