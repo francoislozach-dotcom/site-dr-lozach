@@ -3,25 +3,25 @@ const PATHO = [{
   kind: 'hip',
   num: '01',
   name: 'Hip conditions',
-  regionKey: 'Hanche',
+  regionKey: 'Hip',
   tagline: '',
   intro: 'The hip bears the full weight of the body. When it deteriorates, surgery can restore lasting mobility.',
-  items: ['Hip osteoarthritis', 'Femoroacetabular impingement (FAI)', 'Avascular necrosis of the femoral head', 'Hip labral tear', 'Gluteus medius tendinopathy', 'Psoas tendinopathy', 'Sciatic nerve compression (dynamic)']
+  items: ['Hip osteoarthritis', 'Femoro-acetabular impingement (FAI)', 'Avascular necrosis of the femoral head', 'Labral tears', 'Gluteus medius tendinopathy', 'Iliopsoas tendinopathy', 'Dynamic neurological compression (sciatic nerve)']
 }, {
   id: 'genou',
   kind: 'knee',
   num: '02',
   name: 'Knee conditions',
-  regionKey: 'Genou',
+  regionKey: 'Knee',
   tagline: '',
   intro: 'The knee bears cumulative stress: pivoting, loading, instability. From sports sprains to arthritis, every condition has its tailored solution.',
-  items: ['Knee osteoarthritis', 'Anterior cruciate ligament tear (ACL)', 'Posterior cruciate ligament tear (PCL)', 'Meniscal tears', 'Focal cartilage lesion', 'Patellar instability', 'Knee deformity (genu varum / genu valgum)']
+  items: ['Knee osteoarthritis', 'Anterior cruciate ligament (ACL) tear', 'Posterior cruciate ligament (PCL) tear', 'Meniscal tears', 'Focal cartilage lesions', 'Patellar instability', 'Deformities (genu varum / genu valgum)']
 }, {
   id: 'cheville',
   kind: 'foot',
   num: '03',
   name: 'Ankle surgery',
-  regionKey: 'Cheville',
+  regionKey: 'Ankle',
   tagline: '',
   intro: 'The ankle absorbs impact and transmits propulsion. Tendinopathy, impingement, instability — each lesion has its precise management.',
   items: ['Achilles tendinopathy', 'Chronic ankle instability', 'Osteochondral lesion of the talar dome', 'Anterior and posterior ankle impingement']
@@ -30,19 +30,19 @@ const PATHO = [{
   kind: 'foot',
   num: '04',
   name: 'Foot surgery',
-  regionKey: 'Pied',
+  regionKey: 'Foot',
   tagline: '',
   intro: 'The foot is a finely tuned mechanism. Surgery restores weight-bearing, eliminates pain and allows return to normal walking.',
-  items: ['Hallux valgus', 'Claw / hammer toe deformities', 'Morton\'s neuroma', 'Metatarsalgia', 'Midfoot arthritis']
+  items: ['Hallux valgus', 'Hammer toes / claw toes', 'Morton\'s neuroma', 'Metatarsalgia', 'Midfoot osteoarthritis']
 }, {
   id: 'trauma',
   kind: 'knee',
   num: '05',
   name: 'Trauma surgery',
-  regionKey: 'Traumatologie',
+  regionKey: 'Trauma',
   tagline: 'Urgent care, without delay.',
   intro: 'A fracture, a severe sprain, a tendon rupture. Rapid management, intervention within 24–48 hours if required.',
-  items: ['Lower limb fractures', 'Mild ankle sprains', 'Severe ankle sprains', 'Acute ligamentous injuries of the knee', 'Tendon ruptures (Achilles, patellar, quadriceps)', 'Dislocations (prosthetic and non-prosthetic)']
+  items: ['Lower limb fractures', 'Minor ankle sprains', 'Severe ankle sprains', 'Acute knee ligament injuries', 'Tendon ruptures (Achilles, patellar, quadriceps)', 'Dislocations (prosthetic and non-prosthetic)']
 }];
 
 /* ---------- Hero ---------- */
