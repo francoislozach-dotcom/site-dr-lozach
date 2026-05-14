@@ -164,7 +164,7 @@ function SectionApproche() {
     }
   }), "OPERATING THEATRE \xB7 FOCUS")), /*#__PURE__*/React.createElement("style", null, `
           @media (max-width: 900px) { .approche-grid { grid-template-columns: 1fr !important; gap: 32px !important; } }
-        `))));
+        `)));
 }
 const SPECIALTIES = [{
   id: 'hanche',
