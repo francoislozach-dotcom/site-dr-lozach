@@ -102,6 +102,7 @@ function Nav({
     { href: 'index.html', label: 'Accueil', key: 'accueil' },
     { href: 'pathologies.html', label: 'Pathologies', key: 'pathologies' },
     { href: 'chirurgie.html', label: 'Chirurgies', key: 'chirurgie' },
+    { href: 'greffe-cartilagineuse.html', label: 'Greffe', key: 'greffe' },
     { href: 'parcours.html', label: 'Parcours', key: 'parcours' },
     { href: 'faq.html', label: 'FAQ', key: 'faq' },
     { href: 'contact.html', label: 'Contact', key: 'contact' },

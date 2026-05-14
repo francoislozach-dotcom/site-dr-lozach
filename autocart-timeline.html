@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AutoCart™ — Procédure Pas à Pas</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #03060f;
+    --surface: #080d1a;
+    --card: rgba(8, 18, 40, 0.85);
+    --accent: #00b4ff;
+    --accent2: #0066ff;
+    --accent3: #00e5ff;
+    --glow: rgba(0, 180, 255, 0.35);
+    --glow-strong: rgba(0, 180, 255, 0.7);
+    --text: #e8f0ff;
+    --text-muted: #6b8ab0;
+    --border: rgba(0, 180, 255, 0.15);
+    --step-size: 60px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── PARTICLES BACKGROUND ── */
+  #canvas-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  /* ── GRID OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,180,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,180,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 80px 20px 60px;
+  }
+
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,180,255,0.08);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+
+  .header-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent) 60%, var(--accent3) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+
+  .header p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ── TIMELINE WRAPPER ── */
+  .timeline {
+    position: relative;
+    z-index: 10;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px 100px;
+  }
+
+  /* ── SVG PATH ── */
+  .path-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .path-line {
+    fill: none;
+    stroke: url(#pathGradient);
+    stroke-width: 2;
+    stroke-dasharray: 8 6;
+    animation: dash-move 3s linear infinite;
+    filter: drop-shadow(0 0 6px var(--accent));
+  }
+
+  .path-glow {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 6;
+    opacity: 0.1;
+  }
+
+  @keyframes dash-move {
+    to { stroke-dashoffset: -280; }
+  }
+
+  /* ── STEPS ── */
+  .steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 1fr var(--step-size) 1fr;
+    align-items: start;
+    min-height: 280px;
+    position: relative;
+  }
+
+  /* alternance gauche / droite */
+  .step:nth-child(odd) .step-card  { grid-column: 1; }
+  .step:nth-child(odd) .step-node  { grid-column: 2; }
+  .step:nth-child(odd) .step-empty { grid-column: 3; }
+
+  .step:nth-child(even) .step-card  { grid-column: 3; order: 3; }
+  .step:nth-child(even) .step-node  { grid-column: 2; order: 2; }
+  .step:nth-child(even) .step-empty { grid-column: 1; order: 1; }
+
+  /* ── NODE ── */
+  .step-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    padding-top: 30px;
+  }
+
+  .node-ring {
+    width: var(--step-size);
+    height: var(--step-size);
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    box-shadow:
+      0 0 0 6px rgba(0,180,255,0.06),
+      0 0 20px var(--glow),
+      inset 0 0 15px rgba(0,180,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+    cursor: default;
+  }
+
+  .node-ring::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,180,255,0.2);
+    animation: node-spin 8s linear infinite;
+    background: conic-gradient(from 0deg, transparent 70%, rgba(0,180,255,0.4) 100%);
+  }
+
+  @keyframes node-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .step:hover .node-ring {
+    box-shadow:
+      0 0 0 6px rgba(0,180,255,0.12),
+      0 0 40px var(--glow-strong),
+      inset 0 0 25px rgba(0,180,255,0.2);
+  }
+
+  .node-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* node-connector géré via le CSS spécifique plus bas */
+
+  /* ── CARD ── */
+  .step-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    margin: 20px 16px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+
+  .step-card-topline {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .step:hover .step-card-topline { opacity: 1; }
+
+  .step-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(ellipse at top left, rgba(0,180,255,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .step:hover .step-card {
+    border-color: rgba(0,180,255,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(0,180,255,0.1);
+  }
+
+
+  /* ── CARD CONTENT ── */
+  .card-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+
+  .card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .card-text {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  /* ── MEDIA PLACEHOLDER ── */
+  .media-zone {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0,180,255,0.03);
+    border: 1.5px dashed rgba(0,180,255,0.25);
+    aspect-ratio: 16/9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: border-color 0.3s, background 0.3s;
+    cursor: pointer;
+  }
+
+  .media-zone:hover {
+    border-color: rgba(0,180,255,0.6);
+    background: rgba(0,180,255,0.06);
+  }
+
+  .media-zone.video {
+    border-color: rgba(0,230,200,0.25);
+    background: rgba(0,230,200,0.02);
+  }
+
+  .media-zone.video:hover {
+    border-color: rgba(0,230,200,0.5);
+    background: rgba(0,230,200,0.05);
+  }
+
+  .media-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+
+  .media-zone:not(.video) .media-icon {
+    background: rgba(0,180,255,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(0,180,255,0.2);
+  }
+
+  .media-zone.video .media-icon {
+    background: rgba(0,230,200,0.1);
+    color: #00e5c8;
+    border: 1px solid rgba(0,230,200,0.2);
+  }
+
+  .media-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .media-zone:not(.video) .media-label { color: var(--accent); }
+  .media-zone.video .media-label { color: #00e5c8; }
+
+  .media-sub {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 0 16px;
+    line-height: 1.5;
+  }
+
+  /* ── DOUBLE MEDIA ── */
+  .media-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .media-row .media-zone {
+    aspect-ratio: 4/3;
+  }
+
+  /* ── STEP EMPTY ── */
+  .step-empty {
+    /* côté vide pour équilibrer la grille */
+  }
+
+  /* ── NODE CONNECTOR (ligne verticale centrale) ── */
+  .node-connector {
+    width: 3px;
+    flex: 1;
+    min-height: 180px;
+    position: relative;
+    background: linear-gradient(
+      to bottom,
+      var(--accent) 0%,
+      rgba(0,102,255,0.6) 50%,
+      rgba(0,180,255,0.2) 100%
+    );
+    border-radius: 4px;
+    box-shadow: 0 0 10px var(--glow), 0 0 20px rgba(0,180,255,0.15);
+    overflow: hidden;
+  }
+
+  /* particule lumineuse qui descend */
+  .node-connector::after {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255,255,255,0.9) 50%,
+      transparent 100%
+    );
+    border-radius: 4px;
+    animation: flow-down 2s ease-in-out infinite;
+    filter: blur(1px);
+  }
+
+  @keyframes flow-down {
+    0%   { top: -40%; opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { top: 130%; opacity: 0; }
+  }
+
+  /* décalage pour que chaque connecteur ait son propre timing */
+  .step:nth-child(2) .node-connector::after { animation-delay: 0.3s; }
+  .step:nth-child(3) .node-connector::after { animation-delay: 0.6s; }
+  .step:nth-child(4) .node-connector::after { animation-delay: 0.9s; }
+  .step:nth-child(5) .node-connector::after { animation-delay: 1.2s; }
+  .step:nth-child(6) .node-connector::after { animation-delay: 1.5s; }
+
+  /* ── CONNECTOR CARD — trait horizontal reliant le nœud à la carte ── */
+  .step-card::before {
+    content: '';
+    position: absolute;
+    top: 48px;
+    width: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0.6;
+    transition: opacity 0.3s, width 0.3s;
+  }
+
+  /* carte à droite du nœud : trait sort à gauche */
+  .step:nth-child(even) .step-card::before {
+    left: -20px;
+    background: linear-gradient(90deg, transparent, var(--accent));
+  }
+
+  /* carte à gauche du nœud : trait sort à droite */
+  .step:nth-child(odd) .step-card::before {
+    right: -20px;
+    left: auto;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+
+  .step:hover .step-card::before {
+    opacity: 1;
+    width: 28px;
+  }
+
+  /* ── FINAL GLOW BURST ── */
+  .step:last-child .node-ring {
+    border-color: #00e5ff;
+    box-shadow:
+      0 0 0 8px rgba(0,229,255,0.08),
+      0 0 40px rgba(0,229,255,0.5),
+      0 0 80px rgba(0,229,255,0.2),
+      inset 0 0 20px rgba(0,229,255,0.15);
+    animation: final-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes final-pulse {
+    0%, 100% { box-shadow: 0 0 0 8px rgba(0,229,255,0.08), 0 0 40px rgba(0,229,255,0.5), 0 0 80px rgba(0,229,255,0.2); }
+    50% { box-shadow: 0 0 0 12px rgba(0,229,255,0.12), 0 0 60px rgba(0,229,255,0.7), 0 0 120px rgba(0,229,255,0.3); }
+  }
+
+  .step:last-child .node-number { color: #00e5ff; }
+
+  /* ── SCROLL REVEAL ── */
+  .step-card, .step-node {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .step.visible .step-card,
+  .step.visible .step-node {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .step.visible .step-node { transition-delay: 0.1s; }
+  .step.visible .step-card { transition-delay: 0.2s; }
+
+  /* ── BOTTOM CTA ── */
+  .timeline-footer {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 20px 20px 80px;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(0,102,255,0.4), 0 8px 30px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 60px rgba(0,180,255,0.5), 0 12px 40px rgba(0,0,0,0.4);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 720px) {
+    :root { --step-size: 44px; }
+
+    .step {
+      grid-template-columns: var(--step-size) 1fr;
+      min-height: auto;
+    }
+
+    .step:nth-child(odd) .step-card,
+    .step:nth-child(even) .step-card  { grid-column: 2; order: 2; }
+
+    .step:nth-child(odd) .step-node,
+    .step:nth-child(even) .step-node  { grid-column: 1; order: 1; }
+
+    .step:nth-child(even) .step-empty,
+    .step:nth-child(odd) .step-empty  { display: none; }
+
+    .step-card { margin: 14px 10px; }
+    .media-row { grid-template-columns: 1fr; }
+    .node-connector { min-height: 60px; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="canvas-bg"></canvas>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="header">
+  <div class="header-badge">AutoCart™ · Arthrex · Technique autologue</div>
+  <h1>La procédure pas à pas</h1>
+  <p>Votre propre cartilage, réimplanté en une seule intervention arthroscopique de moins de 45 minutes.</p>
+</header>
+
+<!-- ══════════════ TIMELINE ══════════════ -->
+<section class="timeline">
+
+  <svg class="path-svg" id="path-svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="pathGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#00b4ff;stop-opacity:0.8"/>
+        <stop offset="50%" style="stop-color:#0066ff;stop-opacity:0.5"/>
+        <stop offset="100%" style="stop-color:#00e5ff;stop-opacity:0.9"/>
+      </linearGradient>
+      <filter id="glow-filter">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <!-- Path drawn by JS -->
+  </svg>
+
+  <div class="steps-container" id="steps">
+
+    <!-- ── ÉTAPE 1 ── -->
+    <div class="step">
+      <div class="step-card">
+        <div class="card-label">Étape 01 · Diagnostic</div>
+        <h2 class="card-title">Visualisation de la lésion sous arthroscopie</h2>
+        <p class="card-text">Une caméra miniaturisée est introduite dans l'articulation. On voit la lésion en direct : sa taille exacte, sa profondeur, ses bords. C'est l'étape de cartographie — on sait précisément ce qu'on va traiter avant de commencer.</p>
+        <div class="media-zone">
+          <div class="media-icon">📷</div>
+          <div class="media-label">Photo · Arthroscopie</div>
+          <div class="media-sub">Vue arthroscopique de la lésion cartilagineuse</div>
+        </div>
+      </div>
+      <div class="step-node">
+        <div class="node-ring"><span class="node-number">1</span></div>
+        <div class="node-connector"></div>
+      </div>
+      <div class="step-empty"></div>
+    </div>
+
+    <!-- ── ÉTAPE 2 ── -->
+    <div class="step">
+      <div class="step-empty"></div>
+      <div class="step-node">
+        <div class="node-ring"><span class="node-number">2</span></div>
+        <div class="node-connector"></div>
+      </div>
+      <div class="step-card">
+        <div class="card-label">Étape 02 · Préparation</div>
+        <h2 class="card-title">Débridement du site — on nettoie et on délimite</h2>
+        <p class="card-text">La zone lésée est débridée avec précision. On retire le cartilage nécrosé et instable jusqu'à obtenir des bords sains. Seuls les chondrocytes viables pourront régénérer. Comme préparer un champ avant de semer : le sol doit être propre et stable.</p>
+        <div class="media-row">
+          <div class="media-zone">
+            <div class="media-icon">📷</div>
+            <div class="media-label">Photo · Avant</div>
+            <div class="media-sub">Lésion brute</div>
+          </div>
+          <div class="media-zone">
+            <div class="media-icon">📷</div>
+            <div class="media-label">Photo · Après</div>
+            <div class="media-sub">Bords débridés</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ÉTAPE 3 ── -->
+    <div class="step">
+      <div class="step-card">
+        <div class="card-label">Étape 03 · Prélèvement</div>
+        <h2 class="card-title">Récolte de votre cartilage sain</h2>
+        <p class="card-text">Un couteau-shaver spécifique prélève des micro-fragments de cartilage hyalin dans les zones non portantes de votre articulation. Ces copeaux sont collectés automatiquement dans un filtre stérile (GraftNet™) — environ 0,2 mL par cm² de lésion. Votre cartilage, pour réparer votre cartilage.</p>
+        <div class="media-zone video">
+          <div class="media-icon">▶</div>
+          <div class="media-label">Vidéo · Prélèvement</div>
+          <div class="media-sub">Séquence arthroscopique du prélèvement par shaver</div>
+        </div>
+      </div>
+      <div class="step-node">
+        <div class="node-ring"><span class="node-number">3</span></div>
+        <div class="node-connector"></div>
+      </div>
+      <div class="step-empty"></div>
+    </div>
+
+    <!-- ── ÉTAPE 4 ── -->
+    <div class="step">
+      <div class="step-empty"></div>
+      <div class="step-node">
+        <div class="node-ring"><span class="node-number">4</span></div>
+        <div class="node-connector"></div>
+      </div>
+      <div class="step-card">
+        <div class="card-label">Étape 04 · PRP</div>
+        <h2 class="card-title">Activation de votre plasma riche en plaquettes</h2>
+        <p class="card-text">Simultanément, 45 mL de votre sang sont prélevés et centrifugés. On obtient un PRP concentré en facteurs de croissance et pauvre en cellules inflammatoires. Ce plasma doré va enrichir la pâte de cartilage et servir à fabriquer la colle de fibrine naturelle.</p>
+        <div class="media-zone">
+          <div class="media-icon">📷</div>
+          <div class="media-label">Photo · PRP</div>
+          <div class="media-sub">Double seringue ACP Arthrex — plasma doré centrifugé</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ÉTAPE 5 ── -->
+    <div class="step">
+      <div class="step-card">
+        <div class="card-label">Étape 05 · Greffe</div>
+        <h2 class="card-title">Mise en place du greffon — la lésion est comblée</h2>
+        <p class="card-text">Les copeaux de cartilage sont mélangés au PRP pour former une pâte biologique. Cette pâte est introduite dans l'articulation via une canule, puis déposée précisément sur la zone lésée et ajustée avec un crochet palpeur. Un mastic vivant, sur mesure.</p>
+        <div class="media-row">
+          <div class="media-zone video">
+            <div class="media-icon">▶</div>
+            <div class="media-label">Vidéo · Application</div>
+            <div class="media-sub">Mise en place de la pâte en temps réel</div>
+          </div>
+          <div class="media-zone">
+            <div class="media-icon">📷</div>
+            <div class="media-label">Photo · Résultat</div>
+            <div class="media-sub">Lésion comblée avant fixation</div>
+          </div>
+        </div>
+      </div>
+      <div class="step-node">
+        <div class="node-ring"><span class="node-number">5</span></div>
+        <div class="node-connector"></div>
+      </div>
+      <div class="step-empty"></div>
+    </div>
+
+    <!-- ── ÉTAPE 6 ── -->
+    <div class="step">
+      <div class="step-empty"></div>
+      <div class="step-node">
+        <div class="node-ring"><span class="node-number">6</span></div>
+        <div class="node-connector"></div>
+      </div>
+      <div class="step-card">
+        <div class="card-label">Étape 06 · Stabilisation</div>
+        <h2 class="card-title">Fixation par fibrine et PRP — zéro produit étranger</h2>
+        <p class="card-text">Une colle de fibrine 100% autologue — fabriquée à partir de votre propre PRP via le système Thrombinator™ — est appliquée sur le greffon. Elle coagule en 15 secondes, forme un gel naturel et maintient les chondrocytes en place pendant la régénération. Aucun implant, aucun produit chimique.</p>
+        <div class="media-zone">
+          <div class="media-icon">📷</div>
+          <div class="media-label">Photo · Fixation</div>
+          <div class="media-sub">Application de la fibrine autologue sur le greffon</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ÉTAPE 7 ── -->
+    <div class="step">
+      <div class="step-card">
+        <div class="card-label">Étape 07 · Résultat</div>
+        <h2 class="card-title">Résultat final — la surface articulaire est reconstituée</h2>
+        <p class="card-text">La lésion est comblée. La surface articulaire est reconstituée avec votre propre cartilage hyalin. L'opération est terminée — moins de 45 minutes. La régénération va se poursuivre pendant les mois suivants, guidée par les facteurs de croissance du PRP.</p>
+        <div class="media-row">
+          <div class="media-zone">
+            <div class="media-icon">📷</div>
+            <div class="media-label">Photo · Avant</div>
+            <div class="media-sub">Lésion initiale sous arthroscopie</div>
+          </div>
+          <div class="media-zone">
+            <div class="media-icon">📷</div>
+            <div class="media-label">Photo · Après</div>
+            <div class="media-sub">Surface comblée — résultat per-opératoire</div>
+          </div>
+        </div>
+      </div>
+      <div class="step-node">
+        <div class="node-ring"><span class="node-number">7</span></div>
+      </div>
+      <div class="step-empty"></div>
+    </div>
+
+  </div><!-- /steps-container -->
+</section>
+
+<!-- ══════════════ FOOTER CTA ══════════════ -->
+<div class="timeline-footer">
+  <a href="#" class="cta-button">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+    Prendre rendez-vous en consultation
+  </a>
+</div>
+
+<script>
+/* ── PARTICLES ── */
+(function(){
+  const canvas = document.getElementById('canvas-bg');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function createParticles() {
+    particles = [];
+    const count = Math.floor((W * H) / 18000);
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.5 + 0.3,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        alpha: Math.random() * 0.5 + 0.1
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,180,255,${p.alpha})`;
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { resize(); createParticles(); });
+  resize(); createParticles(); draw();
+})();
+
+/* ── SCROLL REVEAL ── */
+(function(){
+  const steps = document.querySelectorAll('.step');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  steps.forEach(s => observer.observe(s));
+})();
+
+/* ── DRAW SVG PATH through nodes ── */
+(function(){
+  function drawPath() {
+    const svg = document.getElementById('path-svg');
+    const timeline = document.querySelector('.timeline');
+    const nodes = document.querySelectorAll('.node-ring');
+    if (!nodes.length) return;
+
+    // Nettoyer les anciens paths
+    svg.querySelectorAll('path').forEach(p => p.remove());
+
+    const tlRect = timeline.getBoundingClientRect();
+    const points = [];
+
+    nodes.forEach(node => {
+      const nr = node.getBoundingClientRect();
+      points.push({
+        x: nr.left - tlRect.left + nr.width / 2,
+        y: nr.top - tlRect.top + window.scrollY - (timeline.getBoundingClientRect().top + window.scrollY) + nr.height / 2
+      });
+    });
+
+    svg.setAttribute('height', timeline.scrollHeight);
+
+    if (points.length < 2) return;
+
+    // Courbe de Bézier cubique entre chaque paire de noeuds
+    let d = `M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`;
+    for (let i = 1; i < points.length; i++) {
+      const p0 = points[i - 1];
+      const p1 = points[i];
+      const ctl1y = p0.y + (p1.y - p0.y) * 0.4;
+      const ctl2y = p0.y + (p1.y - p0.y) * 0.6;
+      d += ` C ${p0.x.toFixed(1)} ${ctl1y.toFixed(1)}, ${p1.x.toFixed(1)} ${ctl2y.toFixed(1)}, ${p1.x.toFixed(1)} ${p1.y.toFixed(1)}`;
+    }
+
+    // Glow large
+    const g1 = document.createElementNS('http://www.w3.org/2000/svg','path');
+    g1.setAttribute('d', d);
+    g1.setAttribute('fill','none');
+    g1.setAttribute('stroke','rgba(0,180,255,0.08)');
+    g1.setAttribute('stroke-width','12');
+    g1.setAttribute('stroke-linecap','round');
+    svg.appendChild(g1);
+
+    // Glow moyen
+    const g2 = document.createElementNS('http://www.w3.org/2000/svg','path');
+    g2.setAttribute('d', d);
+    g2.setAttribute('fill','none');
+    g2.setAttribute('stroke','rgba(0,180,255,0.18)');
+    g2.setAttribute('stroke-width','4');
+    g2.setAttribute('stroke-linecap','round');
+    svg.appendChild(g2);
+
+    // Ligne principale pointillée animée
+    const line = document.createElementNS('http://www.w3.org/2000/svg','path');
+    line.setAttribute('d', d);
+    line.setAttribute('fill','none');
+    line.setAttribute('stroke','url(#pathGradient)');
+    line.setAttribute('stroke-width','2');
+    line.setAttribute('stroke-linecap','round');
+    line.setAttribute('stroke-dasharray','10 8');
+    line.style.animation = 'dash-move 2.5s linear infinite';
+    line.style.filter = 'drop-shadow(0 0 5px rgba(0,180,255,0.8))';
+    svg.appendChild(line);
+
+    // ── SIGNAL ÉLECTRIQUE ──
+    // On attend que le path soit dans le DOM pour mesurer sa longueur
+    requestAnimationFrame(() => {
+      const totalLen = line.getTotalLength ? line.getTotalLength() : 1200;
+      const pulseLen = 80;   // longueur du front électrique (px)
+      const gap = totalLen;  // gap = toute la longueur → un seul pulse visible à la fois
+
+      // Supprimer les pointillés sur la ligne de base
+      line.setAttribute('stroke-dasharray', '6 10');
+
+      // ── Pulse 1 : cœur blanc-bleu intense
+      const pulse1 = document.createElementNS('http://www.w3.org/2000/svg','path');
+      pulse1.setAttribute('d', d);
+      pulse1.setAttribute('fill','none');
+      pulse1.setAttribute('stroke','#ffffff');
+      pulse1.setAttribute('stroke-width','3');
+      pulse1.setAttribute('stroke-linecap','round');
+      pulse1.setAttribute('stroke-dasharray', `${pulseLen} ${gap}`);
+      pulse1.style.filter = 'drop-shadow(0 0 6px #00e5ff) drop-shadow(0 0 14px rgba(0,229,255,0.9))';
+      svg.appendChild(pulse1);
+
+      // ── Pulse 2 : halo large bleu
+      const pulse2 = document.createElementNS('http://www.w3.org/2000/svg','path');
+      pulse2.setAttribute('d', d);
+      pulse2.setAttribute('fill','none');
+      pulse2.setAttribute('stroke','rgba(0,229,255,0.5)');
+      pulse2.setAttribute('stroke-width','10');
+      pulse2.setAttribute('stroke-linecap','round');
+      pulse2.setAttribute('stroke-dasharray', `${pulseLen * 1.8} ${gap}`);
+      pulse2.style.filter = 'blur(4px)';
+      svg.insertBefore(pulse2, pulse1);
+
+      // ── Pulse 3 : traîne estompée (queue du signal)
+      const pulse3 = document.createElementNS('http://www.w3.org/2000/svg','path');
+      pulse3.setAttribute('d', d);
+      pulse3.setAttribute('fill','none');
+      pulse3.setAttribute('stroke','rgba(0,180,255,0.25)');
+      pulse3.setAttribute('stroke-width','6');
+      pulse3.setAttribute('stroke-linecap','round');
+      pulse3.setAttribute('stroke-dasharray', `${pulseLen * 3} ${gap}`);
+      pulse3.style.filter = 'blur(3px)';
+      svg.insertBefore(pulse3, pulse2);
+
+      // ── Animation : stroke-dashoffset de 0 → -totalLen
+      const duration = 2200; // ms par cycle
+      let start = null;
+
+      // On décale pulse2 et pulse3 légèrement en arrière pour simuler la traîne
+      const trailOffset1 = pulseLen * 0.6;
+      const trailOffset2 = pulseLen * 1.5;
+
+      function animateSignal(ts) {
+        if (!start) start = ts;
+        const elapsed = (ts - start) % (duration);
+        const progress = elapsed / duration; // 0 → 1
+        const offset = -(progress * (totalLen + pulseLen * 3));
+
+        pulse1.setAttribute('stroke-dashoffset', offset);
+        pulse2.setAttribute('stroke-dashoffset', offset + trailOffset1);
+        pulse3.setAttribute('stroke-dashoffset', offset + trailOffset2);
+
+        requestAnimationFrame(animateSignal);
+      }
+      requestAnimationFrame(animateSignal);
+    });
+  }
+
+  window.addEventListener('load', drawPath);
+  window.addEventListener('resize', () => setTimeout(drawPath, 100));
+  setTimeout(drawPath, 500);
+})();
+</script>
+</body>
+</html>
