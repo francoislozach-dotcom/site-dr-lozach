@@ -1,6 +1,6 @@
 /* ============================================================
-   Composants partagés — Site Dr Lozach
-   Curseur, Nav, Footer, Reveal hooks, Marquee
+   Shared components — Dr Lozach site (English)
+   Cursor, Nav, Footer, Reveal hooks, Marquee
    ============================================================ */
 
 const {
@@ -84,16 +84,17 @@ function useReveal() {
 
 /* ---------- Language switch ---------- */
 function LangSwitch() {
-  var filename = window.location.pathname.split('/').pop();
-  if (!filename || filename === '') filename = 'index.html';
+  var parts = window.location.pathname.split('/');
+  var filename = parts.pop() || 'index.html';
+  if (!filename) filename = 'index.html';
   return React.createElement('a', {
-    href: 'en/' + filename,
-    className: 'lang-switch',
-    title: 'Switch to English',
-    'aria-label': 'English version'
+    href: '../' + filename,
+    className: 'lang-switch lang-switch-active',
+    title: 'Passer en français',
+    'aria-label': 'Version française'
   },
-    React.createElement('span', { className: 'lang-flag' }, '🇬🇧'),
-    React.createElement('span', null, 'EN')
+    React.createElement('span', { className: 'lang-flag' }, '🇫🇷'),
+    React.createElement('span', null, 'FR')
   );
 }
 
@@ -115,13 +116,13 @@ function Nav({
   }, [open]);
 
   const links = [
-    { href: 'index.html', label: 'Accueil', key: 'accueil' },
-    { href: 'pathologies.html', label: 'Pathologies', key: 'pathologies' },
-    { href: 'chirurgie.html', label: 'Chirurgies', key: 'chirurgie' },
-    { href: 'greffe-cartilagineuse.html', label: 'Greffe', key: 'greffe' },
-    { href: 'parcours.html', label: 'Parcours', key: 'parcours' },
-    { href: 'faq.html', label: 'FAQ', key: 'faq' },
-    { href: 'contact.html', label: 'Contact', key: 'contact' },
+    { href: '../en/index.html', label: 'Home', key: 'accueil' },
+    { href: '../en/pathologies.html', label: 'Pathologies', key: 'pathologies' },
+    { href: '../en/chirurgie.html', label: 'Surgery', key: 'chirurgie' },
+    { href: '../en/greffe-cartilagineuse.html', label: 'Graft', key: 'greffe' },
+    { href: '../en/parcours.html', label: 'Journey', key: 'parcours' },
+    { href: '../en/faq.html', label: 'FAQ', key: 'faq' },
+    { href: '../en/contact.html', label: 'Contact', key: 'contact' },
   ];
 
   return React.createElement(React.Fragment, null,
@@ -133,7 +134,7 @@ function Nav({
         transition: 'padding 0.3s var(--ease-out)'
       }
     },
-      React.createElement("a", { href: "index.html", className: "nav-logo" },
+      React.createElement("a", { href: "../en/index.html", className: "nav-logo" },
         React.createElement("span", { className: "mark" },
           React.createElement("span", { className: "mark-orbit" }),
           React.createElement("span", { className: "mark-pip" })
@@ -149,7 +150,7 @@ function Nav({
       React.createElement("a", {
         href: "https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach",
         target: "_blank", rel: "noopener", className: "nav-cta"
-      }, "Prendre RDV",
+      }, "Book appointment",
         React.createElement("svg", { width: "10", height: "10", viewBox: "0 0 10 10", fill: "none" },
           React.createElement("path", { d: "M1 9L9 1M9 1H2M9 1V8", stroke: "currentColor", strokeWidth: "1.2" })
         )
@@ -186,12 +187,12 @@ function Nav({
           target: "_blank", rel: "noopener",
           className: "nav-mobile-cta",
           onClick: function() { setOpen(false); }
-        }, "Prendre RDV →"),
+        }, "Book an appointment →"),
         React.createElement("a", {
-          href: (function() { var f = window.location.pathname.split('/').pop(); return 'en/' + (f || 'index.html'); })(),
+          href: (function() { var f = window.location.pathname.split('/').pop(); return '../' + (f || 'index.html'); })(),
           className: 'nav-mobile-link lang-switch-mobile',
           onClick: function() { setOpen(false); }
-        }, "🇬🇧 English version")
+        }, "🇫🇷 Version française")
       )
     )
   );
@@ -219,7 +220,7 @@ function Footer() {
     className: "footer-grid"
   }, /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Cabinet"), /*#__PURE__*/React.createElement("p", null, "P\xF4le Sant\xE9 Thau", /*#__PURE__*/React.createElement("br", null), "310 avenue du Mar\xE9chal Juin", /*#__PURE__*/React.createElement("br", null), "34200 S\xE8te")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h4", null, "Practice"), /*#__PURE__*/React.createElement("p", null, "P\xF4le Sant\xE9 Thau", /*#__PURE__*/React.createElement("br", null), "310 avenue du Mar\xE9chal Juin", /*#__PURE__*/React.createElement("br", null), "34200 S\xE8te")), /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
   }, /*#__PURE__*/React.createElement("h4", null, "Contact"), /*#__PURE__*/React.createElement("a", {
     href: "tel:0467530924"
@@ -227,26 +228,26 @@ function Footer() {
     href: "mailto:secretariat@ortho-7.fr"
   }, "secretariat@ortho-7.fr")), /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Chirurgie"), /*#__PURE__*/React.createElement("a", {
-    href: "chirurgie.html#hanche"
-  }, "Hanche"), /*#__PURE__*/React.createElement("a", {
-    href: "chirurgie.html#genou"
-  }, "Genou"), /*#__PURE__*/React.createElement("a", {
-    href: "chirurgie.html#pied"
-  }, "Pied & Cheville"), /*#__PURE__*/React.createElement("a", {
-    href: "chirurgie.html#trauma"
-  }, "Traumatologie")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h4", null, "Surgery"), /*#__PURE__*/React.createElement("a", {
+    href: "../en/chirurgie.html#hanche"
+  }, "Hip"), /*#__PURE__*/React.createElement("a", {
+    href: "../en/chirurgie.html#genou"
+  }, "Knee"), /*#__PURE__*/React.createElement("a", {
+    href: "../en/chirurgie.html#pied"
+  }, "Foot & Ankle"), /*#__PURE__*/React.createElement("a", {
+    href: "../en/chirurgie.html#trauma"
+  }, "Trauma")), /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
   }, /*#__PURE__*/React.createElement("h4", null, "Navigation"), /*#__PURE__*/React.createElement("a", {
-    href: "index.html"
-  }, "Accueil"), /*#__PURE__*/React.createElement("a", {
-    href: "pathologies.html"
+    href: "../en/index.html"
+  }, "Home"), /*#__PURE__*/React.createElement("a", {
+    href: "../en/pathologies.html"
   }, "Pathologies"), /*#__PURE__*/React.createElement("a", {
-    href: "parcours.html"
-  }, "Parcours"), /*#__PURE__*/React.createElement("a", {
-    href: "faq.html"
+    href: "../en/parcours.html"
+  }, "Journey"), /*#__PURE__*/React.createElement("a", {
+    href: "../en/faq.html"
   }, "FAQ"), /*#__PURE__*/React.createElement("a", {
-    href: "contact.html"
+    href: "../en/contact.html"
   }, "Contact"))), /*#__PURE__*/React.createElement("div", {
     className: "footer-bottom"
   }, /*#__PURE__*/React.createElement("span", null, "\xA9 ", new Date().getFullYear(), " \u2014 Dr Fran\xE7ois Lozach"), /*#__PURE__*/React.createElement("span", null, "Chirurgien orthop\xE9dique \xB7 S\xE8te")))), /*#__PURE__*/React.createElement(DoctolibFloat, null));
