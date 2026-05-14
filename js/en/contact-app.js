@@ -198,7 +198,7 @@ function App() {
       background: 'var(--bg-deep)'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    loading: "lazy", src: "assets/cabinet-sete.webp",
+    loading: "lazy", src: "../assets/cabinet-sete.webp",
     alt: "P\xF4le Sant\xE9 Thau — S\xE8te",
     className: "cab-img",
     style: {

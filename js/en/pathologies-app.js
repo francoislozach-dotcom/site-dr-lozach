@@ -76,7 +76,7 @@ function PathoHero() {
       WebkitMaskImage: 'radial-gradient(ellipse at 80% 60%, black 20%, transparent 75%)'
     }
   }, /*#__PURE__*/React.createElement("source", {
-    loading: "lazy", src: "assets/anatomy.mp4",
+    loading: "lazy", src: "../assets/anatomy.mp4",
     type: "video/mp4"
   })), /*#__PURE__*/React.createElement("div", {
     className: "container",
@@ -140,7 +140,7 @@ function PathoCard({
     playsInline: true,
     preload: "auto"
   }, /*#__PURE__*/React.createElement("source", {
-    src: "assets/hanche.mp4",
+    src: "../assets/hanche.mp4",
     type: "video/mp4"
   }))), s.id === 'genou' && /*#__PURE__*/React.createElement("div", {
     className: "joint-video-wrap",
@@ -153,7 +153,7 @@ function PathoCard({
     playsInline: true,
     preload: "auto"
   }, /*#__PURE__*/React.createElement("source", {
-    src: "assets/genou.mp4",
+    src: "../assets/genou.mp4",
     type: "video/mp4"
   }))), (s.id === 'cheville' || s.id === 'pied') && /*#__PURE__*/React.createElement("div", {
     className: "joint-video-wrap",
@@ -166,7 +166,7 @@ function PathoCard({
     playsInline: true,
     preload: "auto"
   }, /*#__PURE__*/React.createElement("source", {
-    src: "assets/cheville-pied.mp4",
+    src: "../assets/cheville-pied.mp4",
     type: "video/mp4"
   }))), /*#__PURE__*/React.createElement("div", {
     style: {

@@ -375,7 +375,7 @@ function App() {
       aspectRatio: '4/5'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    loading: "lazy", src: "assets/portrait.webp",
+    loading: "lazy", src: "../assets/portrait.webp",
     alt: "Dr Fran\xE7ois Lozach",
     style: {
       width: '100%',

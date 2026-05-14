@@ -235,7 +235,7 @@ function InterventionsHero() {
       WebkitMaskImage: 'radial-gradient(ellipse 75% 85% at 70% 55%, black 30%, rgba(0,0,0,0.6) 65%, transparent 95%)'
     }
   }, /*#__PURE__*/React.createElement("source", {
-    src: "assets/chirurgie-hero.mp4",
+    src: "../assets/chirurgie-hero.mp4",
     type: "video/mp4"
   })), /*#__PURE__*/React.createElement("div", {
     className: "container",

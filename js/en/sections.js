@@ -36,7 +36,7 @@ function SectionApproche() {
       WebkitMaskImage: 'radial-gradient(ellipse 50% 55% at 50% 50%, black 0%, rgba(0,0,0,0.85) 25%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.15) 80%, transparent 100%)'
     }
   }, /*#__PURE__*/React.createElement("video", {
-    src: "assets/bistouri.mp4",
+    src: "../assets/bistouri.mp4",
     autoPlay: true,
     muted: true,
     loop: true,
@@ -106,7 +106,7 @@ function SectionApproche() {
       cursor: 'pointer'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    loading: "lazy", src: "assets/dr-bloc.webp",
+    loading: "lazy", src: "../assets/dr-bloc.webp",
     alt: "Dr Fran\xE7ois Lozach in the operating theatre",
     style: {
       width: '100%',
