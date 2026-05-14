@@ -293,7 +293,7 @@ function SectionSpecialites() {
       overflow: 'hidden'
     }
   }, SPECIALTIES.map((s, i) => {
-    const imgSrc = s.kind === 'hip' ? 'assets/anatomy-hanche.webp' : s.kind === 'knee' ? 'assets/anatomy-genou.webp' : 'assets/anatomy-pied.webp';
+    const imgSrc = s.kind === 'hip' ? '../assets/anatomy-hanche.webp' : s.kind === 'knee' ? '../assets/anatomy-genou.webp' : '../assets/anatomy-pied.webp';
     const objPos = s.kind === 'hip' ? 'center 30%' : 'center center';
     return /*#__PURE__*/React.createElement("div", {
       key: s.id,
