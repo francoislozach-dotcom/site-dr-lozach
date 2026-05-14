@@ -290,15 +290,38 @@
 .gr-cta-final .gr-cta-row { justify-content: center; }
 
 @media (max-width: 900px) {
+  /* Grilles principales */
   .gr-hero-grid { grid-template-columns: 1fr; }
   .gr-compare-grid, .gr-ind-grid, .gr-stats-grid { grid-template-columns: 1fr; }
   .gr-triade-grid { grid-template-columns: 1fr; }
-  .gr-timeline-row { grid-template-columns: 44px 1fr; gap: 20px; }
-  .gr-timeline-row .gr-node-cell { grid-row: span 2; }
+  .gr-suites-timeline { grid-template-columns: 1fr; }
+
+  /* Sections spécifiques */
+  .gr-prob-grid { grid-template-columns: 1fr !important; }
+  .gr-irm-track { grid-template-columns: 1fr !important; }
+
+  /* Timeline — FIX: node à gauche (col 1), contenu à droite (col 2) */
+  .gr-timeline-row {
+    grid-template-columns: 44px 1fr;
+    gap: 20px;
+  }
+  .gr-timeline-row .gr-node-cell {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .gr-timeline-row .gr-side {
+    grid-column: 2;
+    grid-row: 1;
+  }
   .gr-timeline-row .gr-side.empty { display: none; }
   .gr-node { width: 44px; height: 44px; }
   .gr-timeline-path { display: none; }
-  .gr-suites-timeline { grid-template-columns: 1fr; }
+
+  /* Espacement mobile */
+  .gr-section { padding: 64px 0; }
+  .gr-container { padding: 0 20px; }
+  .gr-hero { padding-top: 120px; padding-bottom: 64px; }
+  .gr-hero .gr-lede { font-size: clamp(17px, 4vw, 22px); }
 }
 </style>
 </head>
