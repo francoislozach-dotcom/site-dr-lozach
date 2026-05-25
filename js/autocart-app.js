@@ -108,7 +108,7 @@ function ProblemeSection() {
     React.createElement('div', { className: 'container' },
       React.createElement('div', { className: 'autocart-grid-2', style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' } },
         React.createElement('div', null,
-          React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ /01 — Le problème'),
+          React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ 01 — Le problème'),
           React.createElement(Heading, { className: 'display', tag: 'h2' },
             'Le cartilage',
             React.createElement('br', null),
@@ -143,7 +143,7 @@ function TechniqueSection() {
     style: { borderTop: '1px solid var(--line)', padding: '100px 0', background: 'var(--bg)' }
   },
     React.createElement('div', { className: 'container' },
-      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ /02 — La technique'),
+      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ 02 — La technique'),
       React.createElement(Heading, { className: 'display', tag: 'h2' },
         'Principe',
         React.createElement('br', null),
@@ -175,7 +175,7 @@ function ComparatifSection() {
     style: { borderTop: '1px solid var(--line)', padding: '100px 0', background: 'var(--bg-deep)' }
   },
     React.createElement('div', { className: 'container' },
-      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ /03 — Comparatif'),
+      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ 03 — Comparatif'),
       React.createElement(Heading, { className: 'display', tag: 'h2' },
         'AutoCart vs',
         React.createElement('br', null),
@@ -219,7 +219,7 @@ function EligibiliteSection() {
     style: { borderTop: '1px solid var(--line)', padding: '100px 0', background: 'var(--bg)' }
   },
     React.createElement('div', { className: 'container' },
-      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ /04 — Éligibilité'),
+      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ 04 — Éligibilité'),
       React.createElement(Heading, { className: 'display', tag: 'h2' },
         'Suis-je',
         React.createElement('br', null),
@@ -260,7 +260,7 @@ function SuitesSection() {
     style: { borderTop: '1px solid var(--line)', padding: '100px 0', background: 'var(--bg-deep)' }
   },
     React.createElement('div', { className: 'container' },
-      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ /05 — Déroulement'),
+      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ 05 — Déroulement'),
       React.createElement(Heading, { className: 'display', tag: 'h2' },
         'De l\'opération',
         React.createElement('br', null),
@@ -300,7 +300,7 @@ function ExperienceSection() {
     style: { borderTop: '1px solid var(--line)', padding: '100px 0', background: 'var(--bg)' }
   },
     React.createElement('div', { className: 'container' },
-      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ /06 — Expérience'),
+      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ 06 — Expérience'),
       React.createElement(Heading, { className: 'display', tag: 'h2' },
         'Plus de 50',
         React.createElement('br', null),
@@ -344,7 +344,7 @@ function RemboursementSection() {
     style: { borderTop: '1px solid var(--line)', padding: '80px 0', background: 'var(--bg-deep)' }
   },
     React.createElement('div', { className: 'container' },
-      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ /07 — Prise en charge'),
+      React.createElement('div', { className: 'eyebrow gold reveal' }, '◍ 07 — Prise en charge'),
       React.createElement('div', {
         className: 'reveal autocart-grid-3',
         style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', marginTop: 48, borderTop: '1px solid var(--line)' }

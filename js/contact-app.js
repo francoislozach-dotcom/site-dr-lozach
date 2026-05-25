@@ -73,7 +73,7 @@ function App() {
       color: 'var(--gold)',
       position: 'relative'
     }
-  }, "/01 \u2014 En ligne"), /*#__PURE__*/React.createElement("div", {
+  }, "01 \u2014 En ligne"), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'relative'
     }
@@ -124,7 +124,7 @@ function App() {
     style: {
       color: 'var(--gold-deep)'
     }
-  }, "/02 \u2014 Par t\xE9l\xE9phone"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+  }, "02 \u2014 Par t\xE9l\xE9phone"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
     className: "serif",
     style: {
       fontSize: 'clamp(40px, 5vw, 64px)',
