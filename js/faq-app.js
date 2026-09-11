@@ -80,7 +80,7 @@ const THEMES = [{
     a: "Oui, le Dr Lozach est expert médico-légal en orthopédie. Il réalise des expertises amiables et judiciaires dans le cadre de dommages corporels (accidents de la route, accidents du travail, responsabilité médicale)."
   }, {
     q: "Comment solliciter une expertise ?",
-    a: "Les demandes émanent généralement des compagnies d'assurance, des avocats ou des tribunaux. Contactez le secrétariat à secretariat@ortho-7fr.fr en précisant le cadre de la demande (amiable, judiciaire, CRCI) et en joignant les pièces médicales disponibles."
+    a: "Les demandes émanent généralement des compagnies d'assurance, des avocats ou des tribunaux. Contactez le secrétariat à secretariat@ortho-7.fr en précisant le cadre de la demande (amiable, judiciaire, CRCI) et en joignant les pièces médicales disponibles."
   }]
 }];
 const TOTAL_Q = THEMES.reduce((n, t) => n + t.items.length, 0);

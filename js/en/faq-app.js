@@ -80,7 +80,7 @@ const THEMES = [{
     a: "Yes, Dr Lozach is a court-appointed medico-legal expert in orthopaedics. He carries out amicable and judicial assessments in personal injury cases (road traffic accidents, workplace accidents, medical liability)."
   }, {
     q: "How can I request an assessment?",
-    a: "Requests typically come from insurance companies, solicitors, or courts. Please contact the secretary's office at secretariat@ortho-7fr.fr, specifying the nature of the request (amicable, judicial, CRCI) and enclosing available medical documents."
+    a: "Requests typically come from insurance companies, solicitors, or courts. Please contact the secretary's office at secretariat@ortho-7.fr, specifying the nature of the request (amicable, judicial, CRCI) and enclosing available medical documents."
   }]
 }];
 const TOTAL_Q = THEMES.reduce((n, t) => n + t.items.length, 0);
