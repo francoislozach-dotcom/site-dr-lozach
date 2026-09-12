@@ -39,7 +39,7 @@
 
   <!-- English version -->
   <url>
-    <loc>https://www.drlozach.fr/en/index.html</loc>
+    <loc>https://www.drlozach.fr/en/</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -84,4 +84,64 @@
   <url><loc>https://www.drlozach.fr/confidentialite.html</loc></url>
   <url><loc>https://www.drlozach.fr/en/legal.html</loc></url>
   <url><loc>https://www.drlozach.fr/en/privacy.html</loc></url>
+<!-- pathology-pages:start -->
+<url><loc>https://www.drlozach.fr/pathologie-coxarthrose.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-coxarthrose.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-conflit-femoro-acetabulaire-cfa.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-conflit-femoro-acetabulaire-cfa.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-osteonecrose-de-la-tete-femorale.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-osteonecrose-de-la-tete-femorale.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-lesions-du-labrum.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-lesions-du-labrum.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-tendinopathies-du-moyen-fessier.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-tendinopathies-du-moyen-fessier.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-tendinopathies-du-psoas.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-tendinopathies-du-psoas.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-compressions-dynamiques-neurologiques-nerf-sciatique.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-compressions-dynamiques-neurologiques-nerf-sciatique.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-gonarthrose.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-gonarthrose.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-lesion-du-ligament-croise-anterieur-lca.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-lesion-du-ligament-croise-anterieur-lca.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-lesion-du-ligament-croise-posterieur-lcp.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-lesion-du-ligament-croise-posterieur-lcp.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-lesions-meniscales.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-lesions-meniscales.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-lesions-cartilagineuses-focales.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-lesions-cartilagineuses-focales.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-instabilite-rotulienne.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-instabilite-rotulienne.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-deformations-genu-varum-genu-valgum.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-deformations-genu-varum-genu-valgum.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-tendinopathies-du-tendon-d-achille.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-tendinopathies-du-tendon-d-achille.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-instabilite-chronique-de-cheville.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-instabilite-chronique-de-cheville.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-lesion-osteochondrale-du-dome-talien.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-lesion-osteochondrale-du-dome-talien.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-conflits-anterieur-et-posterieur-de-la-cheville.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-conflits-anterieur-et-posterieur-de-la-cheville.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-hallux-valgus.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-hallux-valgus.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-orteils-en-griffe-en-marteau.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-orteils-en-griffe-en-marteau.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-nevrome-de-morton.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-nevrome-de-morton.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-metatarsalgies.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-metatarsalgies.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-arthrose-du-medio-pied.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-arthrose-du-medio-pied.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-fractures-du-membre-inferieur.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-fractures-du-membre-inferieur.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-entorses-benignes-de-la-cheville.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-entorses-benignes-de-la-cheville.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-entorses-graves-de-la-cheville.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-entorses-graves-de-la-cheville.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-lesions-ligamentaires-aigues-du-genou.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-lesions-ligamentaires-aigues-du-genou.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-ruptures-tendineuses-tendon-d-achille-rotulien-quadricipital.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-ruptures-tendineuses-tendon-d-achille-rotulien-quadricipital.html</loc></url>
+<url><loc>https://www.drlozach.fr/pathologie-luxations-prothetiques-et-non-prothetiques.html</loc></url>
+<url><loc>https://www.drlozach.fr/en/pathologie-luxations-prothetiques-et-non-prothetiques.html</loc></url>
+<!-- pathology-pages:end -->
 </urlset>

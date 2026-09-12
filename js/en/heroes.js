@@ -681,14 +681,14 @@ function HeroAnatomic() {
       position: 'relative',
       zIndex: 2
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "tag-pill reveal",
+  }, /*#__PURE__*/React.createElement("h1", {
+    className: "tag-pill page-topic",
     style: {
       marginBottom: 24
     }
   }, /*#__PURE__*/React.createElement("span", {
     className: "dot"
-  }), "ANATOMICAL SCAN / REAL TIME"), /*#__PURE__*/React.createElement("div", {
+  }), "Orthopaedic surgeon in Sète"), /*#__PURE__*/React.createElement("div", {
     className: "line-mask"
   }, /*#__PURE__*/React.createElement("span", {
     className: "display",

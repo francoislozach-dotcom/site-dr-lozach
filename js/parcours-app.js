@@ -76,9 +76,7 @@ function DiplomesShowcase({
       gap: 80
     },
     className: "parcours-section-grid"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow gold reveal"
-  }, "\u25CD Dipl\xF4mes"), /*#__PURE__*/React.createElement(Heading, {
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {className: "eyebrow page-topic"}, "Dr François Lozach, chirurgien orthopédiste"), /*#__PURE__*/React.createElement(Heading, {
     className: "display",
     tag: "h2"
   }, /*#__PURE__*/React.createElement("span", null, "Cursus"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {

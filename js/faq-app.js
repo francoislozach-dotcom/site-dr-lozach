@@ -151,9 +151,7 @@ function FaqHero({
       position: 'relative',
       zIndex: 1
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow reveal"
-  }, "\u25CD Foire aux questions"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h1", {className: "eyebrow page-topic"}, "Questions sur la consultation et la chirurgie"), /*#__PURE__*/React.createElement("div", {
     className: "line-mask"
   }, /*#__PURE__*/React.createElement("span", {
     className: "display"

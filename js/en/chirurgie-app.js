@@ -275,9 +275,7 @@ function InterventionsHero() {
       position: 'relative',
       zIndex: 1
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow reveal"
-  }, "◍ Surgery \xB7 Lower limb"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h1", {className: "eyebrow page-topic"}, "Orthopaedic surgery in Sète"), /*#__PURE__*/React.createElement("div", {
     className: "line-mask"
   }, /*#__PURE__*/React.createElement("span", {
     className: "display"
@@ -313,6 +311,7 @@ function SectionHeader({
 }) {
   const deeper = index % 2 === 1;
   return /*#__PURE__*/React.createElement("section", {
+    id: section.id === "traumatologie" ? "trauma" : section.id,
     style: {
       background: deeper ? 'var(--bg-deep)' : 'var(--bg)',
       borderTop: '1px solid var(--line)',

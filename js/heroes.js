@@ -681,14 +681,14 @@ function HeroAnatomic() {
       position: 'relative',
       zIndex: 2
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "tag-pill reveal",
+  }, /*#__PURE__*/React.createElement("h1", {
+    className: "tag-pill page-topic",
     style: {
       marginBottom: 24
     }
   }, /*#__PURE__*/React.createElement("span", {
     className: "dot"
-  }), "SCAN ANATOMIQUE / TEMPS R\xC9EL"), /*#__PURE__*/React.createElement("div", {
+  }), "Chirurgien orthopédiste à Sète"), /*#__PURE__*/React.createElement("div", {
     className: "line-mask"
   }, /*#__PURE__*/React.createElement("span", {
     className: "display",

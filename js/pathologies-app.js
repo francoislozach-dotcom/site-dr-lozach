@@ -84,9 +84,7 @@ function PathoHero() {
       position: 'relative',
       zIndex: 1
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow reveal"
-  }, "\u25CD Pathologies \xB7 Membre inf\xE9rieur"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h1", {className: "eyebrow page-topic"}, "Pathologies de la hanche, du genou, du pied et de la cheville"), /*#__PURE__*/React.createElement("div", {
     className: "line-mask"
   }, /*#__PURE__*/React.createElement("span", {
     className: "display"
@@ -236,13 +234,8 @@ function PathoCard({
     style: {
       borderBottom: '1px solid var(--line)'
     }
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: () => onSelect({
-      region: s.name,
-      regionKey: s.regionKey,
-      name: p
-    }),
+  }, /*#__PURE__*/React.createElement("a", {
+    href: window.PATHO_URLS[p],
     className: "patho-row hoverable",
     style: {
       width: '100%',
@@ -690,7 +683,7 @@ function PathoDrawer({
 /* ---------- App ---------- */
 function App() {
   useReveal();
-  const [selected, setSelected] = useState(null);
+
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Nav, {
     active: "pathologies"
   }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement(PathoHero, null), /*#__PURE__*/React.createElement(Marquee, {
@@ -698,11 +691,7 @@ function App() {
   }), PATHO.map((s, i) => /*#__PURE__*/React.createElement(PathoCard, {
     key: s.id,
     s: s,
-    index: i,
-    onSelect: setSelected
-  }))), /*#__PURE__*/React.createElement(Footer, null), /*#__PURE__*/React.createElement(PathoDrawer, {
-    patho: selected,
-    onClose: () => setSelected(null)
-  }));
+    index: i
+  }))), /*#__PURE__*/React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('app')).render(/*#__PURE__*/React.createElement(App, null));

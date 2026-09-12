@@ -5,6 +5,14 @@
 # Redirections — nettoyer anciennes URLs
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # Une seule adresse publique, alignée sur canonical et sitemap.
+  RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]) [NC]
+  RewriteRule ^index\.html$ https://www.drlozach.fr/ [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/+en/index\.html(?:[?\s]) [NC]
+  RewriteRule ^en/index\.html$ https://www.drlozach.fr/en/ [R=301,L]
+  RewriteCond %{HTTP_HOST} ^drlozach\.fr$ [NC]
+  RewriteRule ^ https://www.drlozach.fr%{REQUEST_URI} [R=301,L]
+
   RewriteRule ^autocart\.html$ https://www.drlozach.fr/greffe-cartilagineuse.html [R=301,L]
   RewriteRule ^en/autocart\.html$ https://www.drlozach.fr/en/greffe-cartilagineuse.html [R=301,L]
   # Bloquer les copies de travail et anciens fichiers restant sur le serveur.

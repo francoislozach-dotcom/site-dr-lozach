@@ -9,9 +9,7 @@ function App() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow reveal"
-  }, "◍ Contact \xB7 S\xE8te"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h1", {className: "eyebrow page-topic"}, "Consultation and appointments in Sète"), /*#__PURE__*/React.createElement("div", {
     className: "line-mask"
   }, /*#__PURE__*/React.createElement("span", {
     className: "display"
