@@ -9,3 +9,11 @@
 uploads/
 CLAUDE.md
 *.log
+
+# Documents internes et sauvegardes hors publication
+*.zip
+*.md
+.fuse_hidden*
+drlozach-optimise/
+autocart-timeline.html
+node_modules/

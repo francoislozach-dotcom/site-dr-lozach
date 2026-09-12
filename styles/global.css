@@ -760,3 +760,10 @@ section {
 @media (max-width: 900px) {
   .lang-switch:not(.lang-switch-mobile) { display: none; }
 }
+
+/* Comfort and keyboard access, September 2026 */
+body{cursor:auto}a,button,[role=button]{cursor:pointer}.cursor-dot,.cursor-ring{display:none!important}
+:focus-visible{outline:3px solid #00d4ff;outline-offset:5px}
+.footer-legal{display:flex;gap:16px;flex-wrap:wrap}.footer-legal a{text-decoration:underline}.footer-bottom{gap:20px;flex-wrap:wrap;font-size:14px}.footer-col h4{font-size:14px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}.reveal,.line-mask>span{opacity:1!important;transform:none!important}.gr-irm-frame:first-child,.gr-irm-tag:first-child{opacity:1!important}.gr-irm-frame:not(:first-child),.gr-irm-tag:not(:first-child){opacity:0!important}}
+button.faq-q{width:100%;text-align:left;background:none;color:inherit;border:0;font:inherit;cursor:pointer}.faq-a-wrap[hidden]{display:none!important}.legal-page button{color:#79e7ff;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer}

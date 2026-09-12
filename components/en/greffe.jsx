@@ -36,7 +36,7 @@ function Hero() {
             <div className="gr-eyebrow">◍ AutoCart™ · Knee &amp; Ankle</div>
             <h1 className="gr-title h1">Cartilage graft for the knee and ankle</h1>
             <p className="gr-lede">An autologous single-stage procedure — your own cartilage to repair your cartilage.</p>
-            <p className="gr-text">Do you suffer from chronic knee or ankle pain that has not improved despite conventional treatments? A surgical regeneration solution is now available — in a single procedure, using no foreign material, with your own cartilage cells.</p>
+            <p className="gr-text">Persistent knee or ankle pain warrants an assessment. For some localised cartilage lesions, an autologous cartilage graft may be discussed after examination and imaging.</p>
             <div className="gr-cta-row">
               <a href="#procedure" className="gr-btn gr-btn-ghost">Discover the procedure</a>
             </div>
@@ -84,38 +84,44 @@ function SectionProbleme() {
 /* SECTION 3 — Why not the alternatives */
 const COMPARE_BLOCKS = [
   {
-    title: "Injections (cortisone, PRP, hyaluronic acid)",
-    rows: [
-      { lab: 'Effect', body: "Reduce inflammation, lubricate the joint, provide temporary relief." },
-      { lab: 'Limitation', neg: true, body: "They do not repair cartilage. The effect fades, the lesion remains — and often worsens." }
+    "title": "Injections",
+    "rows": [
+      {
+        "lab": "Principle",
+        "body": "May be discussed to relieve symptoms."
+      }
     ],
-    verdict: "Useful for short-term pain management, not for treating the underlying cause."
+    "verdict": "The choice depends on your clinical assessment."
   },
   {
-    title: "Microfractures",
-    rows: [
-      { lab: 'Effect', body: "The subchondral bone is drilled to induce bleeding. The clot produces fibrocartilage." },
-      { lab: 'Limitation', neg: true, body: "Fibrocartilage is not true cartilage. It is an inferior tissue, less durable, that degrades in 2 to 5 years — particularly for lesions larger than 2 cm²." },
-      { lab: 'Studies', body: "Minced autologous cartilage graft shows superior clinical and MRI outcomes compared to microfractures." }
+    "title": "Microfracture",
+    "rows": [
+      {
+        "lab": "Principle",
+        "body": "A technique intended to stimulate repair tissue."
+      }
     ],
-    verdict: "Acceptable for very small lesions, insufficient beyond that."
+    "verdict": "The choice depends on your clinical assessment."
   },
   {
-    title: "Knee or ankle replacement",
-    rows: [
-      { lab: 'Effect', body: "Replaces the entire joint." },
-      { lab: 'Limitation', neg: true, body: "An irreversible solution, unsuitable for a young or active patient with a localised lesion. You do not replace an entire engine for a scratch on one piston." }
+    "title": "Joint replacement",
+    "rows": [
+      {
+        "lab": "Principle",
+        "body": "An option discussed in a different clinical context, particularly advanced osteoarthritis."
+      }
     ],
-    verdict: "Last resort, reserved for severe diffuse osteoarthritis."
+    "verdict": "The choice depends on your clinical assessment."
   },
   {
-    title: "Chondrocyte transplantation (MACI / ACI)",
-    rows: [
-      { lab: 'Effect', body: "Cartilage is harvested, cells cultured in a laboratory, then reimplanted in a second procedure." },
-      { lab: 'Limitation', neg: true, body: "Two surgical procedures, several months between them, and high cost." },
-      { lab: 'Studies', body: "For large lesions, minced cartilage + PRP + fibrin gives better outcomes at 24 months — in a single procedure." }
+    "title": "Chondrocyte transplantation (MACI / ACI)",
+    "rows": [
+      {
+        "lab": "Principle",
+        "body": "A cell-based cartilage repair technique performed in two stages."
+      }
     ],
-    verdict: "Practically superseded technique."
+    "verdict": "The choice depends on your clinical assessment."
   }
 ];
 
@@ -124,8 +130,8 @@ function SectionAlternatives() {
     <section className="gr-section">
       <div className="gr-container">
         <div className="gr-section-head">
-          <div className="gr-eyebrow">◍ Why not the alternatives?</div>
-          <h2 className="gr-title h2">What you may already have been offered — and why it does not solve the problem</h2>
+          <div className="gr-eyebrow">◍ Treatment options</div>
+          <h2 className="gr-title h2">Different options to discuss in consultation</h2>
         </div>
         <div className="gr-compare-grid">
           {COMPARE_BLOCKS.map((b, i) => (
@@ -153,9 +159,9 @@ function SectionAutoCart() {
       <div className="gr-container">
         <div className="gr-section-head">
           <div className="gr-eyebrow">◍ The AutoCart™ Solution</div>
-          <h2 className="gr-title h2">Autologous cartilage graft: the only technique that restores true cartilage</h2>
-          <p className="gr-lede" style={{ marginTop: 28 }}>The AutoCart™ technique rests on a simple but powerful principle: using your own cartilage to repair your cartilage.</p>
-          <p className="gr-text" style={{ marginTop: 16 }}>Fragments of healthy cartilage are harvested from your joint, mixed with your centrifuged blood (PRP), and fixed onto the lesion with a natural fibrin glue derived from your own blood. No foreign material. No laboratory culture. A single procedure. Under 45 minutes.</p>
+          <h2 className="gr-title h2">Autologous cartilage graft: an option for selected lesions</h2>
+          <p className="gr-lede" style={{ marginTop: 28 }}>The AutoCart™ technique uses the patient’s own cartilage.</p>
+          <p className="gr-text" style={{ marginTop: 16 }}>The technique uses cartilage fragments from the patient. Its suitability, practical details and possible associated procedures are explained during the consultation.</p>
         </div>
         <div className="gr-eyebrow" style={{ marginTop: 32 }}>◍ The healing triad</div>
         <div className="gr-triade-grid">
@@ -182,38 +188,92 @@ function SectionAutoCart() {
 /* SECTION 5 — TIMELINE */
 const STEPS = [
   {
-    num: 1, title: "Visualisation of the lesion under arthroscopy", short: "Diagnosis",
-    text: "A miniaturised camera is introduced into the joint. The lesion is seen in real time: its exact size, depth, and margins. This is the mapping step — we know precisely what we are treating before we begin.",
-    media: [{ kind: 'photo', src: '../assets/lesion-hd.webp', label: 'Focal lesion · intraoperative view' }]
+    "num": 1,
+    "title": "Visualisation of the lesion under arthroscopy",
+    "short": "Diagnosis",
+    "text": "The lesion is assessed under arthroscopic guidance.",
+    "media": [
+      {
+        "kind": "photo",
+        "src": "../assets/lesion-hd.webp",
+        "label": "Focal lesion · intraoperative view"
+      }
+    ]
   },
   {
-    num: 2, title: "Debridement and harvest of your healthy cartilage", short: "Preparation & harvest",
-    text: "The damaged area is first precisely debrided: necrotic and unstable cartilage is removed until healthy margins are reached. A dedicated shaver then harvests micro-fragments of hyaline cartilage from non-load-bearing zones of your joint — automatically collected in a sterile filter (GraftNet™), approximately 0.2 mL per cm² of lesion. Your cartilage, to repair your cartilage.",
-    media: [{ kind: 'video', src: '../assets/debridement.mp4', label: 'Debridement & shaver · intraoperative sequence' }]
+    "num": 2,
+    "title": "Debridement and harvest of your healthy cartilage",
+    "short": "Preparation & harvest",
+    "text": "Cartilage fragments are collected and the area to be treated is prepared.",
+    "media": [
+      {
+        "kind": "video",
+        "src": "../assets/debridement.mp4",
+        "label": "Debridement & shaver · intraoperative sequence"
+      }
+    ]
   },
   {
-    num: 3, title: "Activation of your platelet-rich plasma", short: "PRP",
-    text: "Simultaneously, 45 mL of your blood is drawn and centrifuged. This produces a PRP concentrated in growth factors and low in inflammatory cells. This golden plasma will enrich the cartilage paste and serve as the basis for the natural fibrin glue.",
-    media: [{ kind: 'video', src: '../assets/prp.mp4', frame: 'feather', label: 'PRP preparation · double syringe' }]
+    "num": 3,
+    "title": "Activation of your platelet-rich plasma",
+    "short": "PRP",
+    "text": "Blood is processed to prepare platelet-rich plasma (PRP).",
+    "media": [
+      {
+        "kind": "video",
+        "src": "../assets/prp.mp4",
+        "frame": "feather",
+        "label": "PRP preparation · double syringe"
+      }
+    ]
   },
   {
-    num: 4, title: "Placement of the graft — the lesion is filled", short: "Graft",
-    text: "The cartilage shavings are mixed with PRP to form a biological paste. This paste is introduced into the joint through a cannula, deposited precisely onto the damaged area, and adjusted with a probe hook. A living, custom-made filler.",
-    media: [{ kind: 'video', src: '../assets/greffe-application.mp4', ratio: '4/3', label: 'Paste application' }]
+    "num": 4,
+    "title": "Placement of the graft — the lesion is filled",
+    "short": "Graft",
+    "text": "The cartilage fragments are placed in the prepared defect.",
+    "media": [
+      {
+        "kind": "video",
+        "src": "../assets/greffe-application.mp4",
+        "ratio": "4/3",
+        "label": "Paste application"
+      }
+    ]
   },
   {
-    num: 5, title: "Fixation with fibrin and PRP — zero foreign material", short: "Stabilisation",
-    text: "A 100% autologous fibrin glue — produced from your own PRP via the Thrombinator™ system — is applied over the graft. It coagulates in 15 seconds, forms a natural gel, and holds the chondrocytes in place during regeneration. No implant, no chemical product.",
-    media: [{ kind: 'video', src: '../assets/fibrine.mp4', label: 'Fibrin application' }]
+    "num": 5,
+    "title": "Graft stabilisation",
+    "short": "Stabilisation",
+    "text": "The graft is stabilised according to the planned technique.",
+    "media": [
+      {
+        "kind": "video",
+        "src": "../assets/fibrine.mp4",
+        "label": "Fibrin application"
+      }
+    ]
   },
   {
-    num: 6, title: "Final result — the articular surface is restored", short: "Result",
-    text: "The lesion is filled. The articular surface is restored with your own hyaline cartilage. The procedure is complete — under 45 minutes. Regeneration will continue over the following months, guided by the growth factors from the PRP.",
-    media: [
-      { kind: 'photo', src: '../assets/resultat-avant.webp', frame: 'disc', label: 'Before · initial lesion' },
-      { kind: 'photo', src: '../assets/resultat-apres.webp', frame: 'disc', label: 'After · surface filled' }
+    "num": 6,
+    "title": "Final check",
+    "short": "Result",
+    "text": "The treated area is checked. Healing and recovery are assessed over time.",
+    "media": [
+      {
+        "kind": "photo",
+        "src": "../assets/resultat-avant.webp",
+        "frame": "disc",
+        "label": "Before · initial lesion"
+      },
+      {
+        "kind": "photo",
+        "src": "../assets/resultat-apres.webp",
+        "frame": "disc",
+        "label": "After · surface filled"
+      }
     ],
-    final: true
+    "final": true
   }
 ];
 
@@ -391,7 +451,7 @@ function SectionProcedure() {
 function SectionIndications() {
   const yes = [
     "Chondral or osteochondral lesions grade 3 to 4 (Outerbridge)",
-    "Lesions from 2 cm² to 6 cm²",
+    "Lesion size, depth and location assessed individually",
     "Knee: femoral condyle, tibial plateau, patella",
     "Ankle: talar dome (osteochondral lesion)",
     "Active patient wishing to preserve a native joint",
@@ -430,34 +490,25 @@ function SectionIndications() {
 /* SECTION 7 — Post-op recovery */
 const SUITES = [
   {
-    title: "Knee — Femoro-tibial lesion",
-    steps: [
-      { when: "D0 – D2", what: "Rest, leg in extension" },
-      { when: "D2 – 6 wks", what: "Partial weight-bearing (15 kg), crutches" },
-      { when: "6 wks – 3 mths", what: "Progressive full weight-bearing, cycling, swimming" },
-      { when: "3 months", what: "Low-impact sports" },
-      { when: "12 – 16 mths", what: "High-impact sports (running, skiing, football)" }
-    ]
-  },
-  {
-    title: "Knee — Femoro-patellar lesion (patella)",
-    note: "Same protocol + adjustable brace in progressive flexion: 0/30° (wk 1-2) → 0/60° (wk 3-4) → 0/90° (wk 5-6)",
-    steps: [
-      { when: "D0 – D2", what: "Rest, leg in extension" },
-      { when: "Wk 1-2", what: "Brace 0/30°, partial weight-bearing" },
-      { when: "Wk 3-4", what: "Brace 0/60°" },
-      { when: "Wk 5-6", what: "Brace 0/90°" },
-      { when: "12 – 16 mths", what: "High-impact sports" }
-    ]
-  },
-  {
-    title: "Ankle",
-    steps: [
-      { when: "0 – 6 wks", what: "Partial weight-bearing (max 20 kg), orthosis" },
-      { when: "6 wks – 3 mths", what: "Progressive full weight-bearing, full mobilisation" },
-      { when: "3 months", what: "Low-impact sports" },
-      { when: "6 months", what: "Return to all sporting activity" },
-      { when: "Follow-up", what: "Consultation and MRI control at 1 year" }
+    "title": "A personalised recovery plan",
+    "note": "The location of the lesion and any associated procedures determine the recovery plan. This page is not a prescription.",
+    "steps": [
+      {
+        "when": "Before surgery",
+        "what": "Discuss the planned procedure and personalised recovery instructions."
+      },
+      {
+        "when": "After surgery",
+        "what": "Follow the prescribed weight-bearing, crutch and brace instructions."
+      },
+      {
+        "when": "Rehabilitation",
+        "what": "Progress according to your surgeon and physiotherapist’s assessment."
+      },
+      {
+        "when": "Return to activity",
+        "what": "Resume work and sport only after individual assessment."
+      }
     ]
   }
 ];
@@ -496,7 +547,7 @@ function IRMCycler() {
         ))}
         <div className="gr-irm-progress"></div>
       </div>
-      <div className="gr-irm-caption">REPAIR PROGRESSION OVER 6 MONTHS · MRI</div>
+      <div className="gr-irm-caption">FOLLOW-UP ILLUSTRATION · INDIVIDUAL OUTCOMES VARY</div>
     </div>
   );
 }
@@ -531,10 +582,26 @@ function SectionSuites() {
 
 /* SECTION 8 — Results */
 const STATS = [
-  { num: '/01', title: 'Superior to microfractures', body: "Significantly better clinical and MRI outcomes, particularly for patellar lesions and large lesions." },
-  { num: '/02', title: 'Superior to MACT', body: "For large lesions, the technique with PRP and fibrin yields better outcomes at 24 months — in a single procedure." },
-  { num: '/03', title: 'Stability at 5 years', body: "Long-term studies confirm maintenance of functional results and absence of progressive deterioration." },
-  { num: '/04', title: 'Low reoperation rate', body: "At 5 years, the reintervention rate is very low." }
+  {
+    "num": "/01",
+    "title": "Goals",
+    "body": "Discuss pain, function and your activity goals."
+  },
+  {
+    "num": "/02",
+    "title": "Individual outcomes",
+    "body": "Improvement varies; a particular result cannot be guaranteed."
+  },
+  {
+    "num": "/03",
+    "title": "Follow-up",
+    "body": "Recovery is assessed during follow-up visits, with imaging when indicated."
+  },
+  {
+    "num": "/04",
+    "title": "Risks and limitations",
+    "body": "Persistent pain, stiffness, infection, thrombosis or failure of the graft may occur. Further surgery may be needed. Discuss your individual risks in consultation."
+  }
 ];
 
 function SectionResultats() {
@@ -543,10 +610,10 @@ function SectionResultats() {
       <div className="gr-container">
         <div className="gr-section-head">
           <div className="gr-eyebrow">◍ Results &amp; scientific data</div>
-          <h2 className="gr-title h2">Proven results up to 5 years</h2>
-          <p className="gr-text" style={{ marginTop: 20 }}>The autologous cartilage technique has been studied since 1983. Current data, from multiple clinical studies involving hundreds of patients, are consistent:</p>
+          <h2 className="gr-title h2">Goals, follow-up and limitations</h2>
+          <p className="gr-text" style={{ marginTop: 20 }}>Results must be interpreted in the context of each patient.</p>
         </div>
-        <div className="gr-stats-grid">
+        <p className="gr-text" style={{marginBottom:24}}><a href="https://www.orthoinfo.org/treatment/articular-cartilage-restoration/" target="_blank" rel="noopener noreferrer">Patient information: cartilage restoration (AAOS, English)</a></p><div className="gr-stats-grid">
           {STATS.map((s, i) => (
             <div key={i} className="gr-stat-card">
               <div className="num">{s.num}</div>
@@ -566,28 +633,28 @@ function SectionResultats() {
 /* SECTION 9 — FAQ */
 const FAQ = [
   {
-    q: "Will I be in pain after surgery?",
-    a: "Immediate post-operative pain is managed with an appropriate analgesic protocol. It is generally moderate and similar to that of standard arthroscopy. The most difficult period is usually the first 48 hours."
+    "q": "How is pain managed?",
+    "a": "Pain relief is prescribed and adapted to your situation."
   },
   {
-    q: "How long is the hospital stay?",
-    a: "The procedure is generally performed as day surgery or with one overnight stay, depending on the protocols of the operating site."
+    "q": "How long does surgery and the hospital stay take?",
+    "a": "The planned duration and type of hospital stay are explained during the preoperative consultation and depend on the procedures involved."
   },
   {
-    q: "Why can sport not be resumed before 12–16 months for the knee?",
-    a: "Cartilage regeneration is a slow biological process. The tissue is structurally in place by 3–6 months, but it takes 12 to 18 months to reach sufficient mechanical strength for impact sports. Returning too early risks damaging what has just been built."
+    "q": "When can I walk and return to sport?",
+    "a": "Weight-bearing and return to sport require individual instructions. Follow your prescription and ask the surgical team before changing your activity."
   },
   {
-    q: "Is the technique covered by health insurance?",
-    a: "Coverage depends on the clinical context and the procedure code used. This point is discussed during the pre-operative consultation."
+    "q": "Is treatment covered by health insurance?",
+    "a": "Coverage and any additional fees are explained before surgery."
   },
   {
-    q: "Can the knee AND ankle be treated with this technique?",
-    a: "Yes. Both joints can be treated, either during the same procedure or at separate operations, depending on your assessment."
+    "q": "Can this technique be considered for the knee or ankle?",
+    "a": "The option is assessed according to the location and characteristics of the lesion. A consultation is needed to establish the indication."
   },
   {
-    q: "Is an MRI required before the consultation?",
-    a: "A recent MRI (within the past 6 months) of the affected joint is essential to assess the lesion. If you do not have one, it will be prescribed at the consultation."
+    "q": "What should I bring to the consultation?",
+    "a": "Bring your available imaging and reports. Any further examinations will be specified during the consultation."
   }
 ];
 
@@ -603,11 +670,11 @@ function SectionFAQ() {
         <div>
           {FAQ.map((it, i) => (
             <div key={i} className={'gr-faq-item' + (open === i ? ' open' : '')}>
-              <button className="gr-faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
+              <button className="gr-faq-q" aria-expanded={open === i} aria-controls={`graft-answer-${i}`} onClick={() => setOpen(open === i ? -1 : i)}>
                 <span>{it.q}</span>
                 <span className="plus">+</span>
               </button>
-              <div className="gr-faq-a">
+              <div id={`graft-answer-${i}`} className="gr-faq-a" hidden={open !== i}>
                 <p>{it.a}</p>
               </div>
             </div>
@@ -637,6 +704,7 @@ function CTAFinal() {
 /* Particle canvas background */
 function useParticles() {
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const c = document.getElementById('gr-particles');
     if (!c) return;
     const ctx = c.getContext('2d');

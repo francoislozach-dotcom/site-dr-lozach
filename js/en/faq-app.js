@@ -1,88 +1,117 @@
-const THEMES = [{
-  id: 'consultation',
-  key: 'Consultation',
-  name: 'Consultation',
-  accroche: 'Before your surgery.',
-  items: [{
-    q: "Do I need a referral from my GP to book a consultation?",
-    a: "No, you can book a consultation directly without a referral. However, a letter from your GP is appreciated as it helps optimise the consultation. For the best coverage by the National Health Insurance (Assurance Maladie), it is always preferable to go through your GP within the coordinated care pathway. Your GP acts as a genuine 'control tower' who knows you well and will guide you to the right care pathway."
-  }, {
-    q: "How do I book an appointment?",
-    a: "Appointments can be booked via Doctolib or by phone on 04 67 53 09 24. The secretary's office is reachable Monday to Friday. For urgent trauma cases, contact the Pôle Santé Thau clinic directly, unscheduled medical care unit, level -1."
-  }, {
-    q: "What documents should I bring to the first consultation?",
-    a: "Please bring any recent imaging (X-rays, MRI, CT scan), your current prescriptions, your health insurance card and complementary insurance details, and if possible a summary of your medical and surgical history."
-  }, {
-    q: "Does Dr Lozach practise in the private sector (Sector 2)?",
-    a: "Yes, Dr Lozach practises in the private sector (Sector 2). A written estimate will be provided before any surgical procedure. Most complementary insurance plans cover all or part of the additional fees."
-  }]
-}, {
-  id: 'avant',
-  key: "Before surgery",
-  name: "Before surgery",
-  accroche: 'What you need to know.',
-  items: [{
-    q: "How should I prepare for surgery?",
-    a: "A pre-anaesthetic consultation is required before any procedure. You must fast from solid food for 6 hours before your arrival at the clinic, and from clear fluids for 2 hours. Some medications must be stopped (anticoagulants, aspirin) — your surgeon will advise which ones. For day surgery (ambulatory) procedures, please arrange for someone to drive you home."
-  }, {
-    q: "Is most surgery performed as day surgery (ambulatory)?",
-    a: "Yes, the vast majority of procedures are performed as day surgery: foot surgery, ankle surgery, knee arthroscopy, ACL reconstruction, AutoCart cartilage grafting, Achilles tendon surgery. You arrive and leave the same day. Total joint replacements (THA, TKA) can also be performed as day surgery or may require a short inpatient stay."
-  }, {
-    q: "What is the ROSA robot and why is it used?",
-    a: "ROSA is a robotic assistance system used for knee replacement surgery (TKA and UKA). It enables personalised planning and high-precision implant positioning. The result: a better-positioned prosthesis, faster recovery, and optimised longevity."
-  }, {
-    q: "What is the AutoCart technique?",
-    a: "AutoCart is a cartilage graft performed in a single surgical session. Thin slices of healthy cartilage are harvested from a non-weight-bearing area of the knee, then transplanted directly onto the damaged area during the same procedure. One hour, day surgery, using the patient's own tissue."
-  }]
-}, {
-  id: 'apres',
-  key: "After surgery",
-  name: "After surgery",
-  accroche: 'Recovery, step by step.',
-  items: [{
-    q: "When can I drive again after a hip replacement?",
-    a: "Driving may be resumed 2 to 4 weeks after a THA, subject to the surgeon's approval at the follow-up consultation. This period allows the stabilising muscles to regain sufficient tone."
-  }, {
-    q: "When can I return to sport after ACL reconstruction?",
-    a: "Return to pivoting contact sports is authorised at a minimum of 9 months, after objective criteria have been validated (isokinetic tests, functional tests). Running resumes around 4–5 months, cycling at 6 weeks."
-  }, {
-    q: "Is post-operative pain significant?",
-    a: "Pain is very well controlled thanks to multimodal analgesia protocols and loco-regional nerve blocks. The majority of patients describe moderate discomfort during the first days, quickly relieved by the prescribed treatment. Dr Lozach works closely with his anaesthesiologist colleagues to optimise the quality of post-operative care."
-  }, {
-    q: "When is the first post-operative consultation?",
-    a: "The first follow-up consultation takes place at 4 weeks for the majority of procedures, with clinical examination and X-ray review. Further consultations are scheduled at 3 months, 6 months, and 1 year."
-  }, {
-    q: "Can physiotherapy be done at home?",
-    a: "Outpatient physiotherapy with a private physiotherapist is sufficient for the vast majority of procedures. Inpatient rehabilitation (SSR) can be arranged for patients who live alone, elderly patients, or after certain complex revision surgeries. A detailed rehabilitation protocol will be provided at discharge."
-  }]
-}, {
-  id: 'protheses',
-  key: 'Joint replacements',
-  name: 'Joint replacements',
-  accroche: 'What you need to know.',
-  items: [{
-    q: "How long does a hip or knee replacement last?",
-    a: "Current joint replacements have an estimated lifespan of 20–25 years for more than 90% of patients. This durability depends on implant quality, precision of positioning (hence the value of the ROSA robot), the patient's weight, and activity level."
-  }, {
-    q: "Can I have an MRI scan with a joint replacement?",
-    a: "Yes, current orthopaedic implants are MRI-compatible. They are manufactured from non-ferromagnetic alloys (titanium, cobalt-chrome). Always inform the radiologist of the presence of a joint replacement before any MRI scan."
-  }, {
-    q: "What precautions should I take after a hip replacement?",
-    a: "For the first 3 months, avoid crossing your legs, bending the hip beyond 90°, and sitting in very low seats. These precautions are progressively lifted as the capsular healing progresses. A detailed list will be provided before discharge."
-  }]
-}, {
-  id: 'expertise',
-  key: 'Medical expertise',
-  name: 'Medical expertise',
-  accroche: 'A complementary activity.',
-  items: [{
-    q: "Does Dr Lozach carry out medico-legal assessments?",
-    a: "Yes, Dr Lozach is a court-appointed medico-legal expert in orthopaedics. He carries out amicable and judicial assessments in personal injury cases (road traffic accidents, workplace accidents, medical liability)."
-  }, {
-    q: "How can I request an assessment?",
-    a: "Requests typically come from insurance companies, solicitors, or courts. Please contact the secretary's office at secretariat@ortho-7.fr, specifying the nature of the request (amicable, judicial, CRCI) and enclosing available medical documents."
-  }]
-}];
+const THEMES = [
+  {
+    "id": "consultation",
+    "key": "Consultation",
+    "name": "Consultation",
+    "accroche": "Before your surgery.",
+    "items": [
+      {
+        "q": "Do I need a referral from my GP to book a consultation?",
+        "a": "No, you can book a consultation directly without a referral. However, a letter from your GP is appreciated as it helps optimise the consultation. For the best coverage by the National Health Insurance (Assurance Maladie), it is always preferable to go through your GP within the coordinated care pathway. Your GP acts as a genuine 'control tower' who knows you well and will guide you to the right care pathway."
+      },
+      {
+        "q": "How do I book an appointment?",
+        "a": "Appointments can be booked via Doctolib or by phone on 04 67 53 09 24. The secretary's office is reachable Monday to Friday. For urgent trauma cases, contact the Pôle Santé Thau clinic directly, unscheduled medical care unit, level -1."
+      },
+      {
+        "q": "What documents should I bring to the first consultation?",
+        "a": "Please bring any recent imaging (X-rays, MRI, CT scan), your current prescriptions, your health insurance card and complementary insurance details, and if possible a summary of your medical and surgical history."
+      },
+      {
+        "q": "Does Dr Lozach practise in the private sector (Sector 2)?",
+        "a": "Yes, Dr Lozach practises in the private sector (Sector 2). A written estimate will be provided before any surgical procedure. Most complementary insurance plans cover all or part of the additional fees."
+      }
+    ]
+  },
+  {
+    "id": "avant",
+    "key": "Before surgery",
+    "name": "Before surgery",
+    "accroche": "What you need to know.",
+    "items": [
+      {
+        "q": "How should I prepare for surgery?",
+        "a": "Follow the personalised instructions given during your anaesthetic assessment, including fasting and medication advice. Do not stop any treatment without medical advice. Arrange an escort home for day surgery."
+      },
+      {
+        "q": "Is most surgery performed as day surgery (ambulatory)?",
+        "a": "Yes, the vast majority of procedures are performed as day surgery: foot surgery, ankle surgery, knee arthroscopy, ACL reconstruction, AutoCart cartilage grafting, Achilles tendon surgery. You arrive and leave the same day. Total joint replacements (THA, TKA) can also be performed as day surgery or may require a short inpatient stay."
+      },
+      {
+        "q": "What is the ROSA robot and why is it used?",
+        "a": "ROSA assists the surgeon with planning and implant positioning during knee replacement. Its use depends on the indication; it does not guarantee faster recovery or a longer-lasting implant."
+      },
+      {
+        "q": "What is the AutoCart technique?",
+        "a": "AutoCart uses fragments of the patient’s cartilage during a single procedure. Suitability, operating time and recovery instructions are assessed individually. The Cartilage graft page explains the approach and its limitations."
+      }
+    ]
+  },
+  {
+    "id": "apres",
+    "key": "After surgery",
+    "name": "After surgery",
+    "accroche": "Recovery, step by step.",
+    "items": [
+      {
+        "q": "When can I drive again after a hip replacement?",
+        "a": "Driving can resume after reassessment, when you can control the vehicle and perform an emergency stop safely, and medication does not impair alertness. Ask your surgeon for individual advice."
+      },
+      {
+        "q": "When can I return to sport after ACL reconstruction?",
+        "a": "Return to pivoting contact sports is authorised at a minimum of 9 months, after objective criteria have been validated (isokinetic tests, functional tests). Running resumes around 4–5 months, cycling at 6 weeks."
+      },
+      {
+        "q": "Is post-operative pain significant?",
+        "a": "Pain management is adapted to the procedure and to each patient, in coordination with the anaesthesia team. Follow the discharge prescription and contact the care team if pain increases or is not relieved."
+      },
+      {
+        "q": "When is the first post-operative consultation?",
+        "a": "The first follow-up consultation takes place at 4 weeks for the majority of procedures, with clinical examination and X-ray review. Further consultations are scheduled at 3 months, 6 months, and 1 year."
+      },
+      {
+        "q": "Can physiotherapy be done at home?",
+        "a": "Outpatient physiotherapy with a private physiotherapist is sufficient for the vast majority of procedures. Inpatient rehabilitation (SSR) can be arranged for patients who live alone, elderly patients, or after certain complex revision surgeries. A detailed rehabilitation protocol will be provided at discharge."
+      }
+    ]
+  },
+  {
+    "id": "protheses",
+    "key": "Joint replacements",
+    "name": "Joint replacements",
+    "accroche": "What you need to know.",
+    "items": [
+      {
+        "q": "How long does a hip or knee replacement last?",
+        "a": "Implant longevity varies with the implant, the condition of the joint, activity and individual factors. Regular follow-up helps identify wear or complications; a revision may sometimes be required."
+      },
+      {
+        "q": "Can I have an MRI scan with a joint replacement?",
+        "a": "Yes, current orthopaedic implants are MRI-compatible. They are manufactured from non-ferromagnetic alloys (titanium, cobalt-chrome). Always inform the radiologist of the presence of a joint replacement before any MRI scan."
+      },
+      {
+        "q": "What precautions should I take after a hip replacement?",
+        "a": "For the first 3 months, avoid crossing your legs, bending the hip beyond 90°, and sitting in very low seats. These precautions are progressively lifted as the capsular healing progresses. A detailed list will be provided before discharge."
+      }
+    ]
+  },
+  {
+    "id": "expertise",
+    "key": "Medical expertise",
+    "name": "Medical expertise",
+    "accroche": "A complementary activity.",
+    "items": [
+      {
+        "q": "Does Dr Lozach carry out medico-legal assessments?",
+        "a": "Yes, Dr Lozach is a court-appointed medico-legal expert in orthopaedics. He carries out amicable and judicial assessments in personal injury cases (road traffic accidents, workplace accidents, medical liability)."
+      },
+      {
+        "q": "How can I request an assessment?",
+        "a": "Requests typically come from insurance companies, solicitors, or courts. Please contact the secretary's office at secretariat@ortho-7.fr, specifying the nature of the request (amicable, judicial, CCI) and enclosing available medical documents."
+      }
+    ]
+  }
+];
 const TOTAL_Q = THEMES.reduce((n, t) => n + t.items.length, 0);
 function FaqHero({
   filter,
@@ -184,16 +213,16 @@ function FaqRow({
   onToggle
 }) {
   return /*#__PURE__*/React.createElement("div", {
-    className: 'faq-row' + (isOpen ? ' open' : ''),
-    onClick: onToggle
-  }, /*#__PURE__*/React.createElement("div", {
+    className: 'faq-row' + (isOpen ? ' open' : '')
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button", onClick: onToggle, "aria-expanded": isOpen,
     className: "faq-q"
   }, /*#__PURE__*/React.createElement("div", {
     className: "faq-q-text"
   }, q), /*#__PURE__*/React.createElement("div", {
     className: "faq-chev"
   }, "›")), /*#__PURE__*/React.createElement("div", {
-    className: "faq-a-wrap"
+    className: "faq-a-wrap", hidden: !isOpen
   }, /*#__PURE__*/React.createElement("div", {
     className: "faq-a-line"
   }), /*#__PURE__*/React.createElement("div", {

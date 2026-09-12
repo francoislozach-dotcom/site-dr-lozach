@@ -37,7 +37,7 @@ function Hero() {
             <div className="gr-eyebrow">◍ AutoCart™ · Genou & Cheville</div>
             <h1 className="gr-title h1">Greffe de cartilage du genou et de la cheville</h1>
             <p className="gr-lede">Une technique autologue en une seule opération — votre propre cartilage pour réparer votre cartilage.</p>
-            <p className="gr-text">Vous souffrez d'une douleur chronique du genou ou de la cheville, sans amélioration malgré les traitements habituels ? Il existe aujourd'hui une solution chirurgicale de régénération — en une seule intervention, sans matériau étranger, avec vos propres cellules cartilagineuses.</p>
+            <p className="gr-text">Une douleur persistante du genou ou de la cheville mérite une évaluation. Selon votre bilan, une greffe cartilagineuse peut faire partie des options discutées.</p>
             <div className="gr-cta-row">
               <a href="#procedure" className="gr-btn gr-btn-ghost">Découvrir la procédure</a>
             </div>
@@ -71,7 +71,7 @@ function SectionProbleme() {
             <p className="gr-text" style={{ fontSize: 17 }}>Le cartilage est un tissu particulier : il n'est pas vascularisé, c'est-à-dire qu'il ne reçoit pas de sang. Sans vaisseaux sanguins, il ne peut pas se régénérer spontanément comme un os ou un muscle. Une fois abîmé par un traumatisme, une ostéochondrite ou une usure localisée, le cartilage reste lésé — et la douleur s'installe durablement.</p>
             <div className="gr-quote">
               <div className="gr-quote-label">— Analogie</div>
-              <p>Le cartilage, c'est comme le revêtement en téflon d'une poêle : si vous le rayez, il ne se répare pas. Il faut intervenir.</p>
+              <p>Le cartilage, c'est comme le revêtement en téflon d'une poêle : si vous le rayez, il ne se répare pas. Une évaluation permet de discuter des traitements possibles.</p>
             </div>
           </div>
           <Media kind="photo" src="assets/lesion-hd.webp" frame="disc" label="Vue arthroscopique · lésion cartilagineuse" />
@@ -84,40 +84,47 @@ function SectionProbleme() {
 
 /* SECTION 3 — Pourquoi pas les autres */
 const COMPARE_BLOCKS = [
-{
-  title: "Les infiltrations (cortisone, PRP, acide hyaluronique)",
-  rows: [
-  { lab: 'Effet', body: "Diminuent l'inflammation, lubrifient l'articulation, soulagent temporairement." },
-  { lab: 'Limite', neg: true, body: "Elles ne réparent pas le cartilage. L'effet s'estompe, la lésion reste — et souvent s'aggrave." }],
-
-  verdict: "Utiles pour gérer la douleur à court terme, pas pour traiter la cause."
-},
-{
-  title: "Les microfractures",
-  rows: [
-  { lab: 'Effet', body: "On perce l'os sous-chondral pour faire saigner. Le caillot produit du fibrocartilage." },
-  { lab: 'Limite', neg: true, body: "Le fibrocartilage n'est pas du vrai cartilage. Tissu de moindre qualité, moins résistant, qui se dégrade en 2 à 5 ans — en particulier pour les lésions > 2 cm²." },
-  { lab: 'Études', body: "La greffe de cartilage autologue haché donne des résultats cliniques et IRM supérieurs aux microfractures." }],
-
-  verdict: "Acceptable pour les très petites lésions, insuffisant au-delà."
-},
-{
-  title: "La prothèse de genou ou de cheville",
-  rows: [
-  { lab: 'Effet', body: "Remplace toute l'articulation." },
-  { lab: 'Limite', neg: true, body: "Solution irréversible, inadaptée à un patient jeune ou actif avec une lésion localisée. On ne remplace pas une pièce entière de moteur pour une rayure sur un piston." }],
-
-  verdict: "Dernier recours, réservé aux arthroses diffuses et sévères."
-},
-{
-  title: "La transplantation de chondrocytes (MACI / ACI)",
-  rows: [
-  { lab: 'Effet', body: "Prélever du cartilage, cultiver les cellules en laboratoire, réimplanter lors d'une deuxième opération." },
-  { lab: 'Limite', neg: true, body: "Deux interventions chirurgicales, plusieurs mois d'attente entre les deux, coût élevé." },
-  { lab: 'Études', body: "Pour les grandes lésions, la technique cartilage haché + PRP + fibrine donne de meilleurs résultats à 24 mois — en une seule intervention." }],
-
-  verdict: "Technique dépassée sur le plan pratique."
-}];
+  {
+    "title": "Infiltrations",
+    "rows": [
+      {
+        "lab": "Principe",
+        "body": "Peuvent être discutées pour soulager les symptômes."
+      }
+    ],
+    "verdict": "Le choix dépend de votre bilan clinique."
+  },
+  {
+    "title": "Microfractures",
+    "rows": [
+      {
+        "lab": "Principe",
+        "body": "Une technique visant à stimuler un tissu de réparation."
+      }
+    ],
+    "verdict": "Le choix dépend de votre bilan clinique."
+  },
+  {
+    "title": "Prothèse articulaire",
+    "rows": [
+      {
+        "lab": "Principe",
+        "body": "Une option discutée dans un autre contexte clinique, notamment une arthrose avancée."
+      }
+    ],
+    "verdict": "Le choix dépend de votre bilan clinique."
+  },
+  {
+    "title": "Transplantation de chondrocytes (MACI / ACI)",
+    "rows": [
+      {
+        "lab": "Principe",
+        "body": "Une technique de réparation cartilagineuse avec culture cellulaire, réalisée en deux temps."
+      }
+    ],
+    "verdict": "Le choix dépend de votre bilan clinique."
+  }
+];
 
 
 function SectionAlternatives() {
@@ -125,8 +132,8 @@ function SectionAlternatives() {
     <section className="gr-section">
       <div className="gr-container">
         <div className="gr-section-head">
-          <div className="gr-eyebrow">◍ Pourquoi pas les autres ?</div>
-          <h2 className="gr-title h2">Ce qu'on vous a peut-être déjà proposé — et pourquoi ça ne résout pas le problème</h2>
+          <div className="gr-eyebrow">◍ Les options de traitement</div>
+          <h2 className="gr-title h2">Plusieurs options à discuter en consultation</h2>
         </div>
         <div className="gr-compare-grid">
           {COMPARE_BLOCKS.map((b, i) =>
@@ -154,9 +161,9 @@ function SectionAutoCart() {
       <div className="gr-container">
         <div className="gr-section-head">
           <div className="gr-eyebrow">◍ La solution AutoCart™</div>
-          <h2 className="gr-title h2">La greffe de cartilage autologue : la seule technique qui restaure du vrai cartilage</h2>
-          <p className="gr-lede" style={{ marginTop: 28 }}>La technique AutoCart™ repose sur un principe simple mais puissant : utiliser votre propre cartilage pour réparer votre cartilage.</p>
-          <p className="gr-text" style={{ marginTop: 16 }}>On prélève des fragments de cartilage sain dans votre articulation, on les mélange avec votre propre sang centrifugé (PRP), et on les fixe sur la lésion avec une colle de fibrine naturelle issue de votre sang. Aucun produit étranger. Aucune culture en laboratoire. Une seule opération. Moins de 45 minutes.</p>
+          <h2 className="gr-title h2">La greffe de cartilage autologue : une option pour certaines lésions</h2>
+          <p className="gr-lede" style={{ marginTop: 28 }}>La technique AutoCart™ utilise le cartilage du patient.</p>
+          <p className="gr-text" style={{ marginTop: 16 }}>La technique utilise des fragments de cartilage du patient. Son intérêt, ses modalités et les éventuels gestes associés sont expliqués en consultation.</p>
         </div>
         <div className="gr-eyebrow" style={{ marginTop: 32 }}>◍ La triade de guérison</div>
         <div className="gr-triade-grid">
@@ -174,7 +181,7 @@ function SectionAutoCart() {
             </div>
           )}
         </div>
-        <p className="gr-triade-sub">Ces trois éléments réunis déclenchent la régénération du cartilage hyalin — le vrai cartilage, solide et durable.</p>
+        <p className="gr-triade-sub">Leur utilisation vise à favoriser la réparation ; le résultat dépend de la situation clinique.</p>
       </div>
     </section>);
 
@@ -182,25 +189,95 @@ function SectionAutoCart() {
 
 /* SECTION 5 — TIMELINE FUTURISTE */
 const STEPS = [
-{ num: 1, title: "Visualisation de la lésion sous arthroscopie", short: "Diagnostic",
-  text: "Une caméra miniaturisée est introduite dans l'articulation. On voit la lésion en direct : sa taille exacte, sa profondeur, ses bords. C'est l'étape de cartographie — on sait précisément ce qu'on va traiter avant de commencer.",
-  media: [{ kind: 'photo', src: 'assets/lesion-hd.webp', label: 'Lésion focale · vue per-op' }] },
-{ num: 2, title: "Débridement et prélèvement de votre cartilage sain", short: "Préparation & récolte",
-  text: "La zone lésée est d'abord débridée avec précision : on retire le cartilage nécrosé et instable jusqu'à obtenir des bords sains. Dans la foulée, un couteau-shaver spécifique prélève des micro-fragments de cartilage hyalin dans les zones non portantes de votre articulation — automatiquement collectés dans un filtre stérile (GraftNet™), environ 0,2 mL par cm² de lésion. Votre cartilage, pour réparer votre cartilage.",
-  media: [{ kind: 'video', src: 'assets/debridement.mp4', label: 'Débridement & shaver · séquence per-opératoire' }] },
-{ num: 3, title: "Activation de votre plasma riche en plaquettes", short: "PRP",
-  text: "Simultanément, 45 mL de votre sang sont prélevés et centrifugés. On obtient un PRP concentré en facteurs de croissance et pauvre en cellules inflammatoires. Ce plasma doré va enrichir la pâte de cartilage et servir à fabriquer la colle de fibrine naturelle.",
-  media: [{ kind: 'video', src: 'assets/prp.mp4', frame: 'feather', label: 'Préparation PRP · double seringue' }] },
-{ num: 4, title: "Mise en place du greffon — la lésion est comblée", short: "Greffe",
-  text: "Les copeaux de cartilage sont mélangés au PRP pour former une pâte biologique. Cette pâte est introduite dans l'articulation via une canule, déposée précisément sur la zone lésée et ajustée avec un crochet palpeur. Un mastic vivant, sur mesure.",
-  media: [{ kind: 'video', src: 'assets/greffe-application.mp4', ratio: '4/3', label: 'Application de la pâte' }] },
-{ num: 5, title: "Fixation par fibrine et PRP — zéro produit étranger", short: "Stabilisation",
-  text: "Une colle de fibrine 100 % autologue — fabriquée à partir de votre propre PRP via le système Thrombinator™ — est appliquée sur le greffon. Elle coagule en 15 secondes, forme un gel naturel et maintient les chondrocytes en place pendant la régénération. Aucun implant, aucun produit chimique.",
-  media: [{ kind: 'video', src: 'assets/fibrine.mp4', label: 'Application de la fibrine' }] },
-{ num: 6, title: "Résultat final — la surface articulaire est reconstituée", short: "Résultat",
-  text: "La lésion est comblée. La surface articulaire est reconstituée avec votre propre cartilage hyalin. L'opération est terminée — moins de 45 minutes. La régénération va se poursuivre pendant les mois suivants, guidée par les facteurs de croissance du PRP.",
-  media: [{ kind: 'photo', src: 'assets/resultat-avant.webp', frame: 'disc', label: 'Avant · lésion initiale' }, { kind: 'photo', src: 'assets/resultat-apres.webp', frame: 'disc', label: 'Après · surface comblée' }],
-  final: true }];
+  {
+    "num": 1,
+    "title": "Visualisation de la lésion sous arthroscopie",
+    "short": "Diagnostic",
+    "text": "La lésion est évaluée sous contrôle arthroscopique.",
+    "media": [
+      {
+        "kind": "photo",
+        "src": "assets/lesion-hd.webp",
+        "label": "Lésion focale · vue per-op"
+      }
+    ]
+  },
+  {
+    "num": 2,
+    "title": "Débridement et prélèvement de votre cartilage sain",
+    "short": "Préparation & récolte",
+    "text": "Des fragments de cartilage sont recueillis et la zone à traiter est préparée.",
+    "media": [
+      {
+        "kind": "video",
+        "src": "assets/debridement.mp4",
+        "label": "Débridement & shaver · séquence per-opératoire"
+      }
+    ]
+  },
+  {
+    "num": 3,
+    "title": "Activation de votre plasma riche en plaquettes",
+    "short": "PRP",
+    "text": "Le sang prélevé est préparé pour obtenir du plasma riche en plaquettes (PRP).",
+    "media": [
+      {
+        "kind": "video",
+        "src": "assets/prp.mp4",
+        "frame": "feather",
+        "label": "Préparation PRP · double seringue"
+      }
+    ]
+  },
+  {
+    "num": 4,
+    "title": "Mise en place du greffon — la lésion est comblée",
+    "short": "Greffe",
+    "text": "Les fragments de cartilage sont déposés dans la zone préparée.",
+    "media": [
+      {
+        "kind": "video",
+        "src": "assets/greffe-application.mp4",
+        "ratio": "4/3",
+        "label": "Application de la pâte"
+      }
+    ]
+  },
+  {
+    "num": 5,
+    "title": "Stabilisation du greffon",
+    "short": "Stabilisation",
+    "text": "Le greffon est stabilisé selon la technique prévue.",
+    "media": [
+      {
+        "kind": "video",
+        "src": "assets/fibrine.mp4",
+        "label": "Application de la fibrine"
+      }
+    ]
+  },
+  {
+    "num": 6,
+    "title": "Contrôle final",
+    "short": "Résultat",
+    "text": "La zone traitée est contrôlée. La cicatrisation et la récupération sont évaluées dans le temps.",
+    "media": [
+      {
+        "kind": "photo",
+        "src": "assets/resultat-avant.webp",
+        "frame": "disc",
+        "label": "Avant · lésion initiale"
+      },
+      {
+        "kind": "photo",
+        "src": "assets/resultat-apres.webp",
+        "frame": "disc",
+        "label": "Après · surface comblée"
+      }
+    ],
+    "final": true
+  }
+];
 
 
 /* ONE continuous electric path that snakes through all nodes */
@@ -388,7 +465,7 @@ function SectionProcedure() {
 function SectionIndications() {
   const yes = [
   "Lésions chondrales ou ostéochondrales de grade 3 à 4 (Outerbridge)",
-  "Lésions de 2 cm² à 6 cm²",
+  "Taille, profondeur et localisation évaluées individuellement",
   "Genou : condyle fémoral, plateau tibial, rotule (patella)",
   "Cheville : dôme du talus (lésion ostéochondrale)",
   "Patient actif souhaitant préserver une articulation native",
@@ -426,37 +503,29 @@ function SectionIndications() {
 
 /* SECTION 7 — Suites */
 const SUITES = [
-{
-  title: "Genou — Lésion fémoro-tibiale",
-  steps: [
-  { when: "J0 – J2", what: "Repos, jambe en extension" },
-  { when: "J2 – 6 sem.", what: "Appui partiel (15 kg), béquilles" },
-  { when: "6 sem. – 3 mois", what: "Appui total progressif, vélo, natation" },
-  { when: "3 mois", what: "Sports à faible impact" },
-  { when: "12 – 16 mois", what: "Sports à fort impact (course, ski, foot)" }]
-
-},
-{
-  title: "Genou — Lésion fémoro-patellaire (rotule)",
-  note: "Même protocole + attelle ajustable en flexion progressive : 0/30° (sem. 1-2) → 0/60° (sem. 3-4) → 0/90° (sem. 5-6)",
-  steps: [
-  { when: "J0 – J2", what: "Repos, jambe en extension" },
-  { when: "Sem. 1-2", what: "Attelle 0/30°, appui partiel" },
-  { when: "Sem. 3-4", what: "Attelle 0/60°" },
-  { when: "Sem. 5-6", what: "Attelle 0/90°" },
-  { when: "12 – 16 mois", what: "Sports à fort impact" }]
-
-},
-{
-  title: "Cheville",
-  steps: [
-  { when: "0 – 6 sem.", what: "Appui partiel (max 20 kg), orthèse" },
-  { when: "6 sem. – 3 mois", what: "Appui total progressif, mobilisation complète" },
-  { when: "3 mois", what: "Sports à faible impact" },
-  { when: "6 mois", what: "Reprise de toute activité sportive" },
-  { when: "Suivi", what: "Consultation et IRM de contrôle à 1 an" }]
-
-}];
+  {
+    "title": "Un programme de récupération personnalisé",
+    "note": "La localisation de la lésion et les gestes associés déterminent les suites. Cette page ne remplace pas votre prescription.",
+    "steps": [
+      {
+        "when": "Avant l’intervention",
+        "what": "Préciser le geste prévu et les consignes de récupération personnalisées."
+      },
+      {
+        "when": "Après l’intervention",
+        "what": "Respecter la prescription d’appui, de béquilles et d’attelle."
+      },
+      {
+        "when": "Rééducation",
+        "what": "Progresser selon le bilan du chirurgien et du kinésithérapeute."
+      },
+      {
+        "when": "Reprise des activités",
+        "what": "Reprendre le travail et le sport après une évaluation individuelle."
+      }
+    ]
+  }
+];
 
 
 /* IRM cycler — discrete dynamic progression M0 → M3 → M6 in loop */
@@ -494,7 +563,7 @@ function IRMCycler() {
         )}
         <div className="gr-irm-progress"></div>
       </div>
-      <div className="gr-irm-caption">ÉVOLUTION DE LA RÉPARATION SUR 6 MOIS · IRM </div>
+      <div className="gr-irm-caption">ILLUSTRATION DU SUIVI · NE PRÉJUGE PAS DU RÉSULTAT INDIVIDUEL </div>
     </div>);
 
 }
@@ -530,10 +599,27 @@ function SectionSuites() {
 
 /* SECTION 8 — Résultats */
 const STATS = [
-{ num: '/01', title: 'Supérieure aux microfractures', body: "Résultats cliniques et IRM significativement meilleurs, notamment pour les lésions patellaires et les grandes lésions." },
-{ num: '/02', title: 'Supérieure à la MACT', body: "Pour les lésions larges, la technique avec PRP et fibrine donne de meilleurs résultats à 24 mois — en une seule intervention." },
-{ num: '/03', title: 'Stabilité à 5 ans', body: "Les études à long terme confirment le maintien des résultats fonctionnels et l'absence de dégradation progressive." },
-{ num: '/04', title: 'Faible taux de réopération', body: "À 5 ans, le taux de réintervention est très bas." }];
+  {
+    "num": "/01",
+    "title": "Objectifs",
+    "body": "Discuter de la douleur, de la fonction et de vos objectifs d’activité."
+  },
+  {
+    "num": "/02",
+    "title": "Résultat individuel",
+    "body": "L’amélioration varie ; aucun résultat particulier ne peut être garanti."
+  },
+  {
+    "num": "/03",
+    "title": "Suivi",
+    "body": "La récupération est évaluée lors des consultations, avec imagerie si elle est indiquée."
+  },
+  {
+    "num": "/04",
+    "title": "Risques et limites",
+    "body": "Douleurs persistantes, raideur, infection, thrombose ou échec de la greffe sont possibles. Une nouvelle intervention peut être nécessaire. Vos risques personnels sont discutés en consultation."
+  }
+];
 
 
 function SectionResultats() {
@@ -541,11 +627,11 @@ function SectionResultats() {
     <section className="gr-section">
       <div className="gr-container">
         <div className="gr-section-head">
-          <div className="gr-eyebrow">◍ Résultats & données scientifiques</div>
-          <h2 className="gr-title h2">Des résultats prouvés jusqu'à 5 ans</h2>
-          <p className="gr-text" style={{ marginTop: 20 }}>La technique de cartilage autologue est étudiée depuis 1983. Les données actuelles, issues de plusieurs études cliniques portant sur des centaines de patients, sont convergentes :</p>
+          <div className="gr-eyebrow">◍ Objectifs et suivi</div>
+          <h2 className="gr-title h2">Objectifs, suivi et limites</h2>
+          <p className="gr-text" style={{ marginTop: 20 }}>Les résultats doivent être interprétés dans le contexte de chaque patient.</p>
         </div>
-        <div className="gr-stats-grid">
+        <p className="gr-text" style={{marginBottom:24}}><a href="https://www.orthoinfo.org/treatment/articular-cartilage-restoration/" target="_blank" rel="noopener noreferrer">Information patient : réparation du cartilage (AAOS, en anglais)</a></p><div className="gr-stats-grid">
           {STATS.map((s, i) =>
           <div key={i} className="gr-stat-card">
               <div className="num">{s.num}</div>
@@ -564,18 +650,31 @@ function SectionResultats() {
 
 /* SECTION 9 — FAQ */
 const FAQ = [
-{ q: "Est-ce que j'aurai mal après l'opération ?",
-  a: "La douleur post-opératoire immédiate est gérée par un protocole antalgique adapté. Elle est généralement modérée et similaire à celle d'une arthroscopie standard. Le cap le plus difficile est souvent les premières 48 heures." },
-{ q: "Combien de temps dure l'hospitalisation ?",
-  a: "L'intervention est généralement réalisée en ambulatoire ou avec une nuit d'hospitalisation, selon les protocoles du site opératoire." },
-{ q: "Pourquoi ne peut-on pas reprendre le sport avant 12–16 mois pour le genou ?",
-  a: "La régénération du cartilage est un processus biologique lent. Le tissu est structurellement en place dès 3–6 mois, mais il faut 12 à 18 mois pour qu'il atteigne une résistance mécanique suffisante pour les sports à impact. Reprendre trop tôt, c'est risquer d'abîmer ce qu'on vient de construire." },
-{ q: "Est-ce que la technique est remboursée par la Sécurité Sociale ?",
-  a: "La prise en charge dépend du contexte clinique et du code acte utilisé. Ce point est discuté lors de la consultation préopératoire." },
-{ q: "Peut-on traiter genou ET cheville avec cette technique ?",
-  a: "Oui. Les deux articulations peuvent être traitées, lors de la même intervention ou lors d'interventions séparées, selon votre bilan." },
-{ q: "Faut-il une IRM avant la consultation ?",
-  a: "Une IRM récente (moins de 6 mois) de l'articulation concernée est indispensable pour évaluer la lésion. Si vous n'en avez pas, elle sera prescrite lors de la consultation." }];
+  {
+    "q": "Comment la douleur est-elle prise en charge ?",
+    "a": "Un traitement antalgique est prescrit et adapté à votre situation."
+  },
+  {
+    "q": "Combien de temps durent l’intervention et l’hospitalisation ?",
+    "a": "La durée prévue et les modalités d’hospitalisation sont expliquées en consultation préopératoire et dépendent des gestes réalisés."
+  },
+  {
+    "q": "Quand pourrai-je marcher et reprendre le sport ?",
+    "a": "L’appui et la reprise du sport nécessitent des consignes individuelles. Suivez votre prescription et contactez l’équipe avant de modifier votre activité."
+  },
+  {
+    "q": "Quelle est la prise en charge financière ?",
+    "a": "La prise en charge et les éventuels compléments d’honoraires sont expliqués avant l’intervention."
+  },
+  {
+    "q": "Cette technique peut-elle être envisagée au genou ou à la cheville ?",
+    "a": "Cette possibilité est évaluée selon la localisation et les caractéristiques de la lésion. Une consultation est nécessaire pour poser l’indication."
+  },
+  {
+    "q": "Que dois-je apporter en consultation ?",
+    "a": "Apportez les examens d’imagerie et comptes rendus dont vous disposez. Les éventuels examens complémentaires seront précisés en consultation."
+  }
+];
 
 
 function SectionFAQ() {
@@ -590,11 +689,11 @@ function SectionFAQ() {
         <div>
           {FAQ.map((it, i) =>
           <div key={i} className={'gr-faq-item' + (open === i ? ' open' : '')}>
-              <button className="gr-faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
+              <button className="gr-faq-q" aria-expanded={open === i} aria-controls={`graft-answer-${i}`} onClick={() => setOpen(open === i ? -1 : i)}>
                 <span>{it.q}</span>
                 <span className="plus">+</span>
               </button>
-              <div className="gr-faq-a">
+              <div id={`graft-answer-${i}`} className="gr-faq-a" hidden={open !== i}>
                 <p>{it.a}</p>
               </div>
             </div>
@@ -624,6 +723,7 @@ function CTAFinal() {
 /* Particle canvas background */
 function useParticles() {
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const c = document.getElementById('gr-particles');
     if (!c) return;
     const ctx = c.getContext('2d');

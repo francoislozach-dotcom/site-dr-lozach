@@ -350,6 +350,7 @@ function HeroAnatomic() {
   const ref = useR(null);
   const [rot, setRot] = useS(0);
   useE(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let raf;
     const loop = () => {
       setRot(r => (r + 0.25) % 360);

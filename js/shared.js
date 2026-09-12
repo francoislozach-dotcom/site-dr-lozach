@@ -10,56 +10,7 @@ const {
 } = React;
 
 /* ---------- Custom cursor ---------- */
-function Cursor() {
-  const dot = useRef(null);
-  const ring = useRef(null);
-  useEffect(() => {
-    if (window.matchMedia('(max-width: 900px)').matches) return;
-    let mx = window.innerWidth / 2,
-      my = window.innerHeight / 2;
-    let rx = mx,
-      ry = my;
-    const move = e => {
-      mx = e.clientX;
-      my = e.clientY;
-      if (dot.current) {
-        dot.current.style.left = mx + 'px';
-        dot.current.style.top = my + 'px';
-      }
-    };
-    const tick = () => {
-      rx += (mx - rx) * 0.18;
-      ry += (my - ry) * 0.18;
-      if (ring.current) {
-        ring.current.style.left = rx + 'px';
-        ring.current.style.top = ry + 'px';
-      }
-      requestAnimationFrame(tick);
-    };
-    const enter = e => {
-      if (ring.current && e.target.closest('a, button, .hoverable, input, textarea')) ring.current.classList.add('hover');
-    };
-    const leave = e => {
-      if (ring.current && e.target.closest('a, button, .hoverable, input, textarea')) ring.current.classList.remove('hover');
-    };
-    window.addEventListener('mousemove', move);
-    document.addEventListener('mouseover', enter);
-    document.addEventListener('mouseout', leave);
-    requestAnimationFrame(tick);
-    return () => {
-      window.removeEventListener('mousemove', move);
-      document.removeEventListener('mouseover', enter);
-      document.removeEventListener('mouseout', leave);
-    };
-  }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    ref: dot,
-    className: "cursor-dot"
-  }), /*#__PURE__*/React.createElement("div", {
-    ref: ring,
-    className: "cursor-ring"
-  }));
-}
+function Cursor() { return null; }
 
 /* ---------- Reveal on scroll ---------- */
 function useReveal() {
@@ -114,6 +65,24 @@ function Nav({
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const toggle = document.querySelector('.nav-hamburger');
+    const menu = document.getElementById('site-mobile-menu');
+    const links = menu ? Array.from(menu.querySelectorAll('a,button')) : [];
+    if (links[0]) links[0].focus();
+    const key = e => {
+      if (e.key === 'Escape') { e.preventDefault(); setOpen(false); }
+      if (e.key === 'Tab' && links.length) {
+        const all = [toggle, ...links].filter(Boolean);
+        const i = all.indexOf(document.activeElement);
+        e.preventDefault(); all[(i + (e.shiftKey ? -1 : 1) + all.length) % all.length].focus();
+      }
+    };
+    document.addEventListener('keydown', key);
+    return () => { document.removeEventListener('keydown', key); if (toggle) toggle.focus(); };
+  }, [open]);
+
   const links = [
     { href: 'index.html', label: 'Accueil', key: 'accueil' },
     { href: 'pathologies.html', label: 'Pathologies', key: 'pathologies' },
@@ -157,7 +126,7 @@ function Nav({
       React.createElement("button", {
         className: "nav-hamburger",
         onClick: function() { setOpen(!open); },
-        "aria-label": "Menu"
+        "aria-label": "Menu", "aria-expanded": open, "aria-controls": "site-mobile-menu"
       },
         React.createElement("span", { className: open ? 'bar bar-open' : 'bar' }),
         React.createElement("span", { className: open ? 'bar bar-open' : 'bar' }),
@@ -165,7 +134,7 @@ function Nav({
       )
     ),
     open && React.createElement("div", {
-      className: "nav-mobile-overlay",
+      className: "nav-mobile-overlay", id: "site-mobile-menu",
       onClick: function() { setOpen(false); }
     },
       React.createElement("div", {
@@ -249,7 +218,7 @@ function Footer() {
     href: "contact.html"
   }, "Contact"))), /*#__PURE__*/React.createElement("div", {
     className: "footer-bottom"
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 ", new Date().getFullYear(), " \u2014 Dr Fran\xE7ois Lozach"), /*#__PURE__*/React.createElement("span", null, "Chirurgien orthop\xE9dique \xB7 S\xE8te")))), /*#__PURE__*/React.createElement(DoctolibFloat, null));
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 ", new Date().getFullYear(), " \u2014 Dr Fran\xE7ois Lozach"), /*#__PURE__*/React.createElement("span", {className:"footer-legal"}, React.createElement("span", null, "Tous droits réservés"), React.createElement("a", {href:"mentions-legales.html"}, "Mentions légales et droits d’auteur"), React.createElement("a", {href:"confidentialite.html"}, "Confidentialité"))))), /*#__PURE__*/React.createElement(DoctolibFloat, null));
 }
 
 /* ---------- Marquee ---------- */

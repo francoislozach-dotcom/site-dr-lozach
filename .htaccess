@@ -5,7 +5,16 @@
 # Redirections — nettoyer anciennes URLs
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteRule ^autocart\.html$ https://www.drlozach.fr/greffe-cartilagineuse.html [R=301,L]
+  RewriteRule ^en/autocart\.html$ https://www.drlozach.fr/en/greffe-cartilagineuse.html [R=301,L]
+  # Bloquer les copies de travail et anciens fichiers restant sur le serveur.
+  RewriteRule (^|/)(\.git|\.env[^/]*|\.fuse_hidden[^/]*)(/|$) - [F,L,NC]
+  RewriteRule ^drlozach-optimise(?:/|$) - [F,L,NC]
+  RewriteRule \.(?:zip|md|jsx)$ - [F,L,NC]
+  RewriteRule ^(?:autocart-timeline\.html|tweaks-panel\.js|js/tweaks-panel\.js)$ - [F,L,NC]
   
+  RewriteRule ^js/(?:en/)?autocart-app\.js$ - [F,L,NC]
+
   # Rediriger /fr/en/* vers /en/* (ancien site Angular)
   RewriteRule ^fr/en/(.*)$ /en/$1 [R=301,L]
   

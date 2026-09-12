@@ -30,13 +30,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://www.drlozach.fr/autocart.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
+<url>
     <loc>https://www.drlozach.fr/greffe-cartilagineuse.html</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -86,10 +80,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://www.drlozach.fr/en/autocart.html</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <url><loc>https://www.drlozach.fr/mentions-legales.html</loc></url>
+  <url><loc>https://www.drlozach.fr/confidentialite.html</loc></url>
+  <url><loc>https://www.drlozach.fr/en/legal.html</loc></url>
+  <url><loc>https://www.drlozach.fr/en/privacy.html</loc></url>
 </urlset>
