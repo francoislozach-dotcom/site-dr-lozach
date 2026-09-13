@@ -277,46 +277,6 @@ section {
 }
 .nav-links a:hover::after,
 .nav-links a.active::after { width: 100%; }
-/* Floating Doctolib button */
-.doctolib-float {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 9000;
-  background: #00bfa5;
-  color: #000;
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 14px 24px;
-  border-radius: 30px;
-  box-shadow: 0 8px 32px rgba(0, 191, 165, 0.35);
-  animation: doctolib-pulse 3s ease-in-out infinite;
-  transition: background 240ms ease, color 240ms ease, transform 240ms ease;
-}
-.doctolib-float:hover {
-  background: #fff;
-  color: #000;
-  animation-play-state: paused;
-}
-@keyframes doctolib-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-@media (max-width: 720px) {
-  .doctolib-float {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-    text-align: center;
-    padding: 16px;
-    border-radius: 12px;
-  }
-}
-
 .nav-cta {
   padding: 10px 18px;
   border: 1px solid currentColor;
@@ -767,3 +727,20 @@ body{cursor:auto}a,button,[role=button]{cursor:pointer}.cursor-dot,.cursor-ring{
 .footer-legal{display:flex;gap:16px;flex-wrap:wrap}.footer-legal a{text-decoration:underline}.footer-bottom{gap:20px;flex-wrap:wrap;font-size:14px}.footer-col h4{font-size:14px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}.reveal,.line-mask>span{opacity:1!important;transform:none!important}.gr-irm-frame:first-child,.gr-irm-tag:first-child{opacity:1!important}.gr-irm-frame:not(:first-child),.gr-irm-tag:not(:first-child){opacity:0!important}}
 button.faq-q{width:100%;text-align:left;background:none;color:inherit;border:0;font:inherit;cursor:pointer}.faq-a-wrap[hidden]{display:none!important}.legal-page button{color:#79e7ff;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer}
+
+/* Single prominent appointment action in the persistent header. */
+.nav .nav-cta { background: var(--gold); color: var(--bg-deep); border-color: var(--gold); font-weight: 600; flex-shrink: 0; min-height: 44px; }
+.nav .nav-cta:hover, .nav.dark .nav-cta:hover { background: #8cecff; color: var(--bg-deep); border-color: #8cecff; }
+.nav-cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+@media (max-width: 600px) {
+ .nav .nav-logo { font-size: 14px; gap: 8px; }
+ .nav .nav-logo .mark { width: 28px; height: 28px; flex-shrink: 0; }
+ .nav .nav-cta { padding: 9px 12px; font-size: 12px; gap: 5px; }
+ .nav .nav-hamburger { width: 40px; height: 40px; flex-shrink: 0; }
+ .nav .container { gap: 8px; }
+}
+@media (max-width: 380px) {
+ .nav .nav-logo .mark { display: none; }
+ .nav .nav-cta svg { display: none; }
+ .nav .nav-cta { max-width: 100px; text-align: center; justify-content: center; line-height: 1.2; }
+}

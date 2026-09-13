@@ -151,12 +151,6 @@ function Nav({
           }, l.label);
         }),
         React.createElement("a", {
-          href: "https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach",
-          target: "_blank", rel: "noopener",
-          className: "nav-mobile-cta",
-          onClick: function() { setOpen(false); }
-        }, "Prendre RDV →"),
-        React.createElement("a", {
           href: (function() { var f = window.location.pathname.split('/').pop(); return 'en/' + (f || 'index.html'); })(),
           className: 'nav-mobile-link lang-switch-mobile',
           onClick: function() { setOpen(false); }
@@ -164,16 +158,6 @@ function Nav({
       )
     )
   );
-}
-
-/* ---------- Floating Doctolib button ---------- */
-function DoctolibFloat() {
-  return /*#__PURE__*/React.createElement("a", {
-    href: "https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach",
-    target: "_blank",
-    rel: "noopener",
-    className: "doctolib-float"
-  }, "Prendre RDV \u2192");
 }
 
 /* ---------- Footer ---------- */
@@ -218,7 +202,7 @@ function Footer() {
     href: "contact.html"
   }, "Contact"))), /*#__PURE__*/React.createElement("div", {
     className: "footer-bottom"
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 ", new Date().getFullYear(), " \u2014 Dr Fran\xE7ois Lozach"), /*#__PURE__*/React.createElement("span", {className:"footer-legal"}, React.createElement("span", null, "Tous droits réservés"), React.createElement("a", {href:"mentions-legales.html"}, "Mentions légales et droits d’auteur"), React.createElement("a", {href:"confidentialite.html"}, "Confidentialité"))))), /*#__PURE__*/React.createElement(DoctolibFloat, null));
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 ", new Date().getFullYear(), " \u2014 Dr Fran\xE7ois Lozach"), /*#__PURE__*/React.createElement("span", {className:"footer-legal"}, React.createElement("span", null, "Tous droits réservés"), React.createElement("a", {href:"mentions-legales.html"}, "Mentions légales et droits d’auteur"), React.createElement("a", {href:"confidentialite.html"}, "Confidentialité"))))));
 }
 
 /* ---------- Marquee ---------- */
@@ -480,7 +464,6 @@ Object.assign(window, {
   Cursor,
   Nav,
   Footer,
-  DoctolibFloat,
   Marquee,
   JointGlyph,
   Counter,
