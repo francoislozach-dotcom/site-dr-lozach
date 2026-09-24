@@ -73,6 +73,7 @@ function Nav({ active, dark }) {
     { href: 'chirurgie.html', label: 'Chirurgies', key: 'chirurgie' },
     { href: 'parcours.html', label: 'Parcours', key: 'parcours' },
     { href: 'faq.html', label: 'FAQ', key: 'faq' },
+    { href: '/actualites/', label: 'Actualités', key: 'actualites' },
     { href: 'contact.html', label: 'Contact', key: 'contact' },
   ];
   return (

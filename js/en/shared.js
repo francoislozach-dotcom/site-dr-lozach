@@ -91,6 +91,7 @@ function Nav({
     { href: '../en/greffe-cartilagineuse.html', label: 'Graft', key: 'greffe' },
     { href: '../en/parcours.html', label: 'Journey', key: 'parcours' },
     { href: '../en/faq.html', label: 'FAQ', key: 'faq' },
+    { href: '/actualites/', label: 'News (FR)', key: 'actualites' },
     { href: '../en/contact.html', label: 'Contact', key: 'contact' },
   ];
 
