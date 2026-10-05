@@ -320,7 +320,7 @@ function SectionHeader({
       paddingTop: 100,
       paddingBottom: 40
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, section.id === "hanche" ? React.createElement(Joint3D, {kind: "hip"}) : /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
       right: '-15%',
