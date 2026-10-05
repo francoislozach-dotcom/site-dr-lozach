@@ -173,15 +173,15 @@ function Footer() {
     className: "footer-grid"
   }, /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Cabinet"), /*#__PURE__*/React.createElement("p", null, "P\xF4le Sant\xE9 Thau", /*#__PURE__*/React.createElement("br", null), "310 avenue du Mar\xE9chal Juin", /*#__PURE__*/React.createElement("br", null), "34200 S\xE8te")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", {className: "footer-heading"}, "Cabinet"), /*#__PURE__*/React.createElement("p", null, "P\xF4le Sant\xE9 Thau", /*#__PURE__*/React.createElement("br", null), "310 avenue du Mar\xE9chal Juin", /*#__PURE__*/React.createElement("br", null), "34200 S\xE8te")), /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Contact"), /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("h2", {className: "footer-heading"}, "Contact"), /*#__PURE__*/React.createElement("a", {
     href: "tel:0467530924"
   }, "04 67 53 09 24"), /*#__PURE__*/React.createElement("a", {
     href: "mailto:secretariat@ortho-7.fr"
   }, "secretariat@ortho-7.fr")), /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Chirurgie"), /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("h2", {className: "footer-heading"}, "Chirurgie"), /*#__PURE__*/React.createElement("a", {
     href: "chirurgie.html#hanche"
   }, "Hanche"), /*#__PURE__*/React.createElement("a", {
     href: "chirurgie.html#genou"
@@ -191,7 +191,7 @@ function Footer() {
     href: "chirurgie.html#trauma"
   }, "Traumatologie")), /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Navigation"), /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("h2", {className: "footer-heading"}, "Navigation"), /*#__PURE__*/React.createElement("a", {
     href: "index.html"
   }, "Accueil"), /*#__PURE__*/React.createElement("a", {
     href: "pathologies.html"
@@ -472,3 +472,7 @@ Object.assign(window, {
   Heading,
   useReveal
 });
+
+function RegionNav() { return React.createElement('nav', {className:'region-nav container', 'aria-label':"Acc\u00e8s direct par r\u00e9gion"}, ["Hanche", "Genou", "Cheville", "Pied", "Traumatologie"].map((label,i)=>React.createElement('a',{key:label,href:'#'+['hanche','genou','cheville','pied','trauma'][i]},label))); }
+
+function ConsultationChecklist() { return React.createElement('section',{className:'consultation-checklist container','aria-labelledby':'prepare-visit'},React.createElement('h2',{id:'prepare-visit'},"Préparer votre consultation"),React.createElement('div',{className:'consultation-grid'},React.createElement('div',null,React.createElement('h3',null,"À apporter"),React.createElement('ul',null,["Imagerie récente et comptes rendus", "Ordonnances en cours et courrier du médecin, si disponible", "Carte Vitale et carte de mutuelle", "Liste des interventions antérieures et de vos questions"].map(text=>React.createElement('li',{key:text},text)))),React.createElement('div',null,React.createElement('h3',null,"Venir au cabinet"),React.createElement('p',null,'Pôle Santé Thau — 310 avenue du Maréchal Juin, 34200 Sète'),React.createElement('p',null,"Pour les modalités de stationnement ou un besoin d’accès particulier, contactez le secrétariat avant votre venue."),React.createElement('a',{href:'tel:+33467530924'},'04 67 53 09 24')))); }

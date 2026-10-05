@@ -631,7 +631,7 @@ function App() {
 
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Nav, {
     active: "pathologies"
-  }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement(PathoHero, null), /*#__PURE__*/React.createElement(Marquee, {
+  }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement(PathoHero, null), React.createElement(RegionNav, null), /*#__PURE__*/React.createElement(Marquee, {
     items: ['Hip', 'Knee', 'Foot', 'Ankle', 'Trauma', 'Arthroscopy', 'Arthroplasty', 'Cartilage']
   }), PATHO.map((s, i) => /*#__PURE__*/React.createElement(PathoCard, {
     key: s.id,

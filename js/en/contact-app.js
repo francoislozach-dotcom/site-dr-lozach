@@ -91,7 +91,7 @@ function App() {
     className: "btn",
     style: {
       background: 'var(--gold)',
-      color: 'var(--ink)'
+      color: '#001318'
     }
   }, "Book on Doctolib", /*#__PURE__*/React.createElement("svg", {
     className: "arrow",
@@ -167,7 +167,7 @@ function App() {
     style: {
       borderTop: '1px solid var(--line)'
     }
-  }, [['Address', '310 avenue du Maréchal Juin, 34200 Sète'], ['Phone', '04 67 53 09 24'], ['Email', 'secretariat@ortho-7.fr'], ['Hours', 'Mon – Fri · 8:30 – 18:00'], ['Getting here', 'Paid parking · Bus line 4, stop Pôle Santé']].map(([k, v], i) => /*#__PURE__*/React.createElement("div", {
+  }, [['Address', '310 avenue du Maréchal Juin, 34200 Sète'], ['Phone', '04 67 53 09 24'], ['Email', 'secretariat@ortho-7.fr'], ['Hours', 'Mon – Fri · 8:30 – 18:00'], ['Getting here', 'Parking and accessibility: please contact the secretary']].map(([k, v], i) => /*#__PURE__*/React.createElement("div", {
     key: i,
     style: {
       padding: '20px 0',
@@ -248,6 +248,6 @@ function App() {
   }), "P\xD4LE SANT\xC9 THAU \xB7 S\xC8TE"))), /*#__PURE__*/React.createElement("style", null, `@media (max-width: 900px) { .cab-grid { grid-template-columns: 1fr !important; } }
               .cab-img-frame:hover .cab-img { filter: saturate(1.1) brightness(1.15) contrast(1.05) !important; transform: scale(1.03); }
               .cab-img-frame:hover .cab-overlay { opacity: 0.35; }
-            `)))), /*#__PURE__*/React.createElement(Footer, null));
+            `))), React.createElement(ConsultationChecklist, null)), /*#__PURE__*/React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('app')).render(/*#__PURE__*/React.createElement(App, null));

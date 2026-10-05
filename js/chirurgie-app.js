@@ -497,7 +497,7 @@ function App() {
   const [openKey, setOpenKey] = useState(null);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Nav, {
     active: "chirurgie"
-  }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement(InterventionsHero, null), /*#__PURE__*/React.createElement(Marquee, {
+  }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement(InterventionsHero, null), React.createElement(RegionNav, null), /*#__PURE__*/React.createElement(Marquee, {
     items: ['PTH', 'PTG', 'LCA', 'Arthroscopie', 'Ostéotomie', 'Cartilage', 'Tendon', 'Ligament', 'Prothèse']
   }), SECTIONS.map((sec, si) => /*#__PURE__*/React.createElement(React.Fragment, {
     key: sec.id

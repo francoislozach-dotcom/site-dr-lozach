@@ -174,15 +174,15 @@ function Footer() {
     className: "footer-grid"
   }, /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Practice"), /*#__PURE__*/React.createElement("p", null, "P\xF4le Sant\xE9 Thau", /*#__PURE__*/React.createElement("br", null), "310 avenue du Mar\xE9chal Juin", /*#__PURE__*/React.createElement("br", null), "34200 S\xE8te")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", {className: "footer-heading"}, "Practice"), /*#__PURE__*/React.createElement("p", null, "P\xF4le Sant\xE9 Thau", /*#__PURE__*/React.createElement("br", null), "310 avenue du Mar\xE9chal Juin", /*#__PURE__*/React.createElement("br", null), "34200 S\xE8te")), /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Contact"), /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("h2", {className: "footer-heading"}, "Contact"), /*#__PURE__*/React.createElement("a", {
     href: "tel:0467530924"
   }, "04 67 53 09 24"), /*#__PURE__*/React.createElement("a", {
     href: "mailto:secretariat@ortho-7.fr"
   }, "secretariat@ortho-7.fr")), /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Surgery"), /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("h2", {className: "footer-heading"}, "Surgery"), /*#__PURE__*/React.createElement("a", {
     href: "../en/chirurgie.html#hanche"
   }, "Hip"), /*#__PURE__*/React.createElement("a", {
     href: "../en/chirurgie.html#genou"
@@ -192,7 +192,7 @@ function Footer() {
     href: "../en/chirurgie.html#trauma"
   }, "Trauma")), /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Navigation"), /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("h2", {className: "footer-heading"}, "Navigation"), /*#__PURE__*/React.createElement("a", {
     href: "../en/index.html"
   }, "Home"), /*#__PURE__*/React.createElement("a", {
     href: "../en/pathologies.html"
@@ -473,3 +473,7 @@ Object.assign(window, {
   Heading,
   useReveal
 });
+
+function RegionNav() { return React.createElement('nav', {className:'region-nav container', 'aria-label':"Jump to a region"}, ["Hip", "Knee", "Ankle", "Foot", "Trauma"].map((label,i)=>React.createElement('a',{key:label,href:'#'+['hanche','genou','cheville','pied','trauma'][i]},label))); }
+
+function ConsultationChecklist() { return React.createElement('section',{className:'consultation-checklist container','aria-labelledby':'prepare-visit'},React.createElement('h2',{id:'prepare-visit'},"Prepare your consultation"),React.createElement('div',{className:'consultation-grid'},React.createElement('div',null,React.createElement('h3',null,"What to bring"),React.createElement('ul',null,["Recent imaging and reports", "Current prescriptions and referral letter, if available", "Health insurance card and complementary insurance details", "Summary of previous operations and your questions"].map(text=>React.createElement('li',{key:text},text)))),React.createElement('div',null,React.createElement('h3',null,"Getting to the practice"),React.createElement('p',null,'Pôle Santé Thau — 310 avenue du Maréchal Juin, 34200 Sète'),React.createElement('p',null,"For parking arrangements or specific access needs, contact the secretary before your visit."),React.createElement('a',{href:'tel:+33467530924'},'04 67 53 09 24')))); }

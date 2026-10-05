@@ -24,7 +24,7 @@
   --bg-light: #f4f7fb;        /* light surface */
   --ink: #e8eef7;             /* texte clair */
   --ink-2: #a8b4c8;
-  --muted: #6a7689;
+  --muted: #98a5ba;
   --line: rgba(120, 160, 220, 0.15);
   --gold: #00d4ff;            /* cyan électrique */
   --gold-deep: #0099cc;       /* deep cyan */
@@ -534,7 +534,7 @@ section {
 @media (max-width: 900px) {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
 }
-.footer-col h4 {
+.footer-col .footer-heading {
   font-family: var(--mono);
   font-size: 12px;
   text-transform: uppercase;
@@ -723,7 +723,7 @@ section {
 /* Comfort and keyboard access, September 2026 */
 body{cursor:auto}a,button,[role=button]{cursor:pointer}.cursor-dot,.cursor-ring{display:none!important}
 :focus-visible{outline:3px solid #00d4ff;outline-offset:5px}
-.footer-legal{display:flex;gap:16px;flex-wrap:wrap}.footer-legal a{text-decoration:underline}.footer-bottom{gap:20px;flex-wrap:wrap;font-size:14px}.footer-col h4{font-size:14px}
+.footer-legal{display:flex;gap:16px;flex-wrap:wrap}.footer-legal a{text-decoration:underline}.footer-bottom{gap:20px;flex-wrap:wrap;font-size:14px}.footer-col .footer-heading{font-size:14px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}.reveal,.line-mask>span{opacity:1!important;transform:none!important}.gr-irm-frame:first-child,.gr-irm-tag:first-child{opacity:1!important}.gr-irm-frame:not(:first-child),.gr-irm-tag:not(:first-child){opacity:0!important}}
 button.faq-q{width:100%;text-align:left;background:none;color:inherit;border:0;font:inherit;cursor:pointer}.faq-a-wrap[hidden]{display:none!important}.legal-page button{color:#79e7ff;text-decoration:underline;background:none;border:0;font:inherit;cursor:pointer}
 
@@ -750,3 +750,15 @@ button.faq-q{width:100%;text-align:left;background:none;color:inherit;border:0;f
 @media(prefers-reduced-motion:reduce){.joint-3d{opacity:.28}}
 
 section[id]{scroll-margin-top:100px}
+
+/* Direct regional navigation, readable without motion or JavaScript. */
+.region-nav{display:flex;flex-wrap:wrap;gap:10px;padding-top:20px;padding-bottom:28px}
+.region-nav a{padding:11px 18px;border:1px solid #52738b;border-radius:30px;color:var(--ink);font-size:15px;text-decoration:none}
+.region-nav a:hover,.region-nav a:focus-visible{background:var(--gold);color:#001318;border-color:var(--gold)}
+.consultation-checklist{padding-top:60px;padding-bottom:70px;border-top:1px solid var(--line)}
+.consultation-checklist h2{font-size:clamp(32px,4vw,56px);line-height:1.1;margin-bottom:32px}
+.consultation-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;color:var(--ink-2);line-height:1.7}
+.consultation-grid h3{font-size:26px;line-height:1.2;color:var(--ink);margin-bottom:16px}
+.consultation-grid ul{padding-left:22px}.consultation-grid li{margin:8px 0}.consultation-grid p{margin-bottom:16px}.consultation-grid a{color:var(--gold);text-decoration:underline;text-underline-offset:4px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+@media(max-width:768px){.display{font-size:clamp(40px,8.8vw,64px);line-height:1.04;letter-spacing:-.025em}.consultation-grid{grid-template-columns:1fr;gap:26px}.region-nav{gap:8px}.region-nav a{padding:10px 14px;font-size:14px}section[id]{scroll-margin-top:90px}}
