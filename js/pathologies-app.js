@@ -5,7 +5,7 @@ const PATHO = [{
   name: 'Pathologies de la hanche',
   regionKey: 'Hanche',
   tagline: '',
-  intro: 'La hanche supporte l\'ensemble du poids du corps. Quand elle se dégrade, la chirurgie permet une mobilité durable.',
+  intro: 'La hanche supporte l\'ensemble du poids du corps. Quand elle se dégrade, la prise en charge vise à soulager la douleur et à améliorer la mobilité.',
   items: ['Coxarthrose', 'Conflit fémoro-acétabulaire (CFA)', 'Ostéonécrose de la tête fémorale', 'Lésions du labrum', 'Tendinopathies du moyen fessier', 'Tendinopathies du psoas', 'Compressions dynamiques neurologiques (nerf sciatique)']
 }, {
   id: 'genou',
@@ -32,7 +32,7 @@ const PATHO = [{
   name: 'Chirurgie du pied',
   regionKey: 'Pied',
   tagline: '',
-  intro: 'Le pied est une mécanique fine. La chirurgie redonne l\'appui, supprime la douleur et permet la reprise de la marche.',
+  intro: 'Le pied est une mécanique fine. La prise en charge vise à améliorer l\'appui, à réduire la douleur et à faciliter la marche.',
   items: ['Hallux valgus', 'Orteils en griffe / en marteau', 'Névrome de Morton', 'Métatarsalgies', 'Arthrose du médio-pied']
 }, {
   id: 'trauma',
@@ -131,58 +131,7 @@ function PathoCard({
       overflow: 'hidden',
       borderTop: '1px solid var(--line)'
     }
-  }, s.id === 'hanche' && /*#__PURE__*/React.createElement("div", {
-    className: "joint-video-wrap",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("video", {
-    className: "joint-video",
-    autoPlay: true,
-    muted: true,
-    loop: true,
-    playsInline: true,
-    preload: "auto"
-  }, /*#__PURE__*/React.createElement("source", {
-    src: "assets/hanche.mp4",
-    type: "video/mp4"
-  }))), s.id === 'genou' && /*#__PURE__*/React.createElement("div", {
-    className: "joint-video-wrap",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("video", {
-    className: "joint-video",
-    autoPlay: true,
-    muted: true,
-    loop: true,
-    playsInline: true,
-    preload: "auto"
-  }, /*#__PURE__*/React.createElement("source", {
-    src: "assets/genou.mp4",
-    type: "video/mp4"
-  }))), (s.id === 'cheville' || s.id === 'pied') && /*#__PURE__*/React.createElement("div", {
-    className: "joint-video-wrap",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("video", {
-    className: "joint-video",
-    autoPlay: true,
-    muted: true,
-    loop: true,
-    playsInline: true,
-    preload: "auto"
-  }, /*#__PURE__*/React.createElement("source", {
-    src: "assets/cheville-pied.mp4",
-    type: "video/mp4"
-  }))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      right: '-15%',
-      top: '50%',
-      transform: 'translateY(-50%)',
-      opacity: 0.45,
-      pointerEvents: 'none'
-    }
-  }, /*#__PURE__*/React.createElement(JointGlyph, {
-    kind: s.kind,
-    size: 760
-  })), /*#__PURE__*/React.createElement("div", {
+  }, ['hanche','genou','cheville','pied'].includes(s.id) ? React.createElement(Joint3D, {kind: ({hanche:'hip',genou:'knee',cheville:'ankle',pied:'foot'})[s.id]}) : null, /*#__PURE__*/React.createElement("div", {
     className: "container",
     style: {
       position: 'relative',

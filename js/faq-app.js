@@ -87,7 +87,7 @@ const THEMES = [
       },
       {
         "q": "Peut-on passer une IRM avec une prothèse ?",
-        "a": "Oui, les prothèses orthopédiques actuelles sont compatibles IRM. Elles sont fabriquées en alliages non ferromagnétiques (titane, cobalt-chrome). Signalez toujours la présence d'une prothèse avant tout examen IRM."
+        "a": "Une IRM peut être possible avec une prothèse, mais sa compatibilité et les conditions de l’examen doivent être vérifiées pour votre implant par l’équipe de radiologie. Signalez tout dispositif implanté avant l’examen et apportez votre carte d’implant ou votre compte rendu opératoire si vous en disposez."
       },
       {
         "q": "Quelles précautions après une prothèse de hanche ?",

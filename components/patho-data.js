@@ -12,7 +12,7 @@ Avec le temps — par usure naturelle, après une malformation de naissance ou u
       symptoms: `La douleur typique est localisée dans le pli de l'aine, parfois sur le côté de la hanche, et descend volontiers le long de la cuisse jusqu'au genou. Elle est mécanique : présente quand on marche, monte les escaliers ou se relève d'une chaise, soulagée par le repos.
 
 Au début, la gêne est intermittente. Puis la marche devient plus difficile, le périmètre se réduit, on boite. Mettre ses chaussettes ou couper ses ongles de pied devient compliqué : la hanche perd en souplesse, surtout en rotation. Les nuits peuvent être perturbées quand on se retourne.`,
-      untreated: `Sans prise en charge, la coxarthrose évolue toujours dans le même sens : aggravation progressive sur plusieurs années. La douleur devient plus fréquente, le périmètre de marche se restreint, l'autonomie diminue. À terme, certains gestes du quotidien (se chausser, conduire, marcher 5 minutes) deviennent impossibles.
+      untreated: `L’évolution de la coxarthrose varie selon les personnes. Les douleurs et la gêne peuvent s’aggraver et limiter la marche ou certains gestes du quotidien. Une évaluation permet d’adapter la prise en charge à leur retentissement.
 
 L'usure peut aussi entraîner un raccourcissement du membre, des contractures musculaires de compensation et des douleurs lombaires secondaires.`,
       treatment: `Tant que la gêne est modérée, on commence par des moyens simples : antalgiques, anti-inflammatoires lors des poussées, kinésithérapie pour entretenir la mobilité et renforcer les muscles autour de la hanche. Les infiltrations échoguidées peuvent soulager temporairement.
@@ -447,7 +447,7 @@ Une bosse osseuse peut apparaître sur le dos du pied (conflit avec la chaussure
 À terme, le retentissement fonctionnel devient important.`,
       treatment: `En première intention : semelles orthopédiques avec soutien de voûte, chaussage adapté (semelles rigides ou semi-rigides), antalgiques, infiltrations.
 
-Quand le traitement médical ne suffit plus, une arthrodèse de Lisfranc (blocage de l'articulation usée) supprime durablement la douleur en sacrifiant une mobilité de toute façon devenue minime. Une consultation permet d'évaluer le bon moment pour la chirurgie.`,
+Quand le traitement médical ne suffit plus, une arthrodèse de Lisfranc (blocage de l'articulation usée) vise à réduire les douleurs de l’articulation atteinte, au prix d’une perte de mobilité. Une consultation permet d'évaluer le bon moment pour la chirurgie.`,
       description: "Usure du cartilage des articulations du médio-pied (Lisfranc, Chopart), primitive ou post-traumatique.",
       signs: ["Douleur du médio-pied", "Bosse dorsale", "Raideur"],
       exams: ["Radiographies en charge", "Scanner"],
@@ -463,7 +463,7 @@ Quand le traitement médical ne suffit plus, une arthrodèse de Lisfranc (blocag
 Les causes sont variables : chute (notamment chez la personne âgée pour la fracture du col du fémur), accident de la voie publique, traumatisme sportif, accident de la vie quotidienne. Chez le sujet âgé, une chute banale peut suffire en raison de la fragilité osseuse (ostéoporose).`,
       symptoms: `Douleur intense et immédiate, impossibilité d'appuyer sur la jambe, déformation visible parfois (segment décalé, raccourci), gonflement et hématome qui apparaissent en quelques heures.
 
-Une fracture est presque toujours évidente cliniquement. Le diagnostic est confirmé par radiographies, parfois complétées par un scanner pour les fractures complexes.`,
+Certaines fractures peuvent être difficiles à reconnaître sur les seuls symptômes. Le diagnostic est confirmé par radiographies, parfois complétées par un scanner pour les fractures complexes.`,
       untreated: `Une fracture non traitée ou mal traitée peut consolider dans une mauvaise position (cal vicieux), entraîner une raideur articulaire, une boiterie, voire une pseudarthrose (absence de consolidation). Les fractures articulaires non réduites évoluent vers une arthrose précoce.
 
 Chez la personne âgée, une fracture du col du fémur non opérée est associée à une perte d'autonomie et à un risque vital majeur. C'est une urgence chirurgicale.`,
@@ -538,7 +538,7 @@ Un examen clinique précis (souvent réalisé sous anesthésie en urgence) et un
       symptoms: `Sensation immédiate de "coup de fouet" ou de claquement à l'arrière de la jambe (Achille) ou à l'avant du genou (rotulien/quadricipital). Douleur vive. Impossibilité de monter sur la pointe des pieds (Achille) ou de tendre le genou (rotulien/quadricipital).
 
 Une encoche peut être palpée sur le trajet du tendon. Le diagnostic clinique est souvent évident.`,
-      untreated: `Une rupture tendineuse non traitée laisse une perte de fonction définitive : impossibilité de monter sur la pointe du pied, de courir, de sauter (Achille) ou de tendre la jambe contre résistance (rotulien/quadricipital). Le pronostic dépend de la précocité de la prise en charge.`,
+      untreated: `Une rupture tendineuse non prise en charge peut entraîner une perte de fonction durable : difficulté de monter sur la pointe du pied, de courir, de sauter (Achille) ou de tendre la jambe contre résistance (rotulien/quadricipital). Le pronostic dépend de la précocité de la prise en charge.`,
       treatment: `Le traitement peut être chirurgical ou orthopédique selon le type de rupture, l'âge, le niveau d'activité et le délai. Pour le tendon d'Achille, le traitement non chirurgical (botte de marche en équin) est possible dans certaines formes ; la chirurgie (suture) est privilégiée chez le sportif. Pour les ruptures du rotulien et du quadricipital, la chirurgie est presque toujours indiquée.
 
 Une consultation rapide après le traumatisme permet de poser l'indication. Les suites comportent toujours une phase d'immobilisation puis une rééducation prolongée.`,

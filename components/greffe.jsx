@@ -1,5 +1,20 @@
 const DOCTOLIB = "https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach";
 
+// Load looping demonstration videos only as their section approaches the viewport.
+function DeferredVideo({src}) {
+  const ref = React.useRef(null);
+  const [visible, setVisible] = React.useState(false);
+  React.useEffect(() => {
+    if (!window.IntersectionObserver) { setVisible(true); return; }
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) { setVisible(true); observer.disconnect(); }
+    }, {rootMargin: '200px'});
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  return <video ref={ref} src={visible ? src : undefined} autoPlay muted loop playsInline preload="none" />;
+}
+
 /* Photo / video media — supports real src or placeholder */
 function Media({ kind = 'photo', label, desc, src, ratio, frame }) {
   if (src) {
@@ -7,9 +22,9 @@ function Media({ kind = 'photo', label, desc, src, ratio, frame }) {
     return (
       <div className={'gr-img-frame' + (frame === 'disc' ? ' disc' : '') + (frame === 'feather' ? ' feather' : '')} style={ratio ? { aspectRatio: ratio } : null}>
         {isVideo ?
-        <video src={src} autoPlay muted loop playsInline preload="metadata" /> :
+        <DeferredVideo src={src} /> :
 
-        <img src={src} alt={label || ''} loading="lazy" />
+        <img src={src} srcSet={/\/(lesion-hd|resultat-avant|resultat-apres)\.webp$/.test(src) ? `${src.replace(".webp", "-480.webp")} 480w, ${src.replace(".webp", "-960.webp")} 960w, ${src} 2048w` : undefined} sizes="(max-width: 768px) 90vw, 600px" alt={label || ''} loading="lazy" />
         }
         <div className="gr-img-grid"></div>
         <div className="gr-img-rim"></div>
@@ -43,7 +58,7 @@ function Hero() {
             </div>
           </div>
           <div className="hv">
-            <img src="assets/hero-knee.webp" alt="Articulation du genou · cartilage et ménisque" className="hv-img" width="1600" height="2000" fetchPriority="high" />
+            <img src="assets/hero-knee-960.webp" srcSet="assets/hero-knee-480.webp 480w, assets/hero-knee-960.webp 960w, assets/hero-knee.webp 1600w" sizes="(max-width: 768px) 90vw, 600px" alt="Articulation du genou · cartilage et ménisque" className="hv-img" width="1600" height="2000" fetchPriority="high" />
             <div className="hv-grid"></div>
             <div className="hv-scan"></div>
             <div className="hv-hud hv-hud-tl"><span className="dot"></span>AUTOCART™</div>

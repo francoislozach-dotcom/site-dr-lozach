@@ -12,7 +12,7 @@ Over time — through natural wear, after a birth abnormality, or following a tr
       symptoms: `The typical pain is located in the groin crease, sometimes on the side of the hip, and often radiates down the thigh towards the knee. It is mechanical in nature: present when walking, climbing stairs, or rising from a chair, and relieved by rest.
 
 At first, the discomfort is intermittent. Then walking becomes more difficult, the walking distance shortens, and a limp develops. Putting on socks or cutting toenails becomes complicated: the hip loses flexibility, especially in rotation. Sleep may be disturbed when turning over at night.`,
-      untreated: `Without management, hip osteoarthritis always progresses in the same direction: gradual worsening over several years. Pain becomes more frequent, walking distance shrinks, and independence diminishes. Eventually, everyday activities (putting on shoes, driving, walking 5 minutes) become impossible.
+      untreated: `Hip osteoarthritis progresses differently between individuals. Pain and limitations may worsen and affect walking or everyday activities. Assessment helps tailor treatment to their impact.
 
 The wear can also cause limb shortening, compensatory muscle contractures, and secondary lower back pain.`,
       treatment: `When symptoms are moderate, simple measures are tried first: painkillers, anti-inflammatory drugs during flare-ups, physiotherapy to maintain mobility and strengthen the muscles around the hip. Ultrasound-guided injections can provide temporary relief.
@@ -446,7 +446,7 @@ A bony prominence may appear on the top of the foot (rubbing with footwear). Pro
 In the long term, functional impairment becomes significant.`,
       treatment: `First line: orthopaedic insoles with arch support, appropriate footwear (rigid or semi-rigid soles), analgesics, injections.
 
-When medical treatment is no longer sufficient, Lisfranc arthrodesis (fusion of the worn joint) permanently eliminates pain by sacrificing a range of motion that has in any case become minimal. A consultation helps assess the right time for surgery.`,
+When medical treatment is no longer sufficient, Lisfranc arthrodesis (fusion of the worn joint) aims to reduce pain in the affected joint, at the cost of reduced movement. A consultation helps assess the right time for surgery.`,
       description: "Cartilage wear of the midfoot joints (Lisfranc, Chopart), primary or post-traumatic.",
       signs: ["Midfoot pain", "Dorsal bony prominence", "Stiffness"],
       exams: ["Weight-bearing X-rays", "CT scan"],
@@ -462,7 +462,7 @@ When medical treatment is no longer sufficient, Lisfranc arthrodesis (fusion of 
 Causes vary: a fall (particularly in elderly patients for femoral neck fractures), a road traffic accident, a sports injury, or an accident of daily life. In older patients, a simple fall may be sufficient due to bone fragility (osteoporosis).`,
       symptoms: `Intense immediate pain, inability to bear weight on the leg, sometimes visible deformity (displaced or shortened segment), swelling, and bruising appearing within hours.
 
-A fracture is almost always clinically evident. The diagnosis is confirmed by X-rays, sometimes supplemented by CT scan for complex fractures.`,
+Some fractures can be difficult to recognise from symptoms alone. The diagnosis is confirmed by X-rays, sometimes supplemented by CT scan for complex fractures.`,
       untreated: `An untreated or poorly managed fracture can heal in a poor position (malunion), cause joint stiffness, a limp, or even non-union (failure to heal). Intra-articular fractures that are not reduced progress to early osteoarthritis.
 
 In elderly patients, an untreated femoral neck fracture is associated with loss of independence and a major vital risk. It is a surgical emergency.`,
@@ -537,7 +537,7 @@ Subsequently: surgical ligament reconstruction, sometimes in several stages depe
       symptoms: `An immediate sensation of a "whiplash" or snapping at the back of the leg (Achilles) or at the front of the knee (patellar/quadriceps). Acute pain. Inability to raise onto the tiptoes (Achilles) or straighten the knee (patellar/quadriceps).
 
 A gap may be felt along the tendon. The clinical diagnosis is often obvious.`,
-      untreated: `An untreated tendon rupture leaves a permanent loss of function: inability to rise onto the tiptoes, run, or jump (Achilles), or to extend the leg against resistance (patellar/quadriceps). The prognosis depends on the promptness of management.`,
+      untreated: `An untreated tendon rupture can cause lasting loss of function: difficulty to rise onto the tiptoes, run, or jump (Achilles), or to extend the leg against resistance (patellar/quadriceps). The prognosis depends on the promptness of management.`,
       treatment: `Treatment can be surgical or non-surgical depending on the type of rupture, age, activity level, and time elapsed. For the Achilles tendon, non-surgical treatment (equinus walking boot) is possible in certain forms; surgery (suture) is preferred in athletes. For patellar and quadriceps ruptures, surgery is almost always indicated.
 
 A prompt consultation after the injury allows the appropriate decision. Recovery always includes an immobilisation phase followed by prolonged rehabilitation.`,

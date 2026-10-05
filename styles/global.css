@@ -3,7 +3,6 @@
    Off-white créme · Encre profonde · Or chaud
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* Soft dynamic animation — gentle wave */
 @keyframes softDynamic {
@@ -744,3 +743,10 @@ button.faq-q{width:100%;text-align:left;background:none;color:inherit;border:0;f
  .nav .nav-cta svg { display: none; }
  .nav .nav-cta { max-width: 100px; text-align: center; justify-content: center; line-height: 1.2; }
 }
+
+/* Decorative 3D anatomy: subdued, never intercepts links. */
+.joint-3d{position:absolute;right:-2%;top:50%;transform:translateY(-50%);width:54%;height:90%;max-height:720px;pointer-events:none;opacity:.52;z-index:0}
+@media(max-width:960px){.joint-3d{right:-8%;width:76%;height:68%;top:58%;opacity:.30}}
+@media(prefers-reduced-motion:reduce){.joint-3d{opacity:.28}}
+
+section[id]{scroll-margin-top:100px}

@@ -87,7 +87,7 @@ const THEMES = [
       },
       {
         "q": "Can I have an MRI scan with a joint replacement?",
-        "a": "Yes, current orthopaedic implants are MRI-compatible. They are manufactured from non-ferromagnetic alloys (titanium, cobalt-chrome). Always inform the radiologist of the presence of a joint replacement before any MRI scan."
+        "a": "An MRI may be possible with a joint replacement, but its compatibility and scanning conditions must be checked for your specific implant by the radiology team. Inform them of all implanted devices before the examination and bring your implant card or operative report if available."
       },
       {
         "q": "What precautions should I take after a hip replacement?",
