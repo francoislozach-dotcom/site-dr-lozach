@@ -764,3 +764,15 @@ section[id]{scroll-margin-top:100px}
 .consultation-grid ul{padding-left:22px}.consultation-grid li{margin:8px 0}.consultation-grid p{margin-bottom:16px}.consultation-grid a{color:var(--gold);text-decoration:underline;text-underline-offset:4px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
 @media(max-width:768px){.display{font-size:clamp(40px,8.8vw,64px);line-height:1.04;letter-spacing:-.025em}.consultation-grid{grid-template-columns:1fr;gap:26px}.region-nav{gap:8px}.region-nav a{padding:10px 14px;font-size:14px}section[id]{scroll-margin-top:90px}}
+
+/* Navigation shared by every page, including articles and the nerve dossier. */
+.nav { z-index:1000; gap:18px; background:rgba(6,9,18,.94); }
+.nav-logo, .nav-cta, .lang-switch { flex-shrink:0; white-space:nowrap; }
+.nav-links { gap:22px; white-space:nowrap; }
+@media(max-width:1279px) {
+ .nav-links, .nav .lang-switch { display:none; }
+ .nav-hamburger { display:flex; flex-shrink:0; }
+ .nav .nav-cta { margin-left:auto; }
+}
+@media(max-width:600px) { .nav { padding-left:16px; padding-right:16px; gap:10px; } }
+@media(prefers-reduced-motion:reduce) { .nav *, .nav-mobile-overlay, .nav-mobile-menu, .nav-mobile-link { animation:none!important; transition:none!important; } }

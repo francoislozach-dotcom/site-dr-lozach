@@ -34,12 +34,12 @@ function useReveal() {
 
 
 /* ---------- Language switch ---------- */
-function LangSwitch() {
+function LangSwitch({ href } = {}) {
   var parts = window.location.pathname.split('/');
   var filename = parts.pop() || 'index.html';
   if (!filename) filename = 'index.html';
   return React.createElement('a', {
-    href: filename === 'index.html' ? '/' : '../' + filename,
+    href: href || (filename === 'index.html' ? '/' : '../' + filename),
     className: 'lang-switch lang-switch-active',
     title: 'Passer en français',
     'aria-label': 'Version française'
@@ -52,7 +52,8 @@ function LangSwitch() {
 /* ---------- Nav ---------- */
 function Nav({
   active,
-  dark
+  dark,
+  languageHref
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -86,19 +87,20 @@ function Nav({
 
   const links = [
     { href: '/en/', label: 'Home', key: 'accueil' },
-    { href: '../en/pathologies.html', label: 'Pathologies', key: 'pathologies' },
-    { href: '../en/chirurgie.html', label: 'Surgery', key: 'chirurgie' },
-    { href: '../en/greffe-cartilagineuse.html', label: 'Graft', key: 'greffe' },
-    { href: '../en/pathologie-compressions-dynamiques-neurologiques-nerf-sciatique.html', label: 'Nerves', key: 'nerfs' },
-    { href: '../en/parcours.html', label: 'Journey', key: 'parcours' },
-    { href: '../en/faq.html', label: 'FAQ', key: 'faq' },
+    { href: '/en/pathologies.html', label: 'Pathologies', key: 'pathologies' },
+    { href: '/en/chirurgie.html', label: 'Surgery', key: 'chirurgie' },
+    { href: '/en/greffe-cartilagineuse.html', label: 'Graft', key: 'greffe' },
+    { href: '/en/pathologie-compressions-dynamiques-neurologiques-nerf-sciatique.html', label: 'Nerves', key: 'nerfs' },
+    { href: '/en/parcours.html', label: 'Journey', key: 'parcours' },
+    { href: '/en/faq.html', label: 'FAQ', key: 'faq' },
     { href: '/actualites/', label: 'News (FR)', key: 'actualites' },
-    { href: '../en/contact.html', label: 'Contact', key: 'contact' },
+    { href: '/en/contact.html', label: 'Contact', key: 'contact' },
   ];
 
   return React.createElement(React.Fragment, null,
     React.createElement("nav", {
       className: `nav ${dark ? 'dark' : ''}`,
+      'aria-label': 'Main navigation',
       style: {
         paddingTop: scrolled ? 14 : 24,
         paddingBottom: scrolled ? 14 : 24,
@@ -114,10 +116,10 @@ function Nav({
       ),
       React.createElement("div", { className: "nav-links" },
         links.map(function(l) {
-          return React.createElement("a", { key: l.key, href: l.href, className: active === l.key ? 'active' : '' }, l.label);
+          return React.createElement("a", { key: l.key, href: l.href, 'aria-current': active === l.key ? 'page' : undefined, className: active === l.key ? 'active' : '' }, l.label);
         })
       ),
-      React.createElement(LangSwitch, null),
+      React.createElement(LangSwitch, { href: languageHref }),
       React.createElement("a", {
         href: "https://www.doctolib.fr/chirurgien-orthopediste/sete/francois-lozach",
         target: "_blank", rel: "noopener", className: "nav-cta"
@@ -154,7 +156,7 @@ function Nav({
           }, l.label);
         }),
         React.createElement("a", {
-          href: (function() { var f = window.location.pathname.split('/').pop(); return !f || f === 'index.html' ? '/' : '../' + f; })(),
+          href: languageHref || (function() { var f = window.location.pathname.split('/').pop(); return !f || f === 'index.html' ? '/' : '../' + f; })(),
           className: 'nav-mobile-link lang-switch-mobile',
           onClick: function() { setOpen(false); }
         }, "🇫🇷 Version française")
