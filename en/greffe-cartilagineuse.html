@@ -213,7 +213,7 @@
 .gr-irm-tag { position: absolute; left: 0; bottom: 0; opacity: 0; animation: gr-irm-fade 12s ease-in-out infinite; display: flex; align-items: baseline; gap: 14px; padding: 10px 16px; background: rgba(3,6,15,0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid var(--gr-border-strong); border-radius: 10px; white-space: nowrap; }
 .gr-irm-tag .t { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600; color: var(--gr-accent-3); letter-spacing: -0.02em; }
 .gr-irm-tag .s { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gr-text); }
-.gr-irm-track { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 22px; padding: 0 6px; height: 32px; }
+.gr-irm-track { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 22px; padding: 0 6px; min-height: 40px; }
 .gr-irm-track::before { content: ''; position: absolute; left: 6px; right: 6px; top: 7px; height: 1px; background: linear-gradient(90deg, var(--gr-accent), var(--gr-accent-3)); opacity: 0.4; }
 .gr-irm-progress { position: absolute; left: 6px; top: 6px; height: 3px; width: calc(100% - 12px); background: transparent; border-radius: 2px; overflow: hidden; pointer-events: none; }
 .gr-irm-progress::after { content: ''; display: block; width: 33%; height: 100%; background: linear-gradient(90deg, var(--gr-accent), var(--gr-accent-3)); box-shadow: 0 0 10px var(--gr-accent-3); border-radius: 2px; animation: gr-irm-prog 12s linear infinite; }
@@ -259,7 +259,6 @@
   .gr-triade-grid { grid-template-columns: 1fr; }
   .gr-suites-timeline { grid-template-columns: 1fr; }
   .gr-prob-grid { grid-template-columns: 1fr !important; }
-  .gr-irm-track { grid-template-columns: 1fr !important; }
   .gr-timeline-row { grid-template-columns: 44px 1fr; gap: 20px; }
   .gr-timeline-row .gr-node-cell { grid-column: 1; grid-row: 1; }
   .gr-timeline-row .gr-side { grid-column: 2; grid-row: 1; }
