@@ -39,7 +39,7 @@ function LangSwitch() {
   var filename = parts.pop() || 'index.html';
   if (!filename) filename = 'index.html';
   return React.createElement('a', {
-    href: '../' + filename,
+    href: filename === 'index.html' ? '/' : '../' + filename,
     className: 'lang-switch lang-switch-active',
     title: 'Passer en français',
     'aria-label': 'Version française'
@@ -85,7 +85,7 @@ function Nav({
   }, [open]);
 
   const links = [
-    { href: '../en/index.html', label: 'Home', key: 'accueil' },
+    { href: '/en/', label: 'Home', key: 'accueil' },
     { href: '../en/pathologies.html', label: 'Pathologies', key: 'pathologies' },
     { href: '../en/chirurgie.html', label: 'Surgery', key: 'chirurgie' },
     { href: '../en/greffe-cartilagineuse.html', label: 'Graft', key: 'greffe' },
@@ -104,7 +104,7 @@ function Nav({
         transition: 'padding 0.3s var(--ease-out)'
       }
     },
-      React.createElement("a", { href: "../en/index.html", className: "nav-logo" },
+      React.createElement("a", { href: "/en/", className: "nav-logo" },
         React.createElement("span", { className: "mark" },
           React.createElement("span", { className: "mark-orbit" }),
           React.createElement("span", { className: "mark-pip" })
@@ -153,7 +153,7 @@ function Nav({
           }, l.label);
         }),
         React.createElement("a", {
-          href: (function() { var f = window.location.pathname.split('/').pop(); return '../' + (f || 'index.html'); })(),
+          href: (function() { var f = window.location.pathname.split('/').pop(); return !f || f === 'index.html' ? '/' : '../' + f; })(),
           className: 'nav-mobile-link lang-switch-mobile',
           onClick: function() { setOpen(false); }
         }, "🇫🇷 Version française")
@@ -193,7 +193,7 @@ function Footer() {
   }, "Trauma")), /*#__PURE__*/React.createElement("div", {
     className: "footer-col"
   }, /*#__PURE__*/React.createElement("h2", {className: "footer-heading"}, "Navigation"), /*#__PURE__*/React.createElement("a", {
-    href: "../en/index.html"
+    href: "/en/"
   }, "Home"), /*#__PURE__*/React.createElement("a", {
     href: "../en/pathologies.html"
   }, "Pathologies"), /*#__PURE__*/React.createElement("a", {
