@@ -216,7 +216,7 @@ function PathoCard({
       wordBreak: 'break-word',
       hyphens: 'auto'
     }
-  }, p), /*#__PURE__*/React.createElement("span", {
+  }, p === 'Compressions dynamiques neurologiques (nerf sciatique)' ? 'Compressions nerveuses dynamiques · membre inférieur' : p), /*#__PURE__*/React.createElement("span", {
     className: "mono patho-cta",
     style: {
       opacity: 0,

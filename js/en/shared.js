@@ -89,6 +89,7 @@ function Nav({
     { href: '../en/pathologies.html', label: 'Pathologies', key: 'pathologies' },
     { href: '../en/chirurgie.html', label: 'Surgery', key: 'chirurgie' },
     { href: '../en/greffe-cartilagineuse.html', label: 'Graft', key: 'greffe' },
+    { href: '../en/pathologie-compressions-dynamiques-neurologiques-nerf-sciatique.html', label: 'Nerves', key: 'nerfs' },
     { href: '../en/parcours.html', label: 'Journey', key: 'parcours' },
     { href: '../en/faq.html', label: 'FAQ', key: 'faq' },
     { href: '/actualites/', label: 'News (FR)', key: 'actualites' },

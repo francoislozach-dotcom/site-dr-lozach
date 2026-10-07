@@ -1,0 +1,2 @@
+GLB source revision: 322ba39e96ea91ce08601caad2c0aaade1dc99f0
+https://github.com/JMK712/human-anatomy-online/tree/322ba39e96ea91ce08601caad2c0aaade1dc99f0/public/models

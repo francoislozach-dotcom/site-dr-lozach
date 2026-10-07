@@ -349,6 +349,8 @@ section {
   animation: fadeIn 0.2s ease;
 }
 .nav-mobile-menu {
+  overflow-y: auto;
+  overscroll-behavior: contain;
   position: absolute;
   top: 0;
   right: 0;

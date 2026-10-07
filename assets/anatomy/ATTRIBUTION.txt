@@ -1,0 +1,27 @@
+ANATOMICAL MODELS — RIGHT LOWER LIMB
+
+Z-Anatomy — The libre 3D atlas of anatomy — CC BY-SA 4.0
+Gauthier Kervyn (design, 3D, anatomy), Marcin Zielinski, and contributors.
+https://github.com/Z-Anatomy/Models-of-human-anatomy
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Derived from BodyParts3D — The Database Center for Life Science — CC BY-SA 2.1 Japan
+Kousaku Okubo (original model).
+https://dbarchive.biosciencedbc.jp/en/bodyparts3d/
+https://creativecommons.org/licenses/by-sa/2.1/jp/
+
+GLB conversion source: https://github.com/JMK712/human-anatomy-online
+Files public/models/{skeleton,nervous,muscular}.glb, retrieved 7 October 2026.
+Its assets_source/License.txt reproduces the Z-Anatomy licence and credits.
+
+Adaptation for drlozach.fr: selection of 40 skeletal structures, 35 peripheral
+nerve structures and 58 muscles of the right lower limb; original mesh geometry
+and coordinates retained. Rendering changes: yellow nerves, blue-grey bones,
+transparent muscles, regional camera crops, automatic rotation.
+The derived anatomical model files and rendered anatomical views are provided
+under CC BY-SA 4.0. This exception is separate from the site's own text and other
+assets. No book illustration or operative photograph is copied into these models.
+An educational atlas is not a patient-specific surgical navigation model.
+
+Three.js: Copyright 2010-2026 three.js authors, MIT licence (THREE-LICENSE.txt).
+Draco decoder: Google, Apache 2.0 (DRACO-LICENSE.txt).

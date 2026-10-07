@@ -120,24 +120,27 @@ When discomfort persists for several months despite well-conducted treatment, or
       surgical: ["Endoscopic iliopsoas tenotomy"],
     },
     'Dynamic neurological compression (sciatic nerve)': {
-      whatIsIt: `The sciatic nerve is the largest nerve in the body. It descends from the buttock into the thigh, passing through or alongside a deep muscle called the piriformis. In some individuals, this nerve can be compressed at this level during certain movements or positions: this is dynamic compression of the sciatic nerve, sometimes called piriformis syndrome.
-
-Unlike sciatica of lumbar origin (herniated disc), the compression here occurs at the buttock level, outside the back.`,
-      symptoms: `Deep pain in the buttock that travels down the leg, sometimes to the foot. It may be accompanied by tingling, numbness, or an electric-shock sensation.
-
-Characteristic feature: pain is aggravated by prolonged sitting (steering wheel, bicycle, desk), walking uphill, or certain hip rotation movements. It may ease on standing or walking a short distance.`,
-      untreated: `Untreated chronic compression can lead to persistent nerve suffering, with continuing pain and, in some cases, sensory disturbances or muscle weakness in the affected territory.
-
-The diagnosis is often delayed because patients are initially treated for lumbar sciatica, which is not the true cause.`,
-      treatment: `Specialist physiotherapy (piriformis stretching, neural mobilisation), anti-inflammatory drugs, and ultrasound-guided injections are sufficient in the majority of cases.
-
-When compression is confirmed and symptoms resist well-conducted treatment for several months, endoscopic neurolysis can free the sciatic nerve from its adhesions by releasing the compressive piriformis fibres. This is a minimally invasive procedure. A specialist consultation establishes the precise diagnosis and guides treatment.`,
-      description: "Compression of the sciatic nerve at buttock level, distinct from lumbar sciatica.",
-      signs: ["Buttock pain radiating down the leg", "Worsened by sitting"],
-      exams: ["Neurographic MRI", "EMG"],
-      medical: ["Physiotherapy", "Ultrasound-guided injections"],
-      surgical: ["Endoscopic neurolysis"],
-    },
+      "whatIsIt": "Dynamic nerve entrapment is influenced by movement, posture or muscle contraction. The sciatic, saphenous, fibular, tibial and other lower-limb nerves may be involved at different sites.",
+      "symptoms": "Burning, tingling, numbness or weakness vary with the nerve and the level involved. New or progressive weakness requires prompt assessment.",
+      "untreated": "Persistent compression may cause lasting symptoms or nerve damage. Exercise-related pain can also have muscular, bony, vascular or spinal causes.",
+      "treatment": "Assessment combines history, examination and selected investigations. Pressure reduction, individual rehabilitation and symptom monitoring may help. Surgery requires a sufficiently documented indication and does not guarantee recovery.",
+      "description": "Dynamic lower-limb nerve entrapment: anatomical landmarks, assessment and treatment options.",
+      "signs": [
+            "Activity-related sensory symptoms",
+            "Possible weakness depending on the nerve"
+      ],
+      "exams": [
+            "Clinical examination",
+            "Electrodiagnostic studies or imaging as indicated"
+      ],
+      "medical": [
+            "Pressure and activity adaptation",
+            "Individual rehabilitation"
+      ],
+      "surgical": [
+            "Targeted decompression in selected cases"
+      ]
+},
   },
 
   'Knee': {

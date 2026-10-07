@@ -320,19 +320,7 @@ function SectionHeader({
       paddingTop: 100,
       paddingBottom: 40
     }
-  }, section.id === "hanche" ? React.createElement(Joint3D, {kind: "hip"}) : /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      right: '-15%',
-      top: '50%',
-      transform: 'translateY(-50%)',
-      opacity: 0.35,
-      pointerEvents: 'none'
-    }
-  }, /*#__PURE__*/React.createElement(JointGlyph, {
-    kind: section.kind,
-    size: 620
-  })), /*#__PURE__*/React.createElement("div", {
+  }, ["hanche","genou","cheville","pied"].includes(section.id) ? React.createElement(AnatomyBackground, {kind: {hanche:"hip",genou:"knee",cheville:"ankle",pied:"foot"}[section.id]}) : null, /*#__PURE__*/React.createElement("div", {
     className: "container",
     style: {
       position: 'relative',
@@ -517,6 +505,6 @@ function App() {
       onToggle: () => setOpenKey(openKey === key ? null : key),
       deeper: si % 2 === 1
     });
-  }))))), /*#__PURE__*/React.createElement(Footer, null));
+  }))))), React.createElement("p", {className:"anatomy-credit"}, "Modèles anatomiques : ", React.createElement("a", {href:"assets/anatomy/ATTRIBUTION.txt"}, "Z-Anatomy / BodyParts3D · CC BY-SA")), /*#__PURE__*/React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('app')).render(/*#__PURE__*/React.createElement(App, null));

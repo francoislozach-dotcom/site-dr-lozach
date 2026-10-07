@@ -121,24 +121,27 @@ Lorsque la gêne persiste plusieurs mois malgré un traitement bien conduit, ou 
       surgical: ["Ténotomie endoscopique du psoas"],
     },
     'Compressions dynamiques neurologiques (nerf sciatique)': {
-      whatIsIt: `Le nerf sciatique est le plus gros nerf du corps. Il descend de la fesse vers la cuisse en passant à travers ou à proximité d'un muscle profond appelé piriforme. Chez certaines personnes, ce nerf peut être comprimé à ce niveau lors de certains mouvements ou positions : c'est la compression dynamique du nerf sciatique, parfois appelée syndrome du piriforme.
-
-À la différence d'une sciatique d'origine lombaire (hernie discale), la compression se fait ici au niveau de la fesse, hors du dos.`,
-      symptoms: `Douleur profonde dans la fesse, qui descend le long de la jambe, parfois jusqu'au pied. Elle peut s'accompagner de fourmillements, d'engourdissements ou d'une sensation de courant électrique.
-
-Caractéristique : la douleur est aggravée par la position assise prolongée (volant, vélo, bureau), par la marche en montée, ou par certains mouvements de rotation de la hanche. Elle peut s'estomper en se levant ou en marchant un peu.`,
-      untreated: `Une compression chronique non traitée peut aboutir à une souffrance durable du nerf, avec persistance des douleurs et, dans certains cas, des troubles sensitifs ou une faiblesse musculaire dans le territoire concerné.
-
-Le diagnostic est souvent retardé car les patients sont d'abord traités pour une sciatique lombaire qui n'est pas la vraie cause.`,
-      treatment: `La kinésithérapie spécialisée (étirements du piriforme, mobilisation neurale), les anti-inflammatoires et les infiltrations échoguidées suffisent dans la majorité des cas.
-
-Lorsque la compression est confirmée et que les symptômes résistent à un traitement bien conduit pendant plusieurs mois, une neurolyse endoscopique permet de libérer le nerf sciatique de ses adhérences en sectionnant les fibres compressives du muscle piriforme. C'est un geste mini-invasif. Une consultation spécialisée permet de poser le diagnostic précis et d'orienter le traitement.`,
-      description: "Compression du nerf sciatique au niveau de la fesse, distincte d'une sciatique d'origine lombaire.",
-      signs: ["Douleur fessière irradiant à la jambe", "Aggravée en position assise"],
-      exams: ["IRM neurographique", "EMG"],
-      medical: ["Kinésithérapie", "Infiltrations échoguidées"],
-      surgical: ["Neurolyse endoscopique"],
-    },
+      "whatIsIt": "Une compression nerveuse dynamique est influencée par le mouvement, la posture ou la contraction musculaire. Elle peut concerner le sciatique, le saphène, les nerfs fibulaires, le tibial et leurs branches à différents niveaux du membre inférieur.",
+      "symptoms": "Brûlures, fourmillements, engourdissement ou faiblesse varient selon le nerf et le niveau atteint. Une faiblesse nouvelle ou progressive nécessite un avis rapide.",
+      "untreated": "Une compression persistante peut entraîner des symptômes durables ou une lésion nerveuse. Une douleur d’effort peut également avoir une cause musculaire, osseuse, vasculaire ou rachidienne.",
+      "treatment": "Le bilan confronte l’histoire, l’examen et des explorations ciblées. Adaptation des contraintes, rééducation individualisée et surveillance peuvent être proposées. La chirurgie nécessite une indication suffisamment documentée et ne garantit pas la récupération.",
+      "description": "Compressions nerveuses dynamiques du membre inférieur : repères, bilan et traitements.",
+      "signs": [
+            "Symptômes sensitifs liés à l’activité",
+            "Faiblesse possible selon le nerf"
+      ],
+      "exams": [
+            "Examen clinique",
+            "ENMG ou imagerie selon l’indication"
+      ],
+      "medical": [
+            "Adaptation des contraintes et de l’activité",
+            "Rééducation individualisée"
+      ],
+      "surgical": [
+            "Décompression ciblée dans certaines indications"
+      ]
+},
   },
 
   'Genou': {

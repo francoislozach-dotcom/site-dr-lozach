@@ -212,7 +212,7 @@ function PathoCard({
       wordBreak: 'break-word',
       hyphens: 'auto'
     }
-  }, p), /*#__PURE__*/React.createElement("span", {
+  }, p === 'Dynamic neurological compression (sciatic nerve)' ? 'Dynamic nerve entrapment · lower limb' : p), /*#__PURE__*/React.createElement("span", {
     className: "mono patho-cta",
     style: {
       opacity: 0,
