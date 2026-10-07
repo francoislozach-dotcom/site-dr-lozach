@@ -91,3 +91,14 @@
   RewriteCond %{REQUEST_FILENAME}.webp -f
   RewriteRule ^ %{REQUEST_URI}.webp [T=image/webp,L]
 </IfModule>
+
+# Anatomical 3D assets and local Draco decoder
+<IfModule mod_mime.c>
+  AddType model/gltf-binary .glb
+  AddType application/wasm .wasm
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(glb|wasm)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
