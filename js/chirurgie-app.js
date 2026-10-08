@@ -36,8 +36,8 @@ const SECTIONS = [
       {
         "name": "Neurolyse (sciatique)",
         "tag": "Hanche",
-        "principe": "Libération chirurgicale du nerf sciatique comprimé par le muscle piriforme ou d'autres structures anatomiques de la région fessière (syndrome du piriforme, compressions dynamiques). Section du muscle piriforme et libération des adhérences péri-neurales sous contrôle endoscopique.",
-        "deroulement": "Endoscopie ou mini open de hanche postérieure sous anesthésie générale, en décubitus ventral ou latéral. La durée du geste et du séjour est précisée individuellement en consultation.",
+        "principe": "Libération chirurgicale du nerf sciatique comprimé par le muscle piriforme ou d'autres structures anatomiques de la région fessière (syndrome du piriforme, compressions dynamiques). La neurolyse vise à libérer le nerf des structures responsables du conflit identifié. Le site et l’étendue du geste sont adaptés aux symptômes, aux déficits constatés et au bilan.",
+        "deroulement": "Les modalités de la libération nerveuse, de l’anesthésie et du séjour sont précisées individuellement en consultation, selon le site de compression et le geste envisagé.",
         "suites": "Les consignes d’appui, l’éventuelle immobilisation, la rééducation et les contrôles sont adaptés au geste réalisé et à votre récupération. L’équipe vous remet un protocole individuel. La reprise du travail, de la conduite et du sport dépend de vos capacités et de l’accord de l’équipe soignante ; aucun délai ni résultat ne peut être garanti."
       }
     ]

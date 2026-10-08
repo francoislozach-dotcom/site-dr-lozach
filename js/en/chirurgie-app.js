@@ -36,8 +36,8 @@ const SECTIONS = [
       {
         "name": "Neurolysis (sciatic nerve)",
         "tag": "Hip",
-        "principe": "Surgical release of the sciatic nerve compressed by the piriformis muscle or other anatomical structures in the gluteal region (piriformis syndrome, dynamic compressions). Piriformis muscle division and release of perineural adhesions under endoscopic guidance.",
-        "deroulement": "Posterior hip endoscopy or mini-open approach under general anaesthesia, in prone or lateral decubitus. Day-case procedure. The duration of surgery and length of stay are discussed individually during consultation.",
+        "principe": "Surgical release of the sciatic nerve compressed by the piriformis muscle or other anatomical structures in the gluteal region (piriformis syndrome, dynamic compressions). Neurolysis aims to free the nerve from the structures responsible for the identified entrapment. The site and extent of release are tailored to symptoms, identified deficits and assessment findings.",
+        "deroulement": "The nerve release procedure, anaesthesia and length of stay are discussed individually during consultation, according to the compression site and the planned procedure.",
         "suites": "Weight-bearing, any brace or immobilisation, rehabilitation and follow-up are adapted to the procedure and your recovery. Your surgical team will give you an individual plan. Return to work, driving and sport requires assessment of your function and the appropriate clearance; no fixed timeline or outcome can be guaranteed."
       }
     ]
