@@ -5,15 +5,35 @@
    pendant que l'on traverse la section.
    ============================================================ */
 
-const KNEE_SEQ = { sheets: 4, cols: 6, perSheet: 24, total: 96, frame: 720, src: i => `assets/genou-sequence/genou-v1-${i}.webp` };
+const KNEE_SEQ = { sheets: 4, cols: 6, perSheet: 24, total: 96, frame: 720, file: i => `assets/genou-sequence/genou-v1-${i}.webp` };
 
-const KNEE_STEPS = [
-  { num: '01 — Comprendre', title: ['Chaque articulation ', 'a son histoire.'], text: 'Votre rythme de vie, vos douleurs, vos attentes : on part de vous avant de proposer une solution.' },
-  { num: '02 — Voir juste', title: ["Voir l'invisible, ", "avant d'agir."], text: 'Examen clinique minutieux, IRM : on identifie précisément la lésion, comme ici le ligament croisé, avant toute décision.' },
-  { num: '03 — Reprendre', title: ['Reprendre ', 'le mouvement.'], text: 'Prothèse totale ou unicompartimentale, assistance robotique ROSA, récupération rapide : vous remettre debout, vite et bien.' }
-];
+// Textes par langue ; les pages anglaises (/en/) chargent les images depuis ../assets
+const KNEE_TEXT = {
+  fr: {
+    label: 'Le genou en mouvement',
+    hud: 'Genou / ',
+    alt: "Genou vu de profil en rendu anatomique : il se plie, passe en vue radio avec le ligament croisé antérieur en lumière, puis se tend avec une prothèse totale en place.",
+    steps: [
+      { num: '01 — Comprendre', title: ['Chaque articulation ', 'a son histoire.'], text: 'Votre rythme de vie, vos douleurs, vos attentes : on part de vous avant de proposer une solution.' },
+      { num: '02 — Voir juste', title: ["Voir l'invisible, ", "avant d'agir."], text: 'Examen clinique minutieux, IRM : on identifie précisément la lésion, comme ici le ligament croisé, avant toute décision.' },
+      { num: '03 — Reprendre', title: ['Reprendre ', 'le mouvement.'], text: 'Prothèse totale ou unicompartimentale, assistance robotique ROSA, récupération rapide : vous remettre debout, vite et bien.' }
+    ]
+  },
+  en: {
+    label: 'The knee in motion',
+    hud: 'Knee / ',
+    alt: 'Side view of a knee in anatomical rendering: it bends, switches to an X-ray view with the anterior cruciate ligament highlighted, then straightens with a total knee replacement in place.',
+    steps: [
+      { num: '01 — Understand', title: ['Every joint ', 'has its own story.'], text: 'Your lifestyle, your pain, your expectations: we start from you before proposing a solution.' },
+      { num: '02 — See clearly', title: ['See the invisible, ', 'before acting.'], text: 'A careful clinical examination and MRI pinpoint the lesion, here the cruciate ligament, before any decision is made.' },
+      { num: '03 — Restore', title: ['Restore ', 'your movement.'], text: 'Total or partial knee replacement, ROSA robotic assistance, enhanced recovery: getting you back on your feet, quickly and effectively.' }
+    ]
+  }
+};
 
 function SectionGenou() {
+  const lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
+  const T = KNEE_TEXT[lang], base = lang === 'en' ? '../' : '';
   const storyRef = React.useRef(null);
   const canvasRef = React.useRef(null);
   const railRef = React.useRef(null);
@@ -25,7 +45,7 @@ function SectionGenou() {
     const sheets = Array.from({ length: KNEE_SEQ.sheets }, (_, i) => {
       const im = new Image();
       im.decoding = 'async';
-      im.src = KNEE_SEQ.src(i);
+      im.src = base + KNEE_SEQ.file(i);
       im.addEventListener('load', () => { lastFrame = -1; render(); });
       return im;
     });
@@ -75,19 +95,19 @@ function SectionGenou() {
   }, []);
 
   const h = React.createElement;
-  return h('section', { className: 'knee-story', ref: storyRef, 'aria-label': 'Le genou en mouvement' },
+  return h('section', { className: 'knee-story', ref: storyRef, 'aria-label': T.label },
     h('div', { className: 'knee-stage' },
       h('div', { className: 'container knee-inner' },
         h('div', { className: 'knee-steps' },
           h('div', { className: 'knee-rail', 'aria-hidden': 'true' }, h('span', { ref: railRef })),
           h('ol', { className: 'knee-list' },
-            KNEE_STEPS.map((s, i) => h('li', { key: s.num, className: 'knee-step' + (i === step ? ' on' : ''), 'aria-hidden': i === step ? undefined : 'true' },
+            T.steps.map((s, i) => h('li', { key: s.num, className: 'knee-step' + (i === step ? ' on' : ''), 'aria-hidden': i === step ? undefined : 'true' },
               h('span', { className: 'mono knee-num' }, s.num),
               h('h2', null, s.title[0], h('em', null, s.title[1])),
               h('p', null, s.text))))),
         h('div', { className: 'knee-viz' },
-          h('canvas', { ref: canvasRef, role: 'img', 'aria-label': "Genou vu de profil en rendu anatomique : il se plie, passe en vue radio avec le ligament croisé antérieur en lumière, puis se tend avec une prothèse totale en place." }),
-          h('div', { className: 'mono knee-hud' }, 'Genou / ', h('b', { ref: degRef }, '000°'))))));
+          h('canvas', { ref: canvasRef, role: 'img', 'aria-label': T.alt }),
+          h('div', { className: 'mono knee-hud' }, T.hud, h('b', { ref: degRef }, '000°'))))));
 }
 
 Object.assign(window, { SectionGenou });
