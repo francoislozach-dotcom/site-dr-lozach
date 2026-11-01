@@ -42,13 +42,28 @@ function SectionGenou() {
 
   React.useEffect(() => {
     const story = storyRef.current, cv = canvasRef.current, ctx = cv.getContext('2d');
-    const sheets = Array.from({ length: KNEE_SEQ.sheets }, (_, i) => {
-      const im = new Image();
-      im.decoding = 'async';
-      im.src = base + KNEE_SEQ.file(i);
-      im.addEventListener('load', () => { lastFrame = -1; render(); });
-      return im;
-    });
+    // Les planches (1,8 Mo) ne partent qu'une fois la page chargée, ou au premier défilement
+    // si le visiteur est plus rapide : elles ne ralentissent plus l'affichage du haut de page.
+    // La première d'abord, puis les suivantes une à une.
+    const sheets = Array.from({ length: KNEE_SEQ.sheets }, () => { const im = new Image(); im.decoding = 'async'; return im; });
+    const loadSheet = i => {
+      if (i >= sheets.length) return;
+      sheets[i].addEventListener('load', () => { lastFrame = -1; render(); loadSheet(i + 1); }, { once: true });
+      sheets[i].addEventListener('error', () => loadSheet(i + 1), { once: true });
+      sheets[i].src = base + KNEE_SEQ.file(i);
+    };
+    let started = false;
+    const startLoading = () => {
+      if (started) return;
+      started = true;
+      window.removeEventListener('load', onLoad);
+      window.removeEventListener('scroll', startLoading);
+      loadSheet(0);
+    };
+    const onLoad = () => setTimeout(startLoading, 300);
+    if (document.readyState === 'complete') onLoad();
+    else window.addEventListener('load', onLoad, { once: true });
+    window.addEventListener('scroll', startLoading, { passive: true, once: true });
     let W = 0, H = 0, DPR = 1, lastFrame = -1, lastStep = 0, raf = 0;
 
     // avancement 0 → 1 pendant la traversée de la section
@@ -91,6 +106,8 @@ function SectionGenou() {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', resize);
       if (raf) cancelAnimationFrame(raf);
+      window.removeEventListener('load', onLoad);
+      window.removeEventListener('scroll', startLoading);
     };
   }, []);
 
