@@ -1,0 +1,44 @@
+/* ============== SECTION GENOU EN MOUVEMENT (accueil) ============== */
+/* position: sticky ne colle pas si html et body sont des conteneurs de défilement
+   (overflow-x: hidden sur les deux, cf. global.css) : clip coupe pareil sans en créer un. */
+@supports (overflow-x: clip) { html, body { overflow-x: clip; } }
+
+/* La section fait 4 écrans de haut ; la scène reste collée pendant qu'on la traverse. */
+.knee-story { position: relative; height: 400vh; padding: 0; background: var(--bg); } /* annule le padding global des sections */
+.knee-stage {
+  position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden;
+  background: radial-gradient(55% 60% at 68% 48%, rgba(0, 40, 90, 0.55), transparent 72%), var(--bg);
+}
+.knee-inner { height: 100%; display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 32px; align-items: center; }
+.knee-steps { display: flex; gap: 24px; min-width: 0; }
+.knee-rail { flex: 0 0 2px; background: var(--line); position: relative; min-height: 260px; border-radius: 2px; }
+.knee-rail span { position: absolute; left: 0; top: 0; width: 100%; height: 0; background: linear-gradient(var(--gold), var(--olive)); box-shadow: 0 0 10px var(--gold); }
+.knee-list { position: relative; flex: 1; min-width: 0; min-height: 320px; margin: 0; padding: 0; list-style: none; }
+.knee-step {
+  position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  opacity: 0; transform: translateY(14px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+.knee-step.on { opacity: 1; transform: none; }
+.knee-num { color: var(--gold); }
+.knee-step h2 { font-size: clamp(36px, 4.6vw, 64px); line-height: 1.02; }
+.knee-step h2 em { font-style: italic; color: var(--gold); }
+.knee-step p { color: var(--ink-2); max-width: 42ch; margin: 0; line-height: 1.6; }
+.knee-viz { position: relative; height: min(90vh, 780px); min-width: 0; }
+.knee-viz canvas {
+  display: block; width: 100%; height: 100%;
+  -webkit-mask-image: radial-gradient(circle closest-side, #000 64%, transparent 100%);
+  mask-image: radial-gradient(circle closest-side, #000 64%, transparent 100%);
+}
+.knee-hud { position: absolute; top: 10px; left: 10px; color: var(--muted); pointer-events: none; }
+.knee-hud b { color: var(--gold); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 760px) {
+  .knee-story { height: 350vh; }
+  .knee-inner { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; gap: 0; padding-top: 72px; padding-bottom: 24px; }
+  .knee-viz { order: -1; height: 100%; }
+  .knee-rail { min-height: 170px; }
+  .knee-list { min-height: 210px; }
+  .knee-step h2 { font-size: clamp(28px, 8vw, 40px); }
+  .knee-step p { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) { .knee-step { transition: none; } }
