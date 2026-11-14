@@ -320,7 +320,7 @@ function SectionHeader({
       paddingTop: 100,
       paddingBottom: 40
     }
-  }, ["hanche","genou","cheville","pied"].includes(section.id) ? React.createElement(AnatomyBackground, {kind: {hanche:"hip",genou:"knee",cheville:"ankle",pied:"foot"}[section.id]}) : null, /*#__PURE__*/React.createElement("div", {
+  }, ["hanche","genou","cheville","pied"].includes(section.id) ? React.createElement(AnatomyBackground, {kind: {hanche:"hip",genou:"knee",cheville:"ankle",pied:"foot"}[section.id]}) : section.id === "traumatologie" ? React.createElement("div", {className:"anatomy-background","data-model":"trauma","aria-hidden":"true"}, React.createElement("div",{className:"canvas-wrap"},React.createElement("div",{className:"canvas-fallback"},React.createElement("img",{src:"/assets/anatomy/trauma-photo.webp",alt:"",loading:"lazy",width:800,height:1000})))) : null, /*#__PURE__*/React.createElement("div", {
     className: "container",
     style: {
       position: 'relative',

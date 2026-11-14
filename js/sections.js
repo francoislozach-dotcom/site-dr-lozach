@@ -360,26 +360,32 @@ function SectionSpecialites() {
 function SectionTechniques() {
   const techs = [{
     num: '01',
+    img: 'prothese',
     title: 'Chirurgie prothétique de la hanche et du genou',
     desc: 'Prothèses totales et unicompartimentales — première intention et reprise. Voie antérieure mini-invasive, assistance robotique ROSA.'
   }, {
     num: '02',
+    img: 'arthroscopie',
     title: 'Arthroscopie',
     desc: 'Chirurgie articulaire par 2 mini-incisions sous caméra. Genou, hanche, cheville.'
   }, {
     num: '03',
+    img: 'raac',
     title: 'RAAC',
     desc: 'Récupération améliorée après chirurgie : protocoles d\'anesthésie, antalgie, lever précoce.'
   }, {
     num: '04',
+    img: 'cartilage',
     title: 'Greffe de cartilage',
     desc: 'Réparation des lésions cartilagineuses chez le sujet jeune — alternative à la prothèse.'
   }, {
     num: '05',
+    img: 'prp',
     title: 'Infiltrations & PRP',
     desc: 'Plasma riche en plaquettes, acide hyaluronique, infiltrations cortisoniques échoguidées.'
   }, {
     num: '06',
+    img: 'trauma',
     title: 'Traumatologie',
     desc: 'Fractures, entorses graves, lésions sportives — prise en charge en urgence.'
   }];
@@ -452,7 +458,17 @@ function SectionTechniques() {
     style: {
       color: 'var(--gold)'
     }
-  }, "/", t.num), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+  }, "/", t.num), /*#__PURE__*/React.createElement("img", {
+    className: "tech-img",
+    src: "assets/techniques/tech-" + t.img + "-480.webp",
+    srcSet: "assets/techniques/tech-" + t.img + "-480.webp 480w, assets/techniques/tech-" + t.img + "-960.webp 960w",
+    sizes: "(max-width: 900px) 92vw, 33vw",
+    width: 960,
+    height: 720,
+    alt: "",
+    loading: "lazy",
+    decoding: "async"
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
     style: {
       fontSize: 30,
       marginBottom: 16
@@ -464,6 +480,8 @@ function SectionTechniques() {
       color: 'rgba(253,250,243,0.65)'
     }
   }, t.desc)))))), /*#__PURE__*/React.createElement("style", null, `
+        .tech-img { display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:14px; margin:20px 0 28px; opacity:.88; transition:opacity .4s, transform .6s var(--ease-out); }
+        .tech-card:hover .tech-img { opacity:1; transform:scale(1.02); }
         @media (max-width: 900px) {
           .tech-grid { grid-template-columns: 1fr !important; }
           .tech-card { border-right: none !important; border-bottom: 1px solid rgba(253,250,243,0.15) !important; }
@@ -545,6 +563,24 @@ function SectionStats() {
         @media (max-width: 720px) { .stats-grid { grid-template-columns: 1fr 1fr !important; } }
       `));
 }
+function CtaVideo() {
+  const ref = React.useRef(null);
+  const [on, setOn] = React.useState(false);
+  React.useEffect(() => {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!window.IntersectionObserver) { setOn(true); return; }
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { setOn(true); io.disconnect(); } }, { rootMargin: '300px' });
+    io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
+  return /*#__PURE__*/React.createElement("video", {
+    ref: ref,
+    className: "cta-video",
+    poster: "/assets/cta-mouvement-poster.jpg",
+    autoPlay: true, muted: true, loop: true, playsInline: true, preload: "none",
+    "aria-hidden": "true"
+  }, on && /*#__PURE__*/React.createElement("source", { src: "/assets/cta-mouvement.webm", type: "video/webm" }), on && /*#__PURE__*/React.createElement("source", { src: "/assets/cta-mouvement.mp4", type: "video/mp4" }));
+}
 function SectionCTA() {
   return /*#__PURE__*/React.createElement("section", {
     style: {
@@ -553,7 +589,7 @@ function SectionCTA() {
       position: 'relative',
       overflow: 'hidden'
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement(CtaVideo, null), /*#__PURE__*/React.createElement("style", null, ".cta-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% center;opacity:.45;pointer-events:none;z-index:0;-webkit-mask-image:radial-gradient(ellipse 80% 90% at 70% 50%,#000 40%,transparent 85%);mask-image:radial-gradient(ellipse 80% 90% at 70% 50%,#000 40%,transparent 85%)}@media(max-width:720px){.cta-video{opacity:.25;object-position:80% center}}"), /*#__PURE__*/React.createElement("div", {
     className: "blob blob-gold",
     style: {
       width: 600,

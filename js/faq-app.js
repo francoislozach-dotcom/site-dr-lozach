@@ -145,7 +145,17 @@ function FaqHero({
       position: 'relative',
       overflow: 'hidden'
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "faq-hero-img",
+    src: "/assets/faq-hero-1600.webp",
+    srcSet: "/assets/faq-hero-800.webp 800w, /assets/faq-hero-1600.webp 1600w",
+    sizes: "100vw",
+    width: 1600,
+    height: 800,
+    alt: "",
+    "aria-hidden": "true",
+    decoding: "async"
+  }), /*#__PURE__*/React.createElement("style", null, ".faq-hero-img{position:absolute;inset:0 0 0 auto;width:72%;height:100%;object-fit:cover;object-position:right center;opacity:.42;pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%)}@media(max-width:720px){.faq-hero-img{width:100%;opacity:.3}}"), /*#__PURE__*/React.createElement("div", {
     className: "container",
     style: {
       position: 'relative',
