@@ -106,7 +106,7 @@ function SectionApproche() {
       cursor: 'pointer'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    loading: "lazy", src: "../assets/dr-bloc.webp",
+    loading: "lazy", decoding: "async", src: "../assets/dr-bloc-1200.webp", srcSet: "../assets/dr-bloc-800.webp 800w, ../assets/dr-bloc-1200.webp 1200w, ../assets/dr-bloc.webp 1600w", sizes: "(max-width: 1240px) 100vw, 1200px", width: 1600, height: 1067,
     alt: "Dr Fran\xE7ois Lozach in the operating theatre",
     style: {
       width: '100%',
@@ -306,6 +306,10 @@ function SectionSpecialites() {
       }
     }, /*#__PURE__*/React.createElement("img", {
       src: imgSrc,
+      srcSet: s.kind === 'knee' ? imgSrc.replace('.webp', '-800.webp') + ' 800w, ' + imgSrc.replace('.webp', '-1400.webp') + ' 1400w, ' + imgSrc + ' 2752w' : s.kind === 'foot' ? imgSrc.replace('.webp', '-800.webp') + ' 800w, ' + imgSrc + ' 1376w' : imgSrc.replace('.webp', '-600.webp') + ' 600w, ' + imgSrc + ' 944w',
+      sizes: "(max-width: 900px) 100vw, 50vw",
+      loading: "lazy",
+      decoding: "async",
       alt: s.title,
       style: {
         width: '100%',
