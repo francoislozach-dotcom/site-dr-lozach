@@ -76,7 +76,7 @@ function PathoHero() {
       WebkitMaskImage: 'radial-gradient(ellipse at 80% 60%, black 20%, transparent 75%)'
     }
   }, /*#__PURE__*/React.createElement("source", {
-    loading: "lazy", src: "../assets/anatomy.mp4",
+    loading: "lazy", src: "../assets/anatomy-v2.mp4",
     type: "video/mp4"
   })), /*#__PURE__*/React.createElement("div", {
     className: "container",

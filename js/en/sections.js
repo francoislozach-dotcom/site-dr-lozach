@@ -36,7 +36,7 @@ function SectionApproche() {
       WebkitMaskImage: 'radial-gradient(ellipse 50% 55% at 50% 50%, black 0%, rgba(0,0,0,0.85) 25%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.15) 80%, transparent 100%)'
     }
   }, /*#__PURE__*/React.createElement("video", {
-    src: "../assets/bistouri.mp4",
+    src: "../assets/bistouri-v2.mp4",
     autoPlay: true,
     muted: true,
     loop: true,

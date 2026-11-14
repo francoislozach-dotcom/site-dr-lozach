@@ -404,7 +404,7 @@ function HeroAnatomic() {
       WebkitMaskImage: 'radial-gradient(ellipse at 70% 50%, black 30%, transparent 80%)'
     }
   }, /*#__PURE__*/React.createElement("source", {
-    src: "assets/anatomy.mp4",
+    src: "assets/anatomy-v2.mp4",
     type: "video/mp4"
   })), /*#__PURE__*/React.createElement("div", {
     className: "blob blob-gold",
