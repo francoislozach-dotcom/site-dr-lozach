@@ -1,3 +1,33 @@
+/* Vidéo d'ambiance « consultation » : 3 plans en boucle, discrète, bords fondus dans la page.
+   Lue seulement quand elle est visible ; image fixe si l'utilisateur limite les animations. */
+function ConsultVideo() {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const v = ref.current && ref.current.querySelector('video');
+    if (!v) return;
+    v.muted = true;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) { v.play().catch(() => {}); return; }
+    const io = new IntersectionObserver((en) => {
+      en.forEach((e) => { if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); });
+    }, { rootMargin: '200px 0px' });
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+  const fade = 'radial-gradient(ellipse 58% 64% at 50% 50%, #000 18%, rgba(0,0,0,0.4) 55%, transparent 92%)';
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: "consult-video",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: { width: '100%', aspectRatio: '1280 / 536', opacity: 0.58, WebkitMaskImage: fade, maskImage: fade },
+    dangerouslySetInnerHTML: { __html: '<video muted loop playsinline preload="none" poster="assets/consultation-poster.jpg?v=4" width="1280" height="536" style="display:block;width:100%;height:100%;object-fit:cover"><source src="assets/consultation.webm?v=4" type="video/webm"><source src="assets/consultation.mp4?v=4" type="video/mp4"></video>' }
+  }), /*#__PURE__*/React.createElement("style", null, `
+    .consult-video { position: absolute; right: 3vw; top: 150px; width: min(46vw, 640px); pointer-events: none; z-index: 0; }
+    @media (max-width: 800px) { .consult-hero { display: flex; flex-direction: column; } .consult-video { order: 2; position: relative; right: auto; top: auto; width: auto; margin: 28px 16px 0; } }
+  `));
+}
+
 function App() {
   useReveal();
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Nav, {
@@ -5,10 +35,13 @@ function App() {
   }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement("section", {
     style: {
       paddingTop: 180,
-      paddingBottom: 80
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "container"
+      paddingBottom: 80,
+      position: 'relative'
+    },
+    className: "consult-hero"
+  }, /*#__PURE__*/React.createElement(ConsultVideo, null), /*#__PURE__*/React.createElement("div", {
+    className: "container",
+    style: { position: 'relative', zIndex: 1 }
   }, /*#__PURE__*/React.createElement("h1", {className: "eyebrow page-topic"}, "Consultation et rendez-vous à Sète"), /*#__PURE__*/React.createElement("div", {
     className: "line-mask"
   }, /*#__PURE__*/React.createElement("span", {
