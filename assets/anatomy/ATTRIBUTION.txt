@@ -25,3 +25,13 @@ An educational atlas is not a patient-specific surgical navigation model.
 
 Three.js: Copyright 2010-2026 three.js authors, MIT licence (THREE-LICENSE.txt).
 Draco decoder: Google, Apache 2.0 (DRACO-LICENSE.txt).
+
+HIP REPLACEMENT ANIMATION (chirurgie.html — Prothèse totale de hanche)
+
+BodyParts3D — The Database Center for Life Science — CC BY-SA 2.1 Japan
+Right hip bone (FMA16586) and right femur (FMA24474), via
+https://github.com/Kevin-Mattheus-Moerman/BodyParts3D (binary STL), retrieved 22 November 2026.
+Adaptation for drlozach.fr (assets/anatomy/hanche-os.bin): re-centred on the femoral head,
+axes reoriented, positions quantised to 16 bits; original mesh geometry retained. The femoral
+neck osteotomy and all implant components (cup, liner, head, stem) are drawn at runtime.
+Rendering: Three.js r160 (MIT, js/vendor/three/).

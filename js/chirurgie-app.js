@@ -8,6 +8,7 @@ const SECTIONS = [
       {
         "name": "Prothèse totale de hanche (PTH)",
         "tag": "Hanche",
+        "anim3d": "hanche-pth",
         "principe": "Remplacement de l'articulation coxo-fémorale usée (arthrose, ostéonécrose, fracture) par des implants. Cotyle non cimenté pressfit, tige fémorale cimentée ou non selon la qualité osseuse, tête en céramique ou métal-polyéthylène. Objectif : supprimer la douleur et restaurer la mobilité de façon durable.",
         "deroulement": "Anesthésie générale ou rachianesthésie. Intervention possible en ambulatoire sélectionné. Voie d'abord antérieure ou postérieure selon morphologie et habitudes du chirurgien. La durée du geste et du séjour est précisée individuellement en consultation.",
         "suites": "Les consignes d’appui, l’éventuelle immobilisation, la rééducation et les contrôles sont adaptés au geste réalisé et à votre récupération. L’équipe vous remet un protocole individuel. La reprise du travail, de la conduite et du sport dépend de vos capacités et de l’accord de l’équipe soignante ; aucun délai ni résultat ne peut être garanti."
@@ -440,6 +441,14 @@ function InterventionRow({
     label: "03 / Suites op\xE9ratoires",
     body: item.suites,
     bordered: true
+  })), item.anim3d === 'hanche-pth' && /*#__PURE__*/React.createElement("div", {
+    className: "intervention-3d",
+    style: {
+      paddingBottom: isOpen ? 56 : 0,
+      transition: 'padding 0.4s'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    "data-hanche-pth": ""
   }))))), /*#__PURE__*/React.createElement("style", null, `
         @media (max-width: 900px) {
           .intervention-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
