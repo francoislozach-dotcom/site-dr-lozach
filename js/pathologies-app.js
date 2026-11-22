@@ -635,7 +635,14 @@ function App() {
 
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Nav, {
     active: "pathologies"
-  }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement(PathoHero, null), React.createElement(RegionNav, null), /*#__PURE__*/React.createElement(Marquee, {
+  }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement(PathoHero, null), React.createElement(RegionNav, null), /*#__PURE__*/React.createElement("section", {
+    id: "ou-avez-vous-mal",
+    style: { background: 'var(--bg)', borderTop: '1px solid var(--line)', padding: '96px 0 88px', position: 'relative', overflow: 'hidden' }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/React.createElement("div", {
+    "data-ou-mal": ""
+  }))), /*#__PURE__*/React.createElement(Marquee, {
     items: ['Hanche', 'Genou', 'Pied', 'Cheville', 'Traumatologie', 'Arthroscopie', 'Prothèse', 'Cartilage']
   }), PATHO.map((s, i) => /*#__PURE__*/React.createElement(PathoCard, {
     key: s.id,
