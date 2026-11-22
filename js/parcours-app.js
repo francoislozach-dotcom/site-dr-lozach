@@ -360,10 +360,7 @@ function RechercheVideo() {
     "aria-hidden": "true",
     style: { position: 'relative', width: '100%', aspectRatio: '1280 / 536', opacity: 0.62, WebkitMaskImage: fade, maskImage: fade },
     dangerouslySetInnerHTML: { __html: '<video muted loop playsinline preload="none" poster="assets/recherche-congres-poster.jpg?v=1" width="1280" height="536" style="display:block;width:100%;height:100%;object-fit:cover"><source src="assets/recherche-congres.webm?v=1" type="video/webm"><source src="assets/recherche-congres.mp4?v=1" type="video/mp4"></video>' }
-  }), /*#__PURE__*/React.createElement("figcaption", {
-    className: "mono",
-    style: { marginTop: 2, fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', opacity: 0.5 }
-  }, "Illustration g\xE9n\xE9r\xE9e par IA"));
+  }));
 }
 
 function App() {
