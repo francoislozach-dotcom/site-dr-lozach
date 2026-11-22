@@ -334,6 +334,38 @@ function Section({
     }
   }, t)))))));
 }
+/* Vidéo d'ambiance « Recherche & communications » : 3 plans en boucle, bords fondus dans la page.
+   Chargée et lue seulement quand elle est visible ; image fixe si l'utilisateur limite les animations. */
+function RechercheVideo() {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const box = ref.current;
+    const v = box && box.querySelector('video');
+    if (!v) return;
+    v.muted = true;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) { v.play().catch(() => {}); return; }
+    const io = new IntersectionObserver((en) => {
+      en.forEach((e) => { if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); });
+    }, { rootMargin: '200px 0px' });
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+  const fade = 'radial-gradient(ellipse 64% 70% at 50% 50%, #000 30%, rgba(0,0,0,0.45) 62%, transparent 96%)';
+  return /*#__PURE__*/React.createElement("figure", {
+    ref: ref,
+    className: "recherche-video reveal",
+    style: { margin: '40px 0 0', position: 'relative', maxWidth: 560 }
+  }, /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: { position: 'relative', width: '100%', aspectRatio: '1280 / 536', opacity: 0.62, WebkitMaskImage: fade, maskImage: fade },
+    dangerouslySetInnerHTML: { __html: '<video muted loop playsinline preload="none" poster="assets/recherche-congres-poster.jpg?v=1" width="1280" height="536" style="display:block;width:100%;height:100%;object-fit:cover"><source src="assets/recherche-congres.webm?v=1" type="video/webm"><source src="assets/recherche-congres.mp4?v=1" type="video/mp4"></video>' }
+  }), /*#__PURE__*/React.createElement("figcaption", {
+    className: "mono",
+    style: { marginTop: 2, fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted)', opacity: 0.5 }
+  }, "Illustration g\xE9n\xE9r\xE9e par IA"));
+}
+
 function App() {
   useReveal();
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Nav, {
@@ -597,7 +629,7 @@ function App() {
     style: {
       color: 'var(--gold)'
     }
-  }, "& communications."))), /*#__PURE__*/React.createElement("div", {
+  }, "& communications.")), /*#__PURE__*/React.createElement(RechercheVideo, null)), /*#__PURE__*/React.createElement("div", {
     className: "reveal"
   }, PUBLICATIONS.map((p, i) => /*#__PURE__*/React.createElement("div", {
     key: i,
